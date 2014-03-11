@@ -1,0 +1,11 @@
+---
+kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:property/unrelaxed-configuration-periodic-3d-potential-energy-and-forces
+keys:
+  nvt:
+    kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:primitive/equilibrium-ensemble-nvt
+  unrelaxed-configuration-forces:
+    kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:primitive/configuration-forces
+  unrelaxed-configuration-periodic-3d:
+    kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:primitive/configuration-periodic-3d
+  unrelaxed-potential-energy:
+    kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:primitive/potential-energy

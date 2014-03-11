@@ -1,0 +1,9 @@
+---
+kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:property/isothermal-bulk-modulus
+keys:
+  crystal-structure:
+    kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:primitive/crystal-structure
+  isothermal-bulk-modulus:
+    kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:primitive/isothermal-bulk-modulus
+  nvt:
+    kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:primitive/equilibrium-ensemble-nvt

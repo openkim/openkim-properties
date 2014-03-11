@@ -1,0 +1,6 @@
+kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:property/equilibrium-crystal-structure
+keys:
+  crystal-structure:
+    kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:primitive/crystal-structure
+  nvt:
+    kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:primitive/equilibrium-ensemble-nvt
