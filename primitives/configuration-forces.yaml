@@ -1,0 +1,58 @@
+---
+kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:primitive/configuration-forces
+notes:
+content:
+  particle.[array].contributing:
+  particle.[array].force-x.source-unit:
+  particle.[array].force-x.source-value:
+  particle.[array].force-y.source-unit:
+  particle.[array].force-y.source-value:
+  particle.[array].force-z.source-unit:
+  particle.[array].force-z.source-value:
+  particle.[array].species:
+example:
+  particle:
+  - contributing: true
+    force-x:
+      source-unit: eV/angstrom
+      source-value: -2.5736411
+    force-y:
+      source-unit: eV/angstrom
+      source-value: 0.2779134
+    force-z:
+      source-unit: eV/angstrom
+      source-value: -7.1158386
+    species: Si
+  - contributing: true
+    force-x:
+      source-unit: eV/angstrom
+      source-value: 0.0176503
+    force-y:
+      source-unit: eV/angstrom
+      source-value: -4.4340662
+    force-z:
+      source-unit: eV/angstrom
+      source-value: 2.9619657
+    species: Si
+  - contributing: true
+    force-x:
+      source-unit: eV/angstrom
+      source-value: -1.8804069
+    force-y:
+      source-unit: eV/angstrom
+      source-value: 6.1492126
+    force-z:
+      source-unit: eV/angstrom
+      source-value: 4.0242579
+    species: Si
+  - contributing: true
+    force-x:
+      source-unit: eV/angstrom
+      source-value: 4.9002027
+    force-y:
+      source-unit: eV/angstrom
+      source-value: -0.7917968
+    force-z:
+      source-unit: eV/angstrom
+      source-value: -0.4971792
+    species: Si

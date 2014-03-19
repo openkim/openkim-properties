@@ -1,0 +1,50 @@
+---
+kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:primitive/surface-energy-broken-bond-fit
+notes:
+content:
+  c.source-unit:
+  c.source-value:
+  error-max.source-unit:
+  error-max.source-value:
+  error-range.source-unit:
+  error-range.source-value:
+  model-structure:
+  p1.source-unit:
+  p1.source-value:
+  p2.source-unit:
+  p2.source-value:
+  p3.source-unit:
+  p3.source-value:
+  python-form:
+    notes: "A string, representation in Python."
+  tex-form:
+    notes: "A string, representation in TeX."
+example:
+  c:
+    source-unit: eV/angstrom^2
+    source-value: 0.0608208579765
+  error-max:
+    source-unit: 1
+    source-value: 1.89396090039e-16
+  error-range:
+    source-unit: 1
+    source-value: 3.54535864585e-16
+  model-structure: bcc
+  p1:
+    source-unit: eV/angstrom^2
+    source-value: 0.00433797610424
+  p2:
+    source-unit: eV/angstrom^2
+    source-value: 0.00208868560519
+  p3:
+    source-unit: eV/angstrom^2
+    source-value: -0.00240884242383
+  python-form: "\\ndef BrokenBondBCC(params, x, y, z):\\n\\n    import numpy\\n
+    \   x, y, z = index\\n    x = x / numpy.sqrt(x**2.+y**2.+z**2.)\\n    y = y
+    / numpy.sqrt(x**2.+y**2.+z**2.)\\n    z = z / numpy.sqrt(x**2.+y**2.+z**2.)\\n\\n
+    \   return params[0]*6*(abs(x+y+z) + abs(x-y-z) + abs(x-y+z) + abs(x+y-z)) +
+    params[1]*8*(abs(x) + abs(y) + abs(z)) + params[2]*4* (abs(x+y) + abs(x-y) +
+    abs(x+z) + abs(x-z) + abs(z+y) + abs(z-y)) + params[3] \\n"
+  tex-form: E_{BCC} (\\vec{n}) = p_1 (6 \\left( | x+y+z| + |x+y-z| + |-x+y-z| +
+    |x-y+z| \\right)) + p_2 (8 \\left( |x| + |y| + |z|\\right)) + p_3 (4 \\left(
+    |x+y| + |x-y| + |x+z| + |x-z| + |z+y| +|z-y|\\right)) +c

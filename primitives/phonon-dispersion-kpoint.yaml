@@ -1,0 +1,48 @@
+---
+kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:primitive/phonon-dispersion-kpoint
+notes:
+content:
+  response-frequency.source-unit:
+  response-frequency.source-value:
+  response-frequency.table-info:
+  wavenumber.source-unit:
+  wavenumber.source-value:
+  wavenumber.table-info:
+  wavevector.ka.source-unit:
+  wavevector.ka.source-value:
+  wavevector.kb.source-unit:
+  wavevector.kb.source-value:
+  wavevector.kc.source-unit:
+  wavevector.kc.source-value:
+example:
+  response-frequency:
+    source-unit: meV
+    source-value:
+    - -1.1941054751118094e-06
+    - 2.628710688026076
+    table-info: phononcurve
+  wavenumber:
+    source-unit: 1/angstrom
+    source-value:
+    - 0.0
+    - 0.07131483743281396
+    table-info: phononcurve
+  wavevector:
+    ka:
+      source-unit: 1/angstrom
+      source-value:
+      - 0.0
+      - 0.0
+      - 0.0
+    kb:
+      source-unit: 1/angstrom
+      source-value:
+      - 0.02
+      - 0.0
+      - 0.02
+    kc:
+      source-unit: 1/angstrom
+      source-value:
+      - 0.04
+      - 0.0
+      - 0.04

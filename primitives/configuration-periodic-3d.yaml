@@ -1,0 +1,81 @@
+---
+kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:primitive/configuration-periodic-3d
+notes:
+content:
+  direction1-x.source-unit:
+  direction1-x.source-value:
+  direction1-y.source-unit:
+  direction1-y.source-value:
+  direction1-z.source-unit:
+  direction1-z.source-value:
+  direction2-x.source-unit:
+  direction2-x.source-value:
+  direction2-y.source-unit:
+  direction2-y.source-value:
+  direction2-z.source-unit:
+  direction2-z.source-value:
+  direction3-x.source-unit:
+  direction3-x.source-value:
+  direction3-y.source-unit:
+  direction3-y.source-value:
+  direction3-z.source-unit:
+  direction3-z.source-value:
+  particle.[array].contributing:
+  particle.[array].force-x.source-unit:
+  particle.[array].force-x.source-value:
+  particle.[array].force-y.source-unit:
+  particle.[array].force-y.source-value:
+  particle.[array].force-z.source-unit:
+  particle.[array].force-z.source-value:
+  particle.[array].species:
+example:
+  direction1-x:
+    source-unit: angstrom
+    source-value: 3.11968
+  direction1-y:
+    source-unit: angstrom
+    source-value: 0
+  direction1-z:
+    source-unit: angstrom
+    source-value: 0
+  direction2-x:
+    source-unit: angstrom
+    source-value: -0.045933
+  direction2-y:
+    source-unit: angstrom
+    source-value: 3.00741
+  direction2-z:
+    source-unit: angstrom
+    source-value: 0
+  direction3-x:
+    source-unit: angstrom
+    source-value: -0.153845
+  direction3-y:
+    source-unit: angstrom
+    source-value: -0.034882
+  direction3-z:
+    source-unit: angstrom
+    source-value: 3.10965
+  particle:
+  - contributing: true
+    position-x:
+      source-unit: angstrom
+      source-value: -0.0283784
+    position-y:
+      source-unit: angstrom
+      source-value: -0.00682131
+    position-z:
+      source-unit: angstrom
+      source-value: -0.108006
+    species: Si
+  - contributing: true
+    position-x:
+      source-unit: angstrom
+      source-value: 1.5134
+    position-y:
+      source-unit: angstrom
+      source-value: 1.57228
+    position-z:
+      source-unit: angstrom
+      source-value: 1.62926
+    species: Si

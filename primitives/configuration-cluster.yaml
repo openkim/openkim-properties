@@ -1,0 +1,58 @@
+---
+kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:primitive/configuration-cluster
+notes:
+content:
+  particle.[array].contributing:
+  particle.[array].position-x.source-unit:
+  particle.[array].position-x.source-value:
+  particle.[array].position-y.source-unit:
+  particle.[array].position-y.source-value:
+  particle.[array].position-z.source-unit:
+  particle.[array].position-z.source-value:
+  particle.[array].species:
+example:
+  particle:
+  - contributing: true
+    position-x:
+      source-unit: angstrom
+      source-value: 2.194843
+    position-y:
+      source-unit: angstrom
+      source-value: 2.698336
+    position-z:
+      source-unit: angstrom
+      source-value: 1.615904
+    species: Si
+  - contributing: true
+    position-x:
+      source-unit: angstrom
+      source-value: 2.342296
+    position-y:
+      source-unit: angstrom
+      source-value: 1.479956
+    position-z:
+      source-unit: angstrom
+      source-value: 3.870973
+    species: Si
+  - contributing: true
+    position-x:
+      source-unit: angstrom
+      source-value: 2.299802
+    position-y:
+      source-unit: angstrom
+      source-value: 3.774539
+    position-z:
+      source-unit: angstrom
+      source-value: 3.510423
+    species: Si
+  - contributing: true
+    position-x:
+      source-unit: angstrom
+      source-value: 4.310954
+    position-y:
+      source-unit: angstrom
+      source-value: 2.51113
+    position-z:
+      source-unit: angstrom
+      source-value: 2.445623
+    species: Si

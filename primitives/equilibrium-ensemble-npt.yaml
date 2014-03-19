@@ -1,0 +1,15 @@
+---
+kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:primitive/equilibrium-ensemble-npt
+notes:
+content:
+  pressure.source-unit:
+  pressure.source-value:
+  temperature.source-unit:
+  temperature.source-value:
+example:
+  pressure:
+    source-unit: bar
+    source-value: -83.1645
+  temperature:
+    source-unit: K
+    source-value: 0
