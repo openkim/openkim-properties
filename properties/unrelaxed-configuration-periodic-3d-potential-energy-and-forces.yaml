@@ -1,5 +1,6 @@
 ---
 kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:property/unrelaxed-configuration-periodic-3d-potential-energy-and-forces
+notes: "configuration-forces, configuration-periodic-3d, and potential-energy have sibling entries prefixed with `unrelaxed-`. KIM Items with this prefix are found in Test Results, KIM Items without are found in Reference Data. These will likely be merged at a later date."
 keys:
   nvt:
     kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:primitive/equilibrium-ensemble-nvt
@@ -8,4 +9,10 @@ keys:
   unrelaxed-configuration-periodic-3d:
     kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:primitive/configuration-periodic-3d
   unrelaxed-potential-energy:
+    kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:primitive/potential-energy
+  configuration-forces:
+    kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:primitive/configuration-forces
+  configuration-periodic-3d:
+    kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:primitive/configuration-periodic-3d
+  potential-energy:
     kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:primitive/potential-energy

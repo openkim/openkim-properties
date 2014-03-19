@@ -1,0 +1,11 @@
+---
+kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:property/unrelaxed-cluster-potential-energy-and-forces
+keys:
+  configuration-cluster:
+    kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:primitive/configuration-cluster
+  configuration-forces:
+    kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:primitive/configuration-forces
+  nvt:
+    kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:primitive/equilibrium-ensemble-nvt
+  potential-energy:
+    kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:primitive/potential-energy
