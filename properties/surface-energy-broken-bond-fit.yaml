@@ -1,9 +1,0 @@
----
-kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:property/surface-energy-broken-bond-fit
-keys:
-  crystal-structure:
-    kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:primitive/crystal-structure
-  fit:
-    kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:primitive/surface-energy-broken-bond-fit
-  nvt:
-    kim-namespace: tag:staff@noreply.openkim.org,2013-08-03:primitive/equilibrium-ensemble-nvt
