@@ -1,0 +1,36 @@
+{
+  "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/equilibrium-cubic-monoatomic-crystal-structure"
+  
+  "property-title" "Equilibrium cubic monoatomic crystal structure at a given temperature."
+
+  "property-description" "Conventional lattice constant of a cubic monoatomic crystal at zero pressure at a given temperature."
+
+  "cubic-crystal-type" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       []
+    "required"     true
+    "description"  "Short name defining the cubic crystal type."
+  }
+  "species" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       []
+    "required"     true
+    "description"  "The element symbol of the particles."
+  }
+  "lattice-constant" {
+    "type"         "float"
+    "has-unit"     true
+    "extent"       []
+    "required"     true
+    "description"  "Average equilibrium conventional lattice constant of the cubic crystal."
+  }
+  "temperature" {
+    "type"         "float"
+    "has-unit"     true
+    "extent"       []
+    "required"     true
+    "description"  "Temperature of crystal."
+  }
+}

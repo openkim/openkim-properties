@@ -1,0 +1,36 @@
+{
+  "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/cubic-monoatomic-crystal-cohesive-energy-relation"
+  
+  "property-title" "Cohesive energy versus lattice constant relation for a cubic monoatomic crystal."
+
+  "property-description" "Cohesive energy versus lattice constant relation for a cubic monoatomic crystal at zero absolute temperature.  Lattice constants are taken to correspond to the conventional cubic unit cell.  Moreover, note that here the cohesive energy is defined as the *negative* of the potential energy per atom."
+
+  "cubic-crystal-type" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       []
+    "required"     true
+    "description"  "Short name defining the cubic crystal type."
+  }
+  "species" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       []
+    "required"     true
+    "description"  "The element symbol of the particles."
+  }
+  "lattice-constant" {
+    "type"         "float"
+    "has-unit"     true
+    "extent"       [":"]
+    "required"     true
+    "description"  "A vector of conventional unit cell lattice constants of the cubic crystal."
+  }
+  "cohesive-energy" {
+    "type"         "float"
+    "has-unit"     true
+    "extent"       [":"]
+    "required"     true
+    "description"  "Cohesive energy (negative of the potential energy per atom) associated with the corresponding lattice constant."
+  }
+}
