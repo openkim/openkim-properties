@@ -1,9 +1,9 @@
 {
-  "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/cohesive-free-energy-hexagonal-crystal-structure"
+  "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/cohesive-potential-energy-hexagonal-crystal"
   
-  "property-title" "Cohesive free energy of hexagonal crystal structure at a given temperature."
+  "property-title" "Cohesive energy of hexagonal crystal structure at zero temperature"
 
-  "property-description" "Cohesive free energy of a hexagonal crystal at a given temperature."
+  "property-description" "Cohesive energy of a hexagonal crystal at zero temperature."
 
   "short-name" {
     "type"         "string"
@@ -61,18 +61,11 @@
     required       false
     "description"  "Coordinates of the Wyckoff sites, given as fractions of the lattice vectors.  The order of elements in this array must correspond to the order of the entries listed in 'wyckoff-multiplicity-and-letter'."
   }
-  "temperature" {
+  "cohesive-potential-energy" {
     "type"         "float"
     "has-unit"     true
     "extent"       []
     "required"     true
-    "description"  "Temperature of the crystal."
-  }
-  "cohesive-free-energy" {
-    "type"         "float"
-    "has-unit"     true
-    "extent"       []
-    "required"     true
-    "description" "Cohesive free energy of the hexagonal crystal at the specified temperature." 
+    "description" "Cohesive potential energy of the hexagonal crystal at zero temperature." 
   }
 }

@@ -1,9 +1,9 @@
 {
-  "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/cohesive-potential-energy-cubic-crystal-structure"
+  "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/bulk-modulus-isothermal-cubic-crystal-npt"
   
-  "property-title" "Cohesive energy of cubic crystal structure at zero temperature."
+  "property-title" "Isothermal bulk modulus of cubic crystal structure at a given temperature and hydrostatic stress"
 
-  "property-description" "Cohesive energy of a cubic crystal at zero temperature."
+  "property-description" "Isothermal bulk modulus of a cubic crystal at a given temperature and hydrostatic stress."
 
   "short-name" {
     "type"         "string"
@@ -54,11 +54,25 @@
     required       false
     "description"  "Coordinates of the Wyckoff sites, given as fractions of the lattice vectors.  The order of elements in this array must correspond to the order of the entries listed in 'wyckoff-multiplicity-and-letter'."
   }
-  "cohesive-potential-energy" {
+  "temperature" {
     "type"         "float"
     "has-unit"     true
     "extent"       []
     "required"     true
-    "description" "Isothermal bulk modulus of the cubic crystal at zero temperature." 
+    "description"  "Temperature of the crystal."
+  }
+  "isothermal-bulk-modulus" {
+    "type"         "float"
+    "has-unit"     true
+    "extent"       []
+    "required"     true
+    "description" "Isothermal bulk modulus of the cubic crystal at the specified temperature and stress state." 
+  }
+  "cauchy-stress" {
+    "type"         "float"
+    "has-unit"     true
+    "extent"       [6]
+    "required"     true
+    "description"  "The [xx,yy,zz,yz,xz,xy] (i.e. [11,22,33,23,13,12]) components of the Cauchy stress acting on the periodic cell.  The orthonormal basis used to express the stress should be aligned with the cubic 4-fold axes of the crystal and the expected form of the stress tensor should be [d d d 0 0 0], where d > 0 indicates tensile stress."
   }
 }

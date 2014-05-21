@@ -1,16 +1,16 @@
 {
-  "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/cohesive-energy-relation-cubic-crystal-structure"
+  "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/cohesive-free-energy-hexagonal-crystal"
   
-  "property-title" "Cohesive energy versus lattice constant relation for a cubic crystal."
+  "property-title" "Cohesive free energy of hexagonal crystal structure at a given temperature"
 
-  "property-description" "Cohesive energy versus lattice constant relation for a cubic crystal at zero absolute temperature.  Lattice constants are taken to correspond to the conventional cubic unit cell.  Moreover, note that here the cohesive energy is defined as the *negative* of the potential energy per atom."
-  
+  "property-description" "Cohesive free energy of a hexagonal crystal at a given temperature."
+
   "short-name" {
     "type"         "string"
     "has-unit"     false
     "extent"       [":"]
     "required"     false
-    "description"  "Short name defining the cubic crystal type."
+    "description"  "Short name defining the hexagonal crystal type."
   }
   "species" {
     "type"         "string"
@@ -22,9 +22,16 @@
   "a" {
     "type"         "float"
     "has-unit"     true
-    "extent"       [":"]
+    "extent"       []
     "required"     true
-    "description"  "A vector of conventional unit cell lattice constants of the cubic crystal."
+    "description"  "The average length of unit cell vectors <a> and <b>.  The two associated directions must correspond to the first and second components of the entries of 'basis-atom-coordinates'.  The triad (<a>,<b>,<c>) must form a right-handed system."
+  }
+  "c" {
+    "type"         "float"
+    "has-unit"     true
+    "extent"       []
+    "required"     true
+    "description"  "The average length of unit cell vector <c>.  The associated direction must correspond to the third component of the entries of 'basis-atom-coordinates'.  The triad (<a>,<b>,<c>) must form a right-handed system."
   }
   "basis-atom-coordinates" {
     "type"         "float"
@@ -54,11 +61,18 @@
     required       false
     "description"  "Coordinates of the Wyckoff sites, given as fractions of the lattice vectors.  The order of elements in this array must correspond to the order of the entries listed in 'wyckoff-multiplicity-and-letter'."
   }
-  "cohesive-energy" {
+  "temperature" {
     "type"         "float"
     "has-unit"     true
-    "extent"       [":"]
+    "extent"       []
     "required"     true
-    "description"  "Cohesive energy (negative of the potential energy per atom) associated with the corresponding lattice constant."
+    "description"  "Temperature of the crystal."
+  }
+  "cohesive-free-energy" {
+    "type"         "float"
+    "has-unit"     true
+    "extent"       []
+    "required"     true
+    "description" "Cohesive free energy of the hexagonal crystal at the specified temperature." 
   }
 }

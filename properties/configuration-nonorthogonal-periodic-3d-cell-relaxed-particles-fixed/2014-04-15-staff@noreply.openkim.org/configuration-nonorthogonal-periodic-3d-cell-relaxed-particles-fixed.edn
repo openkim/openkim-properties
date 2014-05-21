@@ -1,7 +1,7 @@
 {
   "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/configuration-nonorthogonal-periodic-3d-cell-relaxed-particles-fixed"
   
-  "property-title" "Static minimization of non-orthogonal periodic cell with fixed particles."
+  "property-title" "Static minimization of non-orthogonal periodic cell with fixed particles"
     
   "property-description" "Energy (and, optionally, forces and stresses) of a non-orthogonal periodic cell of particles at zero absolute temperature in an unrelaxed configuration and a corresponding relaxed configuration.  The periodic cell vectors are allowed to change in the course of relaxation, but the particle positions are held fixed."
 

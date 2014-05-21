@@ -1,10 +1,10 @@
 {
-  "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/cohesive-free-energy-cubic-crystal-structure"
+  "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/cohesive-energy-relation-cubic-crystal"
   
-  "property-title" "Cohesive free energy of cubic crystal structure at a given temperature."
+  "property-title" "Cohesive energy versus lattice constant relation for a cubic crystal"
 
-  "property-description" "Cohesive free energy of a cubic crystal at a given temperature."
-
+  "property-description" "Cohesive energy versus lattice constant relation for a cubic crystal at zero absolute temperature.  Lattice constants are taken to correspond to the conventional cubic unit cell.  Moreover, note that here the cohesive energy is defined as the *negative* of the potential energy per atom."
+  
   "short-name" {
     "type"         "string"
     "has-unit"     false
@@ -22,9 +22,9 @@
   "a" {
     "type"         "float"
     "has-unit"     true
-    "extent"       []
+    "extent"       [":"]
     "required"     true
-    "description"  "Average equilibrium conventional lattice constant of the cubic crystal."
+    "description"  "A vector of conventional unit cell lattice constants of the cubic crystal."
   }
   "basis-atom-coordinates" {
     "type"         "float"
@@ -54,18 +54,11 @@
     required       false
     "description"  "Coordinates of the Wyckoff sites, given as fractions of the lattice vectors.  The order of elements in this array must correspond to the order of the entries listed in 'wyckoff-multiplicity-and-letter'."
   }
-  "temperature" {
+  "cohesive-energy" {
     "type"         "float"
     "has-unit"     true
-    "extent"       []
+    "extent"       [":"]
     "required"     true
-    "description"  "Temperature of the crystal."
-  }
-  "cohesive-free-energy" {
-    "type"         "float"
-    "has-unit"     true
-    "extent"       []
-    "required"     true
-    "description" "Cohesive free energy of the cubic crystal at the specified temperature." 
+    "description"  "Cohesive energy (negative of the potential energy per atom) associated with the corresponding lattice constant."
   }
 }

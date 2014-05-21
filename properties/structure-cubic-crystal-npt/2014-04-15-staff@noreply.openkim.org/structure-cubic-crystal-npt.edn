@@ -1,7 +1,7 @@
 {
   "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/structure-cubic-crystal-npt"
   
-  "property-title" "Equilibrium cubic crystal structure at a given temperature and hydrostatic stress."
+  "property-title" "Equilibrium cubic crystal structure at a given temperature and hydrostatic stress"
 
   "property-description" "Conventional lattice parameter and basis atom positions of a cubic crystal at a given temperature and hydrostatic pressure."
 
