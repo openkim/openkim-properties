@@ -5,10 +5,10 @@
 
   "property-description" "A surface (free) energy of a cubic monoatomic crystal at a specified hydrostatic stress and temperature. If computed, this corresponds to the 'relaxed' surface energy found by performing an energy minimization. At zero temperature, the calculation is for the potential energy as opposed to the free energy."
 
-  "cubic-crystal-type" {
+  "short-name" {
     "type"         "string"
     "has-unit"     false
-    "extent"       []
+    "extent"       [":"]
     "required"     false
     "description"  "Short name defining the cubic crystal type."
   }
@@ -94,7 +94,7 @@
     "has-unit"  false
     "extent"    []
     "required"  false
-    "description" "The surface structure defined in Wood notation, e.g. (\sqrt(2) x \sqrt(2))R45 or in general (a x b)R\theta.  This means that the absorbates locations with respect to the substrate are given by R(\theta)[a b] where R is a rotation matrix. See 'Introduction to Surface Chemistry and Catalysis' by Gabor A. Somorjai, Yimin L"
+    "description" "The surface structure defined in Wood notation, e.g. (\sqrt(2) x \sqrt(2))R45 or in general (a x b)R\theta.  This means that the adsorbates locations with respect to the substrate are given by R(\theta)[a b] where R is a rotation matrix. See 'Introduction to Surface Chemistry and Catalysis' by Gabor A. Somorjai, Yimin L"
   }
   "surface-energy" {
     "type"         "float"

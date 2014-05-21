@@ -5,10 +5,10 @@
 
   "property-description" "The three independent isothermal elastic constants c11, c12 and c44 for a cubic crystal for given temperature and pressure. (The elastic constants are the 2nd derivatives of the strain energy density with respect to strain.)"
 
-  "cubic-crystal-type" {
+  "short-name" {
     "type"      "string"
     "has-unit"  false
-    "extent"    []
+    "extent"    [":"]
     "required"     false
     "description" "Short name defining the cubic crystal type."
   }

@@ -5,10 +5,10 @@
 
   "property-description" "Phonon dispersion relation for a cubic crystal at a given temperature and pressure.  The dispersion relation is provided for a single wave direction.  It consists of multiple branches (three for a monoatomic crystal, more for crystals with more than one basis atom per unit cell)."
 
-  "cubic-crystal-type" {
+  "short-name" {
     "type"         "string"
     "has-unit"     false
-    "extent"       []
+    "extent"       [":"]
     "required"     false
     "description"  "Short name defining the cubic crystal type."
   }

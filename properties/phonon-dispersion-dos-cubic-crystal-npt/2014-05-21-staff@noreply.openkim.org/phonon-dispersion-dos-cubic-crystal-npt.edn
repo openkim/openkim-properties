@@ -5,10 +5,10 @@
 
   "property-description" "Density of states of the phonon dispersion energies of a cubic crystal at given temperature and pressure."
 
-  "cubic-crystal-type" {
+  "short-name" {
     "type"         "string"
     "has-unit"     false
-    "extent"       []
+    "extent"       [":"]
     "required"     false
     "description"  "Short name defining the cubic crystal type."
   }
@@ -80,6 +80,6 @@
     "has-unit"  false
     "extent"    [":"]
     "required"  true
-    "description" "Density of states at a particular energy, the number of phonon modes at a particular wavelength. Same length as 'energy'"
+    "description" "Density of states at a particular energy, the number of phonon modes at a particular wavelength. Same length as 'energy'."
   }
 }
