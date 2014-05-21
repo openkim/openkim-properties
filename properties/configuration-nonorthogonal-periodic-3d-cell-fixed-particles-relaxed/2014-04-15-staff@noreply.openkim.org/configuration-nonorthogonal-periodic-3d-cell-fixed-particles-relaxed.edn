@@ -5,7 +5,7 @@
     
   "property-description" "Energy (and, optionally, forces and stresses) of a non-orthogonal periodic cell of particles at zero absolute temperature in an unrelaxed configuration and a corresponding relaxed configuration.  The particle positions are allowed to change in the course of relaxation, but the periodic cell vectors are held fixed."
 
-  "configuration-species" {
+  "species" {
     "type"         "string"
     "has-unit"     false
     "extent"       [":"]
