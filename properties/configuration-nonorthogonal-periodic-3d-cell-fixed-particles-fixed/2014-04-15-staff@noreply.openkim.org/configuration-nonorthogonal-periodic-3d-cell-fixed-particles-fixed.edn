@@ -5,7 +5,7 @@
     
   "property-description" "Energy (and, optionally, forces and stresses) of a non-orthogonal periodic cell of particles at zero absolute temperature in a fixed configuration."
 
-  "configuration-species" {
+  "species" {
     "type"         "string"
     "has-unit"     false
     "extent"       [":"]

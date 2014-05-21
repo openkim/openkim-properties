@@ -5,7 +5,7 @@
 
   "property-description" "Energy (and, optionally, forces) of an isolated cluster of particles at zero absolute temperature in a fixed configuration."
 
-  "configuration-species" {
+  "species" {
     "type"         "string"
     "has-unit"     false
     "extent"       [":"]
