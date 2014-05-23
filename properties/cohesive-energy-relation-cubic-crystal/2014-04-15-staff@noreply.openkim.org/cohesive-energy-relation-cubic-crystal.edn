@@ -1,10 +1,10 @@
 {
-  "property-id" "tag:staff@noreply.openkim.org,2014-05-21:property/phonon-dispersion-dos-cubic-crystal-npt"
+  "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/cohesive-energy-relation-cubic-crystal"
   
-  "property-title" "Phonon dispersion density of states for a cubic crystal"
+  "property-title" "Cohesive energy versus lattice constant relation for a cubic crystal"
 
-  "property-description" "Density of states of the phonon dispersion energies of a cubic crystal at given temperature and pressure."
-
+  "property-description" "Cohesive energy versus lattice constant relation for a cubic crystal at zero absolute temperature.  Lattice constants are taken to correspond to the conventional cubic unit cell.  Moreover, note that here the cohesive energy is defined as the *negative* of the potential energy per atom."
+  
   "short-name" {
     "type"         "string"
     "has-unit"     false
@@ -22,9 +22,9 @@
   "a" {
     "type"         "float"
     "has-unit"     true
-    "extent"       []
+    "extent"       [":"]
     "required"     true
-    "description"  "Average equilibrium conventional lattice constant of the cubic crystal."
+    "description"  "A vector of conventional unit cell lattice constants of the cubic crystal."
   }
   "basis-atom-coordinates" {
     "type"         "float"
@@ -54,32 +54,11 @@
     required       false
     "description"  "Coordinates of the Wyckoff sites, given as fractions of the lattice vectors.  The order of elements in this array must correspond to the order of the entries listed in 'wyckoff-multiplicity-and-letter'."
   }
-  "temperature" {
+  "cohesive-energy" {
     "type"         "float"
     "has-unit"     true
-    "extent"       []
+    "extent"       [":"]
     "required"     true
-    "description"  "Temperature of the crystal."
-  }
-  "cauchy-stress" {
-    "type"         "float"
-    "has-unit"     true
-    "extent"       [6]
-    "required"     true
-    "description"  "The [xx,yy,zz,yz,xz,xy] (i.e. [11,22,33,23,13,12]) components of the Cauchy stress acting on the periodic cell.  The orthonormal basis used to express the stress should be aligned with the cubic 4-fold axes of the crystal and the expected form of the stress tensor should be [d d d 0 0 0], where d > 0 indicates tensile stress."
-  }
-  "energy" {
-    "type"      "float"
-    "has-unit"  true
-    "extent"    [":"]
-    "required"  true
-    "description" "Energy of the wave, the dependent variable.  Must be same length as density-of-states."
-  }
-  "density-of-states" {
-    "type"      "float"
-    "has-unit"  false
-    "extent"    [":"]
-    "required"  true
-    "description" "Density of states at a particular energy, the number of phonon modes at a particular wavelength. Same length as 'energy'."
+    "description"  "Cohesive energy (negative of the potential energy per atom) associated with the corresponding lattice constant."
   }
 }

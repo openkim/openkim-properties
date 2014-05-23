@@ -1,5 +1,5 @@
 {
-  "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/surface-energy-ideal-cubic-crystal"
+  "property-id" "tag:staff@noreply.openkim.org,2014-05-21:property/surface-energy-ideal-cubic-crystal"
   
   "property-title" "Ideal surface energy for a cubic crystal"
 
@@ -94,6 +94,6 @@
     "has-unit"  false
     "extent"    []
     "required"  false
-    "description" "The surface structure defined in Wood notation, e.g. (\sqrt(2) x \sqrt(2))R45 or in general (a x b)R\theta.  This means that the adsorbates locations with respect to the substrate are given by R(\theta)[a b] where R is a rotation matrix. See 'Introduction to Surface Chemistry and Catalysis' by Gabor A. Somorjai, Yimin L"
+    "description" "The surface structure defined in Wood notation, e.g. (\\sqrt(2) x \\sqrt(2))R45 or in general (a x b)R\\theta.  This means that the adsorbates locations with respect to the substrate are given by R(\\theta)[a b] where R is a rotation matrix. See 'Introduction to Surface Chemistry and Catalysis' by Gabor A. Somorjai, Yimin L"
   }
 }

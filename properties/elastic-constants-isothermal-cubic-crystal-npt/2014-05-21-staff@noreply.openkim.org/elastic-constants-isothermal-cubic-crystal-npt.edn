@@ -1,5 +1,5 @@
 {
-  "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/elastic-constants-isothermal-cubic-crystal-npt"
+  "property-id" "tag:staff@noreply.openkim.org,2014-05-21:property/elastic-constants-isothermal-cubic-crystal-npt"
   
   "property-title" "Isothermal elastic constants for a cubic crystal at pressure"
 
@@ -94,6 +94,6 @@
     "has-unit"  true
     "extent"    []
     "required"  false
-    "description"  "Total square numerical asymmetry of the calculated elastic constants, in Voigt notation, \sqrt{ \sum_{i>j} (\C_{ij} - \C_{ji})^2 }"
+    "description"  "Total square numerical asymmetry of the calculated elastic constants, in Voigt notation, \\sqrt{ \\sum_{i>j} (\\C_{ij} - \\C_{ji})^2 }"
   }
 }
