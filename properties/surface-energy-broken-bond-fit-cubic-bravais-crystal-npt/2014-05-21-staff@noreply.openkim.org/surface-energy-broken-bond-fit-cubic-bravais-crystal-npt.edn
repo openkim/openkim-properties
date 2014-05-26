@@ -91,16 +91,16 @@
   }
   "fit-error-max" {
     "type"         "float"
-    "has-unit"     true 
+    "has-unit"     false
     "extent"       []
     "required"     true
-    "description"  "Maximum absolute error of the fit given calculated values, given by max{ E_{fit} - E_{measured} }."
+    "description"  "Maximum relative error of the fit given calculated values, given by max{ abs( (E_{fit} - E_{measured)/E_measured ) }."
   }
   "fit-error-range" {
     "type"         "float"
-    "has-unit"     true 
+    "has-unit"     false
     "extent"       []
     "required"     true
-    "description"  "Total range of the error for the fit, |Error_max - Error_min|, error given by E_{fit} - E_{measured}"
+    "description"  "Total relative range of the error for the fit, |Error_max - Error_min| / |E_max - E_min|, error given by E_{fit} - E_{measured}"
   }
 }
