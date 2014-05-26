@@ -101,6 +101,6 @@
     "has-unit"     false
     "extent"       []
     "required"     true
-    "description"  "Total relative range of the error for the fit, |Error_max - Error_min| / |E_max - E_min|, error given by E_{fit} - E_{measured}"
+    "description"  "Total average relative range of the error for the fit, \\sum{ |E_error / (E_max - E_min)| }/N, error given by E_{fit} - E_{measured}"
   }
 }
