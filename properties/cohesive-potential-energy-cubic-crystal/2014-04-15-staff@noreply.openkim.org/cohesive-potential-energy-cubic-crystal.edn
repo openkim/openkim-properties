@@ -59,6 +59,6 @@
     "has-unit"     true
     "extent"       []
     "required"     true
-    "description" "Isothermal bulk modulus of the cubic crystal at zero temperature." 
+    "description" "Cohesive potential energy of the cubic crystal at zero temperature." 
   }
 }
