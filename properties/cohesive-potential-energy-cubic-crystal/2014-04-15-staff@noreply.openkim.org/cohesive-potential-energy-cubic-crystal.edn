@@ -3,7 +3,7 @@
   
   "property-title" "Cohesive energy of cubic crystal structure at zero temperature"
 
-  "property-description" "Cohesive energy of a cubic crystal at zero temperature."
+  "property-description" "Cohesive energy (negative of the potential energy per atom) of a cubic crystal at zero temperature."
 
   "short-name" {
     "type"         "string"
@@ -59,6 +59,6 @@
     "has-unit"     true
     "extent"       []
     "required"     true
-    "description" "Cohesive potential energy of the cubic crystal at zero temperature." 
+    "description" "Cohesive energy (negative of the potential energy per atom) of the cubic crystal at zero temperature." 
   }
 }
