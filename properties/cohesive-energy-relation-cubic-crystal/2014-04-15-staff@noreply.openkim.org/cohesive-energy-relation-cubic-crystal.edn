@@ -37,21 +37,21 @@
     "type"         "string"
     "has-unit"     false
     "extent"       []
-    "required"      false
+    "required"     false
     "description"  "Hermann-Mauguin designation for the space group associated with the symmetry of the crystal (e.g. Immm, Fm-3m, P6_3/mmc)."
   }
   "wyckoff-multiplicity-and-letter" {
     "type"         "string"
     "has-unit"     false
     "extent"       [":"]
-    "required"      false
+    "required"     false
     "description"  "Multiplicity and standard letter of Wyckoff sites (e.g. 4a, 2b).  The order of elements in this array must correspond to the order of the entries listed in 'wyckoff-coordinates'."
   }
   "wyckoff-coordinates" {
     "type"         "float"
     "has-unit"     false
     "extent"       [":",3]
-    "required"      false
+    "required"     false
     "description"  "Coordinates of the Wyckoff sites, given as fractions of the lattice vectors.  The order of elements in this array must correspond to the order of the entries listed in 'wyckoff-multiplicity-and-letter'."
   }
   "cohesive-energy" {
