@@ -1,0 +1,10 @@
+/definition-validator/target
+/definition-validator/.target
+/definition-validator/classes
+/definition-validator/checkouts
+/definition-validator/pom.xml
+/definition-validator/pom.xml.asc
+/definition-validator/*.jar
+/definition-validator/*.class
+/definition-validator/.lein-*
+/definition-validator/.nrepl-port
