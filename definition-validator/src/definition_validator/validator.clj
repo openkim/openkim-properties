@@ -89,8 +89,8 @@
   [k m errors]
   (try
     (schema.core/validate optional-key-structure m)
-    ;; If validation is a success, proceed to return empty error hash.
-    ;; Otherwise an exception will be raised.
+    ;; If validation is a success, proceed to return error hash unmodified.
+    ;; Otherwise, an exception will be raised.
     errors
     (catch clojure.lang.ExceptionInfo
       e
@@ -109,13 +109,14 @@
     errors))
 
 (defn- check-key-extent-string-forms1
+  "Returns a vector of all invalid strings for `extent`."
   [m]
   (let [extent-vec (m "extent")]
-    (remove nil?
+    (vec (remove nil?
             (map #(when (and (string? %)
                              (not (= % ":")))
                     (str "invalid string for \"extent\": \"" % "\""))
-                 extent-vec))))
+                 extent-vec)))))
 
 (defn- check-key-extent-string-forms
   "Check the strings contained in the optional key `extent`.
@@ -125,7 +126,16 @@
   (let [ret (check-key-extent-string-forms1 m)]
     (if (empty? ret)
       errors
-      (add-to-errors errors (keyword k) (vec ret)))))
+      (add-to-errors errors (keyword k) ret))))
+
+(defn- check-key-type-is-valid
+  "Check the optional key `type` contains a value of \"string\", \"float\",
+   \"int\", or \"bool\"."
+  [k m errors]
+  (let [type-str (m "type")]
+    (if (some #{"string" "float" "int" "bool"} [type-str])
+      errors
+      (add-to-errors errors (keyword k) (vector (str "invalid string for \"type\": \"" type-str "\""))))))
 
 (defn- check-optional-key
   [k v errors]
@@ -135,7 +145,8 @@
       (into errors tmperrors)
       (->> (check-key-format k errors)
            (check-optional-key-structure k v)
-           (check-key-extent-string-forms k v)))))
+           (check-key-extent-string-forms k v)
+           (check-key-type-is-valid k v)))))
 
 (defn- check-optional-keys
   "In map m, for each key-value pair, the value should be a map."
