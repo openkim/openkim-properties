@@ -8,3 +8,13 @@
 /definition-validator/*.class
 /definition-validator/.lein-*
 /definition-validator/.nrepl-port
+/instance-validator/target
+/instance-validator/.target
+/instance-validator/classes
+/instance-validator/checkouts
+/instance-validator/pom.xml
+/instance-validator/pom.xml.asc
+/instance-validator/*.jar
+/instance-validator/*.class
+/instance-validator/.lein-*
+/instance-validator/.nrepl-port
