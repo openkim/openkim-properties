@@ -7,6 +7,7 @@
             [compojure.route]
             [compojure.handler]
             [compojure.core]
+            cheshire.core
             [ring.adapter.jetty]
             ns-tracker.core))
 
@@ -22,7 +23,7 @@
 (defn- validate-property-id-format
   [s]
   (when-not (re-find #"^tag:[^A-Z]*@[^A-Z]*,\d{4}-\d{2}-\d{2}:property/[a-z0-9\-]*$" s)
-    (throw (Exception. ("property-id format invalid: " s)))))
+    (throw (Exception. (str "property-id format invalid: " s)))))
 
 (defn- property-id->path
   "Given a property-id in Tag URI form, such as:
@@ -50,6 +51,12 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; checks for required keys
+
+(defn- check-property-id-format
+  [m errors]
+  (if-not (re-find #"^tag:[^A-Z]*@[^A-Z]*,\d{4}-\d{2}-\d{2}:property/[a-z0-9\-]*$" (m "property-id"))
+    (add-to-errors errors :property-id ["invalid format"])
+    errors))
 
 (defn- check-property-id-present
   [m errors]
@@ -81,6 +88,7 @@
     (if-not (empty? errors)
       errors
       (->> (check-instance-id-is-an-integer m errors)
+           (check-property-id-format m)
            #_(check- m)))))
 
 
@@ -229,22 +237,23 @@
 (defn validate [path-instances-file instance definitions-dir]
   (let [errors1 (check-required-keys instance)
         property-id (instance "property-id")
-        errors2 (if property-id
+        errors2 (if (empty? errors1)
                   (apply (partial merge-with into)
                          (check-optional-keys (map-with-only-optional-keys instance) property-id definitions-dir))
                   {})
-        errors3 (if property-id
+        errors3 (if (empty? errors1)
                   (check-optional-keys-marked-required-are-present (map-with-only-optional-keys instance) property-id definitions-dir {})
                   {})
         merged (into errors1 errors2)
-        merged (into merged errors3)]
-    (if (empty? merged)
-      (str "Property Instance passed Instance Validator\n" path-instances-file " " (instance "property-id") "\n\n")
-      (str
-        "Errors for " path-instances-file " " (instance "property-id")
-        "\n"
-        (with-out-str (fipp merged))
-        "\n"))))
+        merged (into merged errors3)
+        valid (empty? merged)
+        report {"property-id" (instance "property-id")
+                "filepath" path-instances-file
+                "valid" valid}
+        report (if valid
+                 report
+                 (into report {"errors" merged}))]
+    report))
 
 (defn validate-instances [path-instances-file path-definitions-dir]
   (when-not (fs/directory? path-definitions-dir)
@@ -254,7 +263,8 @@
   (let [instances (flatten
                     (clojure.edn/read-string
                       (str "[" (slurp path-instances-file) "]")))]
-    (doall (map #(print (validate path-instances-file % path-definitions-dir)) instances))))
+    (println (cheshire.core/generate-string
+               (doall (map #(validate path-instances-file % path-definitions-dir) instances)) {:pretty true}))))
 
 (defn web-validate-instances [instances-content path-definitions-dir]
   (when-not (fs/directory? path-definitions-dir)
@@ -263,7 +273,8 @@
         instances (flatten
                     (clojure.edn/read-string
                       (str "[" instances-content "]")))]
-    (doall (map #(validate path-instances-file % path-definitions-dir) instances))))
+    (cheshire.core/generate-string
+      (doall (map #(validate path-instances-file % path-definitions-dir) instances)) {:pretty true})))
 
 (def atom-path-definitions-dir (atom ()))
 (def atom-port (atom ()))

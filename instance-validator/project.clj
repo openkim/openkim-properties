@@ -9,6 +9,7 @@
                  ;;[net.mikera/core.matrix "0.24.0"]
                  [compojure "1.1.8"]
                  [ring "1.3.0"]
+                 [cheshire "5.3.1"]
                  [ns-tracker "0.2.2"]]
   :target-path ".target"
   :compile-path ".target/classes"
