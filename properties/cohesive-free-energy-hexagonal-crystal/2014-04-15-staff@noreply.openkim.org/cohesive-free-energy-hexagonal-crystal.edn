@@ -1,9 +1,9 @@
 {
   "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/cohesive-free-energy-hexagonal-crystal"
-  
-  "property-title" "Cohesive free energy of hexagonal crystal structure at a given temperature"
 
-  "property-description" "Cohesive free energy of a hexagonal crystal at a given temperature."
+  "property-title" "Cohesive free energy of hexagonal crystal structure at a given temperature under stress-free boundary conditions"
+
+  "property-description" "Cohesive free energy of a hexagonal crystal at a given temperature under stress-free boundary conditions."
 
   "short-name" {
     "type"         "string"
@@ -24,14 +24,14 @@
     "has-unit"     true
     "extent"       []
     "required"     true
-    "description"  "The average length of unit cell vectors <a> and <b>.  The two associated directions must correspond to the first and second components of the entries of 'basis-atom-coordinates'.  The triad (<a>,<b>,<c>) must form a right-handed system."
+    "description"  "The average length of unit cell vectors <a> and <b> at the specified temperature under stress-free boundary conditions.  The two associated directions must correspond to the first and second components of the entries of 'basis-atom-coordinates'.  The triad (<a>,<b>,<c>) must form a right-handed system."
   }
   "c" {
     "type"         "float"
     "has-unit"     true
     "extent"       []
     "required"     true
-    "description"  "The average length of unit cell vector <c>.  The associated direction must correspond to the third component of the entries of 'basis-atom-coordinates'.  The triad (<a>,<b>,<c>) must form a right-handed system."
+    "description"  "The average length of unit cell vector <c> at the specified temperature under stress-free boundary conditions.  The associated direction must correspond to the third component of the entries of 'basis-atom-coordinates'.  The triad (<a>,<b>,<c>) must form a right-handed system."
   }
   "basis-atom-coordinates" {
     "type"         "float"
@@ -73,6 +73,6 @@
     "has-unit"     true
     "extent"       []
     "required"     true
-    "description" "Cohesive free energy of the hexagonal crystal at the specified temperature." 
+    "description" "Cohesive free energy of the hexagonal crystal at the specified temperature under stress-free boundary conditions."
   }
 }
