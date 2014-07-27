@@ -1,9 +1,9 @@
 {
   "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/cohesive-potential-energy-hexagonal-crystal"
-  
-  "property-title" "Cohesive energy of hexagonal crystal structure at zero temperature"
 
-  "property-description" "Cohesive energy (negative of the potential energy per atom) of a hexagonal crystal at zero temperature."
+  "property-title" "Cohesive energy of hexagonal crystal structure at zero temperature under stress-free boundary conditions"
+
+  "property-description" "Cohesive energy (negative of the potential energy per atom) of a hexagonal crystal at zero temperature under stress-free boundary conditions."
 
   "short-name" {
     "type"         "string"
@@ -24,14 +24,14 @@
     "has-unit"     true
     "extent"       []
     "required"     true
-    "description"  "The average length of unit cell vectors <a> and <b>.  The two associated directions must correspond to the first and second components of the entries of 'basis-atom-coordinates'.  The triad (<a>,<b>,<c>) must form a right-handed system."
+    "description"  "The average length of unit cell vectors <a> and <b> at zero temperature under stress-free boundary conditions.  The two associated directions must correspond to the first and second components of the entries of 'basis-atom-coordinates'.  The triad (<a>,<b>,<c>) must form a right-handed system."
   }
   "c" {
     "type"         "float"
     "has-unit"     true
     "extent"       []
     "required"     true
-    "description"  "The average length of unit cell vector <c>.  The associated direction must correspond to the third component of the entries of 'basis-atom-coordinates'.  The triad (<a>,<b>,<c>) must form a right-handed system."
+    "description"  "The average length of unit cell vector <c> at zero temperature under stress-free boundary conditions.  The associated direction must correspond to the third component of the entries of 'basis-atom-coordinates'.  The triad (<a>,<b>,<c>) must form a right-handed system."
   }
   "basis-atom-coordinates" {
     "type"         "float"
@@ -66,6 +66,6 @@
     "has-unit"     true
     "extent"       []
     "required"     true
-    "description" "Cohesive energy (negative of the potential energy per atom) of the hexagonal crystal at zero temperature." 
+    "description" "Cohesive energy (negative of the potential energy per atom) of the hexagonal crystal at zero temperature under stress-free boundary conditions."
   }
 }

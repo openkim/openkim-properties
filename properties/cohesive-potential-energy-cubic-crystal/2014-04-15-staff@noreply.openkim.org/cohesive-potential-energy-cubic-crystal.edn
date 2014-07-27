@@ -1,9 +1,9 @@
 {
   "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/cohesive-potential-energy-cubic-crystal"
 
-  "property-title" "Cohesive energy of cubic crystal structure at zero temperature"
+  "property-title" "Cohesive energy of cubic crystal structure at zero temperature under stress-free boundary conditions"
 
-  "property-description" "Cohesive energy (negative of the potential energy per atom) of a cubic crystal at zero temperature."
+  "property-description" "Cohesive energy (negative of the potential energy per atom) of a cubic crystal at zero temperature under stress-free boundary conditions."
 
   "short-name" {
     "type"         "string"
@@ -24,7 +24,7 @@
     "has-unit"     true
     "extent"       []
     "required"     true
-    "description"  "Average equilibrium conventional lattice constant of the cubic crystal."
+    "description"  "Average equilibrium conventional lattice constant of the cubic crystal at zero temperature under stress-free boundary conditions."
   }
   "basis-atom-coordinates" {
     "type"         "float"
@@ -59,6 +59,6 @@
     "has-unit"     true
     "extent"       []
     "required"     true
-    "description" "Cohesive energy (negative of the potential energy per atom) of the cubic crystal at zero temperature."
+    "description" "Cohesive energy (negative of the potential energy per atom) of the cubic crystal at zero temperature under stress-free boundary conditions."
   }
 }
