@@ -1,10 +1,10 @@
 {
   "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/cohesive-energy-relation-cubic-crystal"
-  
+
   "property-title" "Cohesive energy versus lattice constant relation for a cubic crystal"
 
   "property-description" "Cohesive energy versus lattice constant relation for a cubic crystal at zero absolute temperature.  Lattice constants are taken to correspond to the conventional cubic unit cell.  Moreover, note that here the cohesive energy is defined as the *negative* of the potential energy per atom."
-  
+
   "short-name" {
     "type"         "string"
     "has-unit"     false
@@ -54,7 +54,7 @@
     "required"     false
     "description"  "Coordinates of the Wyckoff sites, given as fractions of the lattice vectors.  The order of elements in this array must correspond to the order of the entries listed in 'wyckoff-multiplicity-and-letter'."
   }
-  "cohesive-energy" {
+  "cohesive-potential-energy" {
     "type"         "float"
     "has-unit"     true
     "extent"       [":"]
