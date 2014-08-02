@@ -1,16 +1,16 @@
 {
-  "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/monovacancy-formation-free-energy-cubic-diamond"
-  
-  "property-title" "Formation free energy of a monovacancy in a cubic diamond crystal at finite temperature"
+  "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/monovacancy-formation-free-energy-monoatomic-cubic-diamond"
 
-  "property-description" "Unrelaxed and relaxed formation Helmholtz free energies of a monovacancy in a cubic diamond crystal with stress-free boundary conditions at a constant specified temperature."
+  "property-title" "Formation free energy of a monovacancy in a monoatomic cubic diamond crystal at finite temperature"
+
+  "property-description" "Unrelaxed and relaxed formation Helmholtz free energies of a monovacancy in a monoatomic cubic diamond crystal with stress-free boundary conditions at a constant specified temperature."
 
   "species" {
     "type"         "string"
     "has-unit"     false
     "extent"       []
     "required"     true
-    "description"  "The element symbol for each particle."
+    "description"  "The element symbol of the atoms."
   }
   "a" {
     "type"         "float"
