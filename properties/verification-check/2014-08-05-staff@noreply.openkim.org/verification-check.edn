@@ -1,9 +1,9 @@
 {
   "property-id" "tag:staff@noreply.openkim.org,2014-08-05:property/verification-check"
   
-  "property-title" "Generic verification check property which stores pased status and extra metadata"
+  "property-title" "Generic verification check property which stores passed status and extra metadata"
 
-  "property-description" "Verification check that applies to tests and models.  Stores passed status, warnings, whether this is a critical check as well as extra messages created by the check."
+  "property-description" "Verification check that applies to Tests and Models.  Stores pass status, errors, warnings, whether this is a critical check as well as extra messages created by the check."
 
   "passed" {
     "type"         "bool"
@@ -26,18 +26,25 @@
     "required"     true
     "description"  "A brief description of the verification check and its purpose"
   }
-  "message" {
+  "messages" {
     "type"         "string"
     "has-unit"     false
-    "extent"       []
+    "extent"       [":"]
     "required"     false
     "description"  "An optional message provided by the verification check for extra information"
   }
-  "warning" {
+  "warnings" {
     "type"         "string"
     "has-unit"     false
-    "extent"       []
+    "extent"       [":"]
     "required"     false
-    "description"  "Warning messages that may accompany either a passed or failed test. Provides extra (negative) information"
+    "description"  "Warning messages that may accompany either a passed or failed test - warnings do not necessarily indicate a verification failure. Provides extra (negative) information"
+  }
+  "errors" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       [":"]
+    "required"     false
+    "description"  "Errors that occured while processing the verification check.  These should only accompany a failed status."
   }
 }
