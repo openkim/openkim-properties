@@ -51,10 +51,9 @@
     "type"         "string"
     "has-unit"     false
     "extent"       [":"]
-    "required"     true
+    "required"     false
     "description"  "The element symbol of the atomic species of the unique Wyckoff sites used in the fully symmetry-reduced description of the crystal.  The order of the entries must correspond to the order of the entries in 'wyckoff-multiplicity-and-letter' and 'wyckoff-coordinates'."
   }
-
   "wyckoff-multiplicity-and-letter" {
     "type"         "string"
     "has-unit"     false
