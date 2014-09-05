@@ -40,19 +40,26 @@
     "required"     false
     "description"  "Hermann-Mauguin designation for the space group associated with the symmetry of the crystal (e.g. Immm, Fm-3m, P6_3/mmc)."
   }
+  "wyckoff-species" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       [":"]
+    "required"     false
+    "description"  "The element symbol of the atomic species of the unique Wyckoff sites used in the fully symmetry-reduced description of the crystal.  The order of the entries must correspond to the order of the entries in 'wyckoff-multiplicity-and-letter' and 'wyckoff-coordinates'."
+  }
   "wyckoff-multiplicity-and-letter" {
     "type"         "string"
     "has-unit"     false
     "extent"       [":"]
     "required"     false
-    "description"  "Multiplicity and standard letter of Wyckoff sites (e.g. 4a, 2b).  The order of elements in this array must correspond to the order of the entries listed in 'wyckoff-coordinates'."
+    "description"  "Multiplicity and standard letter of the unique Wyckoff sites used in the fully symmetry-reduced description of the crystal (e.g. 4a, 2b).  Note that the sum of the Wyckoff multiplicities should equal the total number of elements in 'basis-atom-coordinates'.  The order of elements in this array must correspond to the order of the entries listed in 'wyckoff-species' and 'wyckoff-coordinates'."
   }
   "wyckoff-coordinates" {
     "type"         "float"
     "has-unit"     false
     "extent"       [":",3]
     "required"     false
-    "description"  "Coordinates of the Wyckoff sites, given as fractions of the lattice vectors.  The order of elements in this array must correspond to the order of the entries listed in 'wyckoff-multiplicity-and-letter'."
+    "description"  "Coordinates of the unique Wyckoff sites used in the fully symmetry-reduced description of the crystal, given as fractions of the lattice vectors.  The order of elements in this array must correspond to the order of the entries listed in 'wyckoff-species' and 'wyckoff-multiplicity-and-letter'."
   }
   "cohesive-potential-energy" {
     "type"         "float"
