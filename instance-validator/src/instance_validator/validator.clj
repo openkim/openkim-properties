@@ -75,11 +75,13 @@
   (->> (check-property-id-present m errors)
        (check-instance-id-present m)))
 
-(defn- check-instance-id-is-an-integer
+(defn- check-instance-id-is-an-integer-and-greater-than-zero
   [m errors]
   (if-not (integer? (m "instance-id"))
     (add-to-errors errors :instance-id ["not an integer"])
-    errors))
+    (if-not (>= (m "instance-id") 1)
+      (add-to-errors errors :instance-id ["must be equal to or greater than 1"])
+      errors)))
 
 (defn- check-required-keys
   [m]
@@ -87,7 +89,7 @@
         errors (check-required-keys-present m errors)]
     (if-not (empty? errors)
       errors
-      (->> (check-instance-id-is-an-integer m errors)
+      (->> (check-instance-id-is-an-integer-and-greater-than-zero m errors)
            (check-property-id-format m)
            #_(check- m)))))
 
@@ -230,6 +232,44 @@
       (add-to-errors errors :required-keys-not-found keys-not-found-in-instance)
       {})))
 
+(defn- optional-keys-marked-has-unit-true
+  [mdef]
+  (remove nil?
+          (map
+            (fn [[k v]]
+              (let [has-unit (v "has-unit")]
+                (when has-unit k)))
+            (definition-map-with-only-optional-keys mdef))))
+
+(defn- optional-keys-marked-has-unit-false
+  [mdef]
+  (remove nil?
+          (map
+            (fn [[k v]]
+              (let [has-unit (v "has-unit")]
+                (when-not has-unit k)))
+            (definition-map-with-only-optional-keys mdef))))
+
+(defn- check-optional-keys-marked-has-unit-true
+  [m property-id definitions-dir errors]
+  (let [mdef (property-id->path->edn property-id definitions-dir)
+        keys-missing-source-unit (remove nil?
+                                         (map #(if (contains? (m %) "source-unit")
+                                                 nil
+                                                 %)
+                                              (optional-keys-marked-has-unit-true mdef)))
+        keys-with-extraneous-source-unit (remove nil?
+                                                 (map #(if-not (contains? (m %) "source-unit")
+                                                         nil
+                                                         %)
+                                                      (optional-keys-marked-has-unit-false mdef)))
+        errors (if-not (empty? keys-missing-source-unit)
+                 (add-to-errors errors :source-unit-not-found keys-missing-source-unit)
+                 errors)
+        errors (if-not (empty? keys-with-extraneous-source-unit)
+                 (add-to-errors errors :source-unit-found-but-should-not-be-present keys-with-extraneous-source-unit)
+                 errors)]
+    errors))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; main
@@ -244,8 +284,12 @@
         errors3 (if (empty? errors1)
                   (check-optional-keys-marked-required-are-present (map-with-only-optional-keys instance) property-id definitions-dir {})
                   {})
+        errors4 (if (empty? errors1)
+                  (check-optional-keys-marked-has-unit-true (map-with-only-optional-keys instance) property-id definitions-dir {})
+                  {})
         merged (into errors1 errors2)
         merged (into merged errors3)
+        merged (into merged errors4)
         valid (empty? merged)
         report {"property-id" (instance "property-id")
                 "filepath" path-instances-file
@@ -260,21 +304,36 @@
     (throw (Exception. (str "Error, not a directory: " path-definitions-dir))))
   (when-not (fs/file? path-instances-file)
     (throw (Exception. (str "Error, not a file: " path-instances-file))))
-  (let [instances (flatten
-                    (clojure.edn/read-string
+  (try
+    (let [instances (flatten
+                     (clojure.edn/read-string
                       (str "[" (slurp path-instances-file) "]")))]
-    (println (cheshire.core/generate-string
-               (doall (map #(validate path-instances-file % path-definitions-dir) instances)) {:pretty true}))))
+      (println (cheshire.core/generate-string
+                (doall (map #(validate path-instances-file % path-definitions-dir) instances)) {:pretty true})))
+    (catch Exception e
+      (println
+       (cheshire.core/generate-string [{"filepath" path-instances-file
+                                        "valid" false
+                                        "errors" {"exception" "file not valid edn format"
+                                                  "exception-details" (str e)}}]
+                                      {:pretty true})))))
 
 (defn web-validate-instances [instances-content path-definitions-dir]
   (when-not (fs/directory? path-definitions-dir)
     (throw (Exception. (str "Error, not a directory: " path-definitions-dir))))
-  (let [path-instances-file "web submission"
-        instances (flatten
-                    (clojure.edn/read-string
+  (try
+    (let [path-instances-file "web submission"
+          instances (flatten
+                     (clojure.edn/read-string
                       (str "[" instances-content "]")))]
-    (cheshire.core/generate-string
-      (doall (map #(validate path-instances-file % path-definitions-dir) instances)) {:pretty true})))
+      (cheshire.core/generate-string
+       (doall (map #(validate path-instances-file % path-definitions-dir) instances)) {:pretty true}))
+    (catch Exception e
+      (cheshire.core/generate-string [{"filepath" "web submission"
+                                       "valid" false
+                                       "errors" {"exception" "file not valid edn format"
+                                                 "exception-details" (str e)}}]
+                                     {:pretty true}))))
 
 (def atom-path-definitions-dir (atom ()))
 (def atom-port (atom ()))
