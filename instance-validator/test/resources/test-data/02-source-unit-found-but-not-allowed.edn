@@ -1,0 +1,70 @@
+{
+  "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/configuration-nonorthogonal-periodic-3d-cell-fixed-particles-fixed"
+  "instance-id" 1
+  "species" {
+    ;; test error
+    "source-unit" "angstrom"
+    "source-value" [
+      "Si"
+      "Si"
+    ]
+  }
+  "unrelaxed-periodic-cell-vector-1" {
+    "source-unit" "angstrom"
+    "source-value" [
+      3.15146
+      0
+      0
+    ]
+  }
+  "unrelaxed-periodic-cell-vector-2" {
+    "source-unit" "angstrom"
+    "source-value" [
+      -0.0672349
+      3.12803
+      0
+    ]
+  }
+  "unrelaxed-periodic-cell-vector-3" {
+    "source-unit" "angstrom"
+    "source-value" [
+      0.150056
+      -0.179285
+      3.12247
+    ]
+  }
+  "unrelaxed-configuration-positions" {
+    "source-unit" "angstrom"
+    "source-value" [
+      [
+        -0.0827122
+        -0.0793553
+        0.0881634
+      ]
+      [
+        1.45599
+        1.44405
+        1.65442
+      ]
+    ]
+  }
+  "unrelaxed-configuration-forces" {
+    "source-unit" "eV/angstrom"
+    "source-value" [
+      [
+        3.6199743999999998
+        -2.0947651999999999
+        1.2369007000000001
+      ]
+      [
+        -3.6199743999999998
+        2.0947651999999999
+        -1.2369007000000001
+      ]
+    ]
+  }
+  "unrelaxed-potential-energy" {
+    "source-unit" "eV"
+    "source-value" -6.1122596
+  }
+}

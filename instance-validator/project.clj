@@ -13,4 +13,7 @@
                  [ns-tracker "0.2.2"]]
   :target-path ".target"
   :compile-path ".target/classes"
+  :resource-paths ["test/resources"]
+  :profiles {:dev {:resource-paths ["test/resources"]
+                   :test-paths ["test"]}}
   :main instance-validator.validator)

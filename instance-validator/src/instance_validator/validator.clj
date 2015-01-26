@@ -28,11 +28,11 @@
 (defn- property-id->path
   "Given a property-id in Tag URI form, such as:
 
-   tag:staff@noreply.openkim.org,2014-04-15:property/cohesive-energy-relation-cubic-crystal
+  tag:staff@noreply.openkim.org,2014-04-15:property/cohesive-energy-relation-cubic-crystal
 
-   returns a relative path:
+  returns a relative path:
 
-   cohesive-energy-relation-cubic-crystal/2014-04-15-staff@noreply.openkim.org/cohesive-energy-relation-cubic-crystal.edn"
+  cohesive-energy-relation-cubic-crystal/2014-04-15-staff@noreply.openkim.org/cohesive-energy-relation-cubic-crystal.edn"
   ([property-id]
    (validate-property-id-format property-id)
    (let [v (clojure.string/split property-id #"tag:|,|:property/")
@@ -61,16 +61,16 @@
 (defn- check-property-id-present
   [m errors]
   (if-not (m "property-id")
-    (add-to-errors errors :property-id ["required key not found"])
+    (add-to-errors errors :property-id ["essential key not found"])
     errors))
 
 (defn- check-instance-id-present
   [m errors]
   (if-not (m "instance-id")
-    (add-to-errors errors :instance-id ["required key not found"])
+    (add-to-errors errors :instance-id ["essential key not found"])
     errors))
 
-(defn- check-required-keys-present
+(defn- check-essential-keys-present
   [m errors]
   (->> (check-property-id-present m errors)
        (check-instance-id-present m)))
@@ -83,10 +83,10 @@
       (add-to-errors errors :instance-id ["must be equal to or greater than 1"])
       errors)))
 
-(defn- check-required-keys
+(defn- check-essential-keys
   [m]
   (let [errors {}
-        errors (check-required-keys-present m errors)]
+        errors (check-essential-keys-present m errors)]
     (if-not (empty? errors)
       errors
       (->> (check-instance-id-is-an-integer-and-greater-than-zero m errors)
@@ -95,7 +95,7 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; checks for optional keys
+;;; checks for other (non-essential) keys
 
 (defn- check-value-is-a-map
   [k m errors]
@@ -109,13 +109,13 @@
     (add-to-errors errors k ["does not have corresponding definition"])
     errors))
 
-(def required-keys
+(def essential-keys
   ["property-id"
    "instance-id"])
 
-(defn- map-with-only-optional-keys
+(defn- map-with-only-non-essential-keys
   [m]
-  (apply (partial dissoc m) required-keys))
+  (apply (partial dissoc m) essential-keys))
 
 (defn- check-extent-isnt-a-collection
   [k item errors]
@@ -140,11 +140,11 @@
 (defn- items-to-types1
   [item]
   (cond
-    (string? item) "string"
-    (float? item) "float"
-    (integer? item) "int"
-    (or (= true item) (= false item)) "bool"
-    :else (throw (Exception. (str "unrecognized type in Propety Instance for \"" item "\"")))))
+   (string? item) "string"
+   (float? item) "float"
+   (integer? item) "int"
+   (or (= true item) (= false item)) "bool"
+   :else (throw (Exception. (str "unrecognized type in Propety Instance for \"" item "\"")))))
 
 (defn- items-to-types
   [items]
@@ -179,11 +179,11 @@
     (let [source-value (v "source-value")
           definition-extent (mdef "extent")]))
 
-(defn- check-optional-key
+(defn- check-key
   [k v mdef errors]
-  "k - optional key name
-   v - map containing `source-value`
-   mdef - map containing definition corresponding to optional key name"
+  "k - key name
+  v - map containing `source-value`
+  mdef - map containing definition corresponding to optional key name"
   (let [tmperrors (check-value-is-a-map k v errors)
         tmperrors (check-key-has-a-definition k mdef errors)]
     (if-not (empty? tmperrors)
@@ -192,104 +192,106 @@
       (->> (check-extent-basic k v mdef errors)
            (check-key-type k v mdef)))))
 
-(defn- check-optional-keys
+(defn- check-instance-keys
   "In map m, for each key-value pair, the value should be a map."
   [m property-id definitions-dir]
   (let [errors {}
         mdef (property-id->path->edn property-id definitions-dir)]
     (map
-      (fn [[k v]] (check-optional-key k v (mdef k) errors))
-      m)))
+     (fn [[k v]] (check-key k v (mdef k) errors))
+     m)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; checks for optional keys that are marked required in the definition
+;;; checks for other (non-essential) keys that are marked required in the definition
 
-(def definition-required-keys
+;; a property definition has "property-description", but a property instance does not
+(def definition-essential-keys
   ["property-id"
    "property-title"
    "property-description"])
 
-(defn- definition-map-with-only-optional-keys
+(defn- definition-map-with-only-non-essential-keys
   [m]
-  (apply (partial dissoc m) definition-required-keys))
+  (apply (partial dissoc m) definition-essential-keys))
 
-(defn- optional-keys-marked-required
+(defn- definition-keys-marked-required
   [mdef]
   (remove nil?
           (map
-            (fn [[k v]]
-              (let [required (v "required")]
-                (when required k)))
-            (definition-map-with-only-optional-keys mdef))))
+           (fn [[k v]]
+             (let [required (v "required")]
+               (when required k)))
+           (definition-map-with-only-non-essential-keys mdef))))
 
-(defn- check-optional-keys-marked-required-are-present
-  [m property-id definitions-dir errors]
+(defn- check-instance-keys-marked-required-are-present
+  [subinstance property-id definitions-dir errors]
   (let [mdef (property-id->path->edn property-id definitions-dir)
-        keys-not-found-in-instance (remove nil?
-                                           (map #(when-not (m %) %)
-                                                (optional-keys-marked-required mdef)))]
-    (if-not (empty? keys-not-found-in-instance)
-      (add-to-errors errors :required-keys-not-found keys-not-found-in-instance)
+        required-keys-not-found-in-instance (remove nil?
+                                                    (map #(when-not (subinstance %) %)
+                                                         (definition-keys-marked-required mdef)))]
+    (if-not (empty? required-keys-not-found-in-instance)
+      (add-to-errors errors :required-keys-not-found required-keys-not-found-in-instance)
       {})))
 
-(defn- optional-keys-marked-has-unit-true
+(defn- definition-keys-marked-has-unit-true
   [mdef]
-  (remove nil?
-          (map
-            (fn [[k v]]
-              (let [has-unit (v "has-unit")]
-                (when has-unit k)))
-            (definition-map-with-only-optional-keys mdef))))
+  (let [mdef2 (definition-map-with-only-non-essential-keys mdef)
+        keys-to-check (keys mdef2)]
+    (filter #((mdef %) "has-unit") keys-to-check)))
 
-(defn- optional-keys-marked-has-unit-false
+(defn- definition-keys-marked-has-unit-false
   [mdef]
-  (remove nil?
-          (map
-            (fn [[k v]]
-              (let [has-unit (v "has-unit")]
-                (when-not has-unit k)))
-            (definition-map-with-only-optional-keys mdef))))
+  (let [mdef2 (definition-map-with-only-non-essential-keys mdef)
+        keys-to-check (keys mdef2)]
+    (remove #((mdef %) "has-unit") keys-to-check)))
 
-(defn- check-optional-keys-marked-has-unit-true
-  [m property-id definitions-dir errors]
-  (let [mdef (property-id->path->edn property-id definitions-dir)
-        keys-missing-source-unit (remove nil?
-                                         (map #(if (contains? (m %) "source-unit")
-                                                 nil
-                                                 %)
-                                              (optional-keys-marked-has-unit-true mdef)))
-        keys-with-extraneous-source-unit (remove nil?
-                                                 (map #(if-not (contains? (m %) "source-unit")
-                                                         nil
-                                                         %)
-                                                      (optional-keys-marked-has-unit-false mdef)))
-        errors (if-not (empty? keys-missing-source-unit)
-                 (add-to-errors errors :source-unit-not-found keys-missing-source-unit)
-                 errors)
-        errors (if-not (empty? keys-with-extraneous-source-unit)
-                 (add-to-errors errors :source-unit-found-but-should-not-be-present keys-with-extraneous-source-unit)
-                 errors)]
+(defn- check-instance-keys-marked-has-unit-true-for-missing-source-unit
+  [subinstance property-id definitions-dir errors]
+  (let [mdef                      (property-id->path->edn property-id definitions-dir)
+        instance-keys             (set (keys subinstance))
+        dk                        (set (definition-keys-marked-has-unit-true mdef))
+        keys-to-check             (clojure.set/select instance-keys dk)
+        keys-missing-source-unit  (remove #(contains? (subinstance %) "source-unit") keys-to-check)
+        errors                    (if-not (empty? keys-missing-source-unit)
+                                    (add-to-errors errors :source-unit-not-found keys-missing-source-unit)
+                                    errors)]
+    errors))
+
+(defn- check-instance-keys-marked-has-unit-false-for-existing-source-unit
+  [subinstance property-id definitions-dir errors]
+  (let [mdef                      (property-id->path->edn property-id definitions-dir)
+        instance-keys             (set (keys subinstance))
+        dk                        (set (definition-keys-marked-has-unit-false mdef))
+        keys-to-check             (clojure.set/select instance-keys dk)
+        keys-extra-source-unit    (filter #(contains? (subinstance %) "source-unit") keys-to-check)
+        errors                    (if-not (empty? keys-extra-source-unit)
+                                    (add-to-errors errors :source-unit-found-but-not-allowed keys-extra-source-unit)
+                                    errors)]
     errors))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; main
 
 (defn validate [path-instances-file instance definitions-dir]
-  (let [errors1 (check-required-keys instance)
+  (let [errors1 (check-essential-keys instance)
         property-id (instance "property-id")
         errors2 (if (empty? errors1)
                   (apply (partial merge-with into)
-                         (check-optional-keys (map-with-only-optional-keys instance) property-id definitions-dir))
+                         (check-instance-keys (map-with-only-non-essential-keys instance) property-id definitions-dir))
                   {})
         errors3 (if (empty? errors1)
-                  (check-optional-keys-marked-required-are-present (map-with-only-optional-keys instance) property-id definitions-dir {})
+                  (check-instance-keys-marked-required-are-present (map-with-only-non-essential-keys instance) property-id definitions-dir {})
                   {})
         errors4 (if (empty? errors1)
-                  (check-optional-keys-marked-has-unit-true (map-with-only-optional-keys instance) property-id definitions-dir {})
+                  (check-instance-keys-marked-has-unit-true-for-missing-source-unit (map-with-only-non-essential-keys instance) property-id definitions-dir {})
+                  {})
+        errors5 (if (empty? errors1)
+                  (check-instance-keys-marked-has-unit-false-for-existing-source-unit (map-with-only-non-essential-keys instance) property-id definitions-dir {})
                   {})
         merged (into errors1 errors2)
         merged (into merged errors3)
         merged (into merged errors4)
+        merged (into merged errors5)
         valid (empty? merged)
         report {"property-id" (instance "property-id")
                 "filepath" path-instances-file
@@ -346,7 +348,7 @@
 
 (def webapp
   (-> (compojure.core/routes
-        routes)))
+       routes)))
 
 (defn webserver
   [port path-definitions-dir]
@@ -368,15 +370,15 @@
     (when (:help opts)
       (println banner))
     (cond
-      (not (:definitions-path opts)) (do
-                                       (println "Error: please specify path to Property Definition files")
-                                       (println banner))
-      (and (:input opts)
-           (:definitions-path opts)) (validate-instances (:input opts) (:definitions-path opts))
-      (and (:port opts)
-           (:definitions-path opts)) (webserver (:port opts) (:definitions-path opts))
-      :else (do (println "Error: please specify Property Instance file, or port for web service")
-                (println banner)))))
+     (not (:definitions-path opts)) (do
+                                      (println "Error: please specify path to Property Definition files")
+                                      (println banner))
+     (and (:input opts)
+          (:definitions-path opts)) (validate-instances (:input opts) (:definitions-path opts))
+     (and (:port opts)
+          (:definitions-path opts)) (webserver (:port opts) (:definitions-path opts))
+     :else (do (println "Error: please specify Property Instance file, or port for web service")
+             (println banner)))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; development
@@ -393,8 +395,8 @@
   (let [track (ns-tracker.core/ns-tracker ["src" "checkouts"])]
     (doto
       (Thread.
-        #(while true
-           (check-namespace-changes track)))
+       #(while true
+          (check-namespace-changes track)))
       (.setDaemon true)
       (.start))))
 
