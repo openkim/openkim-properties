@@ -2,7 +2,7 @@
 
 ## Requirements
 
-- Java
+- Java 1.7 (or greater)
 - Install [Leiningen](http://leiningen.org/)
 
 

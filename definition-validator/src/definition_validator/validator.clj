@@ -5,6 +5,15 @@
             [me.raynes.fs :as fs]
             [fipp.edn :refer (pprint) :rename {pprint fipp}]))
 
+(defn- check-minimum-java-version []
+  (let [java-version (System/getProperty "java.version")
+        [a b] (clojure.string/split java-version #"\.")]
+    (when (and (<= (read-string a) 1)
+               (<  (read-string b) 7))
+      (throw (Exception. (format "Java version 1.7 or greater required, detected %s" java-version))))))
+
+(check-minimum-java-version)
+
 (defn- add-to-errors
   [m k item]
   (let [previous (m k)
