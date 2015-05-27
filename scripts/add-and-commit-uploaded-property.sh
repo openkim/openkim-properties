@@ -75,7 +75,8 @@ else
 fi
 
 # Check that lein is available
-if test ! "Leinigngen" = `lein --version 2>&1 | sed -e 's/\(.\{9,9\}\).*/\1/'`; then
+if test ! "Leiningen" = `lein --version 2>&1 | sed -e 's/\(.\{9,9\}\).*/\1/'`;
+then
   printf "\n"
   printf "The Leinigngen tool is not available on this machine.\n"
   exit 4;
