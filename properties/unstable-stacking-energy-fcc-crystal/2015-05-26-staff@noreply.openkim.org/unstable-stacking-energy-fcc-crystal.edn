@@ -1,0 +1,55 @@
+{
+   "property-id" "tag:staff@noreply.openkim.org,2015-05-26:property/unstable-stacking-energy-fcc-crystal"
+
+   "property-title" "Unstable stacking energy for an fcc crystal at specified temperature and configuration"
+
+   "property-description" "The unstable stacking energy (USE) for an fcc crystal at specified temperature and configuration. The configuration is defined by the lattice constant and/or pressure. The USE corresponds to the energy barrier for rigidly slipping one-half of an infinite crystal relative to the other along a <112> direction (fcc partial dislocation direction)."
+
+   "a" {
+       "type"         "float"
+       "has-unit"     true
+       "extent"       []
+       "required"     false
+       "description"  "Average equilibrium conventional lattice constant of the fcc crystal. Either the lattice constant and/or the pressure must be specified. (If both are specified they must be consistent.)"
+   }
+
+   "species" {
+       "type"         "string"
+       "has-unit"     false
+       "extent"       []
+       "required"     true
+       "description"  "The element symbol of the fcc crystal material."
+   }
+
+   "temperature" {
+      "type"          "float"
+      "has-unit"      true
+      "extent"        []
+      "required"      true
+      "description"   "Temperature of the crystal."
+   }
+
+   "pressure" {
+      "type"          "float"
+      "has-unit"      true
+      "extent"        []
+      "required"      false
+      "description"   "Pressure in the crystal. Either the lattice constant and/or the pressure must be specified. (If both are specified they must be consistent.)"
+   }
+
+   "unstable-stacking-energy" {
+       "type"         "float"
+       "has-unit"     true
+       "extent"       []
+       "required"     true
+       "description"  "Unstable stacking energy in units of energy per area."
+   }
+
+   "unstable-slip-fraction" {
+       "type"         "float"
+       "has-unit"     false
+       "extent"       []
+       "required"     false
+       "description"  "The relative displacement in the 1/6<112> direction between the two crystal parts where the energy is maximum. The slip is normalized by the partial dislocation Burgers vector a0/sqrt(6). Therefore 'unstable-slip-fraction' must be between 0.0 and 1.0."
+   }
+}
