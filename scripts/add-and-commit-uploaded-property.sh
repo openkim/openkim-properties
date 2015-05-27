@@ -60,7 +60,7 @@ if test $# -ne 1; then
   exit 1;
 else
   uplddir=$1;
-  if test ! `printf "$uplddir" | sed -e 's|^/.*$|match|'` == "match"; then
+  if test ! `printf "$uplddir" | sed -e 's|^/.*$|match|'` = "match"; then
     printf "\n"
     printf "upload-abs-directory provided is not an absolute path.\n"
     usage;
@@ -72,6 +72,13 @@ else
     usage;
     exit 3;
   fi
+fi
+
+# Check that lein is available
+if test ! "Leinigngen" = `lein --version 2>&1 | sed -e 's/\(.\{9,9\}\).*/\1/'`; then
+  printf "\n"
+  printf "The Leinigngen tool is not available on this machine.\n"
+  exit 4;
 fi
 
 # Check that working directory is root of openkim-properties repo:
@@ -86,7 +93,7 @@ if test ! \( \( -d contributor-and-maintainer \) \
   printf "The working directory does not appear to be the root of the\n"
   printf "openkim-properties git repo.\n"
   usage;
-  exit 4;
+  exit 5;
 fi
 
 # Check that the expected files are there
@@ -96,7 +103,7 @@ if test ! \( \( -f "$uplddir/status.edn" \) \
   pritnf "\n"
   printf "The required files are not present in the upload-directory.\n"
   usage;
-  exit 5;
+  exit 6;
 fi
 
 # Convert property.edn for CRLF and trailing whitespace
@@ -110,11 +117,11 @@ defValidation=`./definition-validator/definition-validator -i \
 
 errStr=`printf "$defValidation" | sed -e 's/^\(.\{6,6\}\).*/\1/'`
 
-if test "Errors" == "$errStr"; then
+if test "Errors" = "$errStr"; then
   printf "\n"
   printf "The provided property failed validation.\n"
   printf "Please fix and try again.\n";
-  exit 6;
+  exit 7;
 fi
 
 # Now extract property Name, Email, Date
@@ -137,17 +144,17 @@ then
   printf "\n"
   printf "This property already exists in the openkim-properties repo.\n"
   printf "Stopping without further action.\n";
-  exit 7;
+  exit 8;
 fi
 
 # Finally ready to create the files in the repo
 cAmDir="./contributor-and-maintainer/$propName"
 if test ! -d "$cAmDir"; then
-  mkdir "$cAmDir" || errorReport 8
+  mkdir "$cAmDir" || errorReport 9
 fi
 cAmDir="$cAmDir/${propDate}-${propEmail}"
 if test ! -d "$cAmDir"; then
-  mkdir "$cAmDir" || errorReport 9
+  mkdir "$cAmDir" || errorReport 10
 fi
 cAmFl="$cAmDir/contributor-and-maintainer.edn"
 cat > "$cAmFl" <<EOF 
@@ -162,26 +169,26 @@ git add "$cAmFl"
 
 pvDir="./physics-validator/$propName"
 if test ! -d "$pvDir"; then
-  mkdir "$pvDir" || errorReport 10
+  mkdir "$pvDir" || errorReport 11
 fi
 pvDir="$pvDir/${propDate}-${propEmail}"
 if test ! -d "$pvDir"; then
-  mkdir "$pvDir" || errorReport 11
+  mkdir "$pvDir" || errorReport 12
 fi
 pvFl="$pvDir/.gitkeep"
-touch "$pvFl" || errorReport 12
+touch "$pvFl" || errorReport 13
 git add "$pvFl"
 
 propDir="./properties/$propName"
 if test ! -d "$propDir"; then
-  mkdir "$propDir" || errorReport 13
+  mkdir "$propDir" || errorReport 14
 fi
 propDir="$propDir/${propDate}-${propEmail}"
 if test ! -d "$propDir"; then
-  mkdir "$propDir" || errorReport 14
+  mkdir "$propDir" || errorReport 15
 fi
 propFl="$propDir/${propName}.edn"
-cp "$uplddir/property.edn" "$propFl" || errorReport 14
+cp "$uplddir/property.edn" "$propFl" || errorReport 16
 git add "$propFl"
 
 printf "Done with property: $propName!\n"
