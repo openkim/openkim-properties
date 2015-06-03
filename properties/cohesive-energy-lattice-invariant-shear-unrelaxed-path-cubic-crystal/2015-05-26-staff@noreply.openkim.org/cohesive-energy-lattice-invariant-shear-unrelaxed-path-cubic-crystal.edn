@@ -77,7 +77,7 @@
   }
   "shear-parameter" {
     "type"          "float"
-    "has-unit"      true
+    "has-unit"      false
     "extent"        [":"]
     "required"      true
     "description"   "A vector of shear parameter values in normalized units, such that a shear parameter of zero corresponds to the reference crystal structure, and a shear parameter of one restores the Bravais lattice structure."
