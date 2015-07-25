@@ -31,7 +31,7 @@
     "has-unit"     false
     "extent"       [":",3]
     "required"     true
-    "description"  "Fractional coordinates of the basis atoms in the conventional unit cell.  If the unit cell vectors are denoted by <a> and <b>, the third basis vector, <c>, is taken to be orthogonal to <a> and <b> and equal in length to them, such that the triad (<a>,<b>,<c>) forms a right-handed system. If the fractional coordinates of atom 'i' are [afrac_i, bfrac_i, cfrac_i], the value of 'basis-atom-coordinates' will be of the form [[afrac_1 bfrac_1 cfrac_1] [afrac_2 bfrac_2 cfrac_2] ... ].  The first two components of each basis atom should be between zero and one, inclusive of zero. The third component must be greater than or equal to zero. Note that it can exceed one since it is normalized relative to an unrelated in-plane length."
+    "description"  "Fractional coordinates of the basis atoms in the conventional unit cell.  If the unit cell vectors are denoted by <a> and <b>, the third basis vector, <c>, is taken to be orthogonal to <a> and <b> and equal in length to them, such that the triad (<a>,<b>,<c>) forms a right-handed system. If the fractional coordinates of atom 'i' are [afrac_i, bfrac_i, cfrac_i], the value of 'basis-atom-coordinates' will be of the form [[afrac_1 bfrac_1 cfrac_1] [afrac_2 bfrac_2 cfrac_2] ... ].  The first two components of each basis atom should be between zero and one, inclusive of zero. The third component can be any real number, since it is normalized relative to an unrelated in-plane length, and may be positive or negative in order to accomodate the standard Wyckoff positions for layer groups."
   }
   "layer-group" {
     "type"         "string"
