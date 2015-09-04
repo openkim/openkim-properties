@@ -42,4 +42,4 @@ to validate as there will be no delay due to startup time.
 
 Then in another terminal, the file `my-property-instance.edn` can be submitted via `curl`:
 
-    curl -X POST http://localhost:5005 -d @my-property-instance.edn
+    curl -X POST http://localhost:5005 --data-binary @my-property-instance.edn
