@@ -1,8 +1,8 @@
 {
   "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/configuration-nonorthogonal-periodic-3d-cell-fixed-particles-fixed"
-  
-  "property-title" "Static calculation of a non-orthogonal periodic cell of particles"
-    
+
+  "property-title" "Static calculation of a non-orthogonal periodic cell of particles (cell fixed, particles fixed)"
+
   "property-description" "Energy (and, optionally, forces and stresses) of a non-orthogonal periodic cell of particles at zero absolute temperature in a fixed configuration."
 
   "species" {
