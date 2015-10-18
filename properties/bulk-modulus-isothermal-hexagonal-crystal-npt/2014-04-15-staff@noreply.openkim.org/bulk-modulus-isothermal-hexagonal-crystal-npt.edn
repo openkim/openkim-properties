@@ -1,9 +1,9 @@
 {
   "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/bulk-modulus-isothermal-hexagonal-crystal-npt"
-  
-  "property-title" "Isothermal bulk modulus of hexagonal crystal structure at a given temperature and stress state"
 
-  "property-description" "Isothermal bulk modulus of a hexagonal crystal at a given temperature and stress state."
+  "property-title" "Isothermal bulk modulus of a hexagonal crystal structure at constant temperature and stress"
+
+  "property-description" "Isothermal bulk modulus of a hexagonal crystal structure at constant temperature and stress."
 
   "short-name" {
     "type"         "string"
@@ -80,7 +80,7 @@
     "has-unit"     true
     "extent"       []
     "required"     true
-    "description" "Isothermal bulk modulus of the hexagonal crystal at the specified temperature and stress state." 
+    "description" "Isothermal bulk modulus of the hexagonal crystal at the specified temperature and stress state."
   }
   "cauchy-stress" {
     "type"         "float"
