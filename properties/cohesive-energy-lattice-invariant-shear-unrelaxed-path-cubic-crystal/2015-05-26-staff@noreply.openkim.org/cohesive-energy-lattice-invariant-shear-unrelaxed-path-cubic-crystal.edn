@@ -1,7 +1,7 @@
 {
   "property-id" "tag:staff@noreply.openkim.org,2015-05-26:property/cohesive-energy-lattice-invariant-shear-unrelaxed-path-cubic-crystal"
 
-  "property-title" "Cohesive energy for a unrelaxed lattice-invariant shear path deformation of a cubic crystal"
+  "property-title" "Cohesive energy for an unrelaxed lattice-invariant shear path deformation of a cubic crystal"
 
   "property-description" "Unrelaxed cohesive energy versus shear relation along a lattice-invariant deformation path of a cubic crystal at zero absolute temperature. The lattice-invariant shear path is defined by a shearing direction and shear plane normal relative to the reference conventional crystal coordinate system.  Unit cell atomic shifts are NOT minimized for each value of the shear parameter."
 
