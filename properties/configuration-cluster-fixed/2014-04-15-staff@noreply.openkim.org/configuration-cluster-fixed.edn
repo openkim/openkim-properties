@@ -1,7 +1,7 @@
 {
   "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/configuration-cluster-fixed"
-  
-  "property-title" "Static calculation of an isolated cluster of particles"
+
+  "property-title" "Static calculation of an isolated cluster of particles (unrelaxed)"
 
   "property-description" "Energy (and, optionally, forces) of an isolated cluster of particles at zero absolute temperature in a fixed configuration."
 
