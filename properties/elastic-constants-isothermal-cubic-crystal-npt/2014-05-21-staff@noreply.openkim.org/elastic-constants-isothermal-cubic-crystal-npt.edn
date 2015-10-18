@@ -1,9 +1,9 @@
 {
   "property-id" "tag:staff@noreply.openkim.org,2014-05-21:property/elastic-constants-isothermal-cubic-crystal-npt"
-  
-  "property-title" "Isothermal elastic constants for a cubic crystal at pressure"
 
-  "property-description" "The three independent isothermal elastic constants c11, c12 and c44 for a cubic crystal for given temperature and pressure. (The elastic constants are the 2nd derivatives of the strain energy density with respect to strain.)"
+  "property-title" "Isothermal elastic constants for a cubic crystal at constant temperature and stress"
+
+  "property-description" "The three independent isothermal elastic constants c11, c12 and c44 for a cubic crystal at a constant given temperature and stress. (The elastic constants are the 2nd derivatives of the strain energy density with respect to strain.)"
 
   "short-name" {
     "type"      "string"
