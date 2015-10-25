@@ -41,6 +41,7 @@ usage () {
   printf "  'upload-abs-directory' must contain the follwoing files:\n"
   printf "     status.edn\n"
   printf "     property.edn\n"
+  printf "     synopsis.tpl\n"
   printf "\n"
   printf "  'upload-abs-directory' may also contain the following file:\n"
   printf "     instance-validator.py\n"
@@ -100,6 +101,7 @@ fi
 # Check that the expected files are there
 if test ! \( \( -f "$uplddir/status.edn" \) \
         -a   \( -f "$uplddir/property.edn" \) \
+        -a   \( -f "$uplddir/synopsis.tpl" \) \
         \); then
   pritnf "\n"
   printf "The required files are not present in the upload-directory.\n"
@@ -112,9 +114,20 @@ mv "$uplddir/property.edn" "$uplddir/property.edn.orig"
 tr -d '\r' < "$uplddir/property.edn.orig" \
   | sed -e 's/[[:space:]]*$//' > "$uplddir/property.edn"
 
+mv "$uplddir/synopsis.tpl" "$uplddir/synopsis.tpl.orig"
+tr -d '\r' < "$uplddir/synopsis.tpl.orig" \
+  | sed -e 's/[[:space:]]*$//' > "$uplddir/synopsis.tpl"
+
 # Validate the property definition and get the property name
 defValidation=`./definition-validator/definition-validator -i \
                "$uplddir/property.edn" 2>&1 | grep "tag:"`
+
+if test $? -ne 0; then
+  printf "\n"
+  printf "The provided property failed validation.\n"
+  printf "Validator returned with unsuccessful exit code.\n"
+  exit 7;
+fi
 
 errStr=`printf "$defValidation" | sed -e 's/^\(.\{6,6\}\).*/\1/'`
 
@@ -122,7 +135,7 @@ if test "Errors" = "$errStr"; then
   printf "\n"
   printf "The provided property failed validation.\n"
   printf "Please fix and try again.\n";
-  exit 7;
+  exit 8;
 fi
 
 # Now extract property Name, Email, Date
@@ -145,7 +158,7 @@ then
   printf "\n"
   printf "This property already exists in the openkim-properties repo.\n"
   printf "Stopping without further action.\n";
-  exit 8;
+  exit 9;
 fi
 
 # Finally ready to create the files in the repo
@@ -158,7 +171,7 @@ if test ! -d "$cAmDir"; then
   mkdir "$cAmDir" || errorReport 10
 fi
 cAmFl="$cAmDir/contributor-and-maintainer.edn"
-cat > "$cAmFl" <<EOF 
+cat > "$cAmFl" <<EOF
 {
   "contributor-username" "$userName"
   "contributor-uuid" "$userUuid"
@@ -191,6 +204,9 @@ fi
 propFl="$propDir/${propName}.edn"
 cp "$uplddir/property.edn" "$propFl" || errorReport 16
 git add "$propFl"
+propSy="$propDir/synopsis.tpl"
+cp "$uplddir/synopsis.tpl" "$propSy" || errorReport 17
+git add "$propSy"
 
 printf "Done with property: $propName!\n"
 exit 0;
