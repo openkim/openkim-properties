@@ -39,8 +39,9 @@ usage () {
   printf "  to the root of the openkim-properties git repo.\n"
   printf "\n"
   printf "  'upload-abs-directory' must contain the follwoing files:\n"
-  printf "     status.edn\n"
   printf "     property.edn\n"
+  printf "     property-table-category.edn\n"
+  printf "     status.edn\n"
   printf "     synopsis.tpl\n"
   printf "\n"
   printf "  'upload-abs-directory' may also contain the following file:\n"
@@ -54,6 +55,13 @@ usage () {
 errorReport () {
   printf "error while creating property files.  Error number: %i\n" "$1"
   exit $1;
+}
+
+# Convert file for CRLF and trailing whitespace
+cleanTextFile () {
+  mv "$uplddir/$1" "$uplddir/$1.orig"
+  tr -d '\r' < "$uplddir/$1.orig" \
+    | sed -e 's/[[:space:]]*$//' > "$uplddir/$1"
 }
 
 if test $# -ne 1; then
@@ -99,8 +107,10 @@ if test ! \( \( -d contributor-and-maintainer \) \
 fi
 
 # Check that the expected files are there
-if test ! \( \( -f "$uplddir/status.edn" \) \
+if test ! \( \
+             \( -f "$uplddir/property-table-category.edn" \) \
         -a   \( -f "$uplddir/property.edn" \) \
+        -a   \( -f "$uplddir/status.edn" \) \
         -a   \( -f "$uplddir/synopsis.tpl" \) \
         \); then
   pritnf "\n"
@@ -109,14 +119,10 @@ if test ! \( \( -f "$uplddir/status.edn" \) \
   exit 6;
 fi
 
-# Convert property.edn for CRLF and trailing whitespace
-mv "$uplddir/property.edn" "$uplddir/property.edn.orig"
-tr -d '\r' < "$uplddir/property.edn.orig" \
-  | sed -e 's/[[:space:]]*$//' > "$uplddir/property.edn"
-
-mv "$uplddir/synopsis.tpl" "$uplddir/synopsis.tpl.orig"
-tr -d '\r' < "$uplddir/synopsis.tpl.orig" \
-  | sed -e 's/[[:space:]]*$//' > "$uplddir/synopsis.tpl"
+# Convert files for CRLF and trailing whitespace
+cleanTextFile "property-table-category.edn"
+cleanTextFile "property.edn"
+cleanTextFile "synopsis.tpl"
 
 # Validate the property definition and get the property name
 defValidation=`./definition-validator/definition-validator -i \
@@ -207,6 +213,9 @@ git add "$propFl"
 propSy="$propDir/synopsis.tpl"
 cp "$uplddir/synopsis.tpl" "$propSy" || errorReport 17
 git add "$propSy"
+propTb="$propDir/property-table-category.edn"
+cp "$uplddir/property-table-category.edn" "$propTb" || errorReport 18
+git add "$propTb"
 
 printf "Done with property: $propName!\n"
 exit 0;
