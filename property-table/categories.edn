@@ -12,6 +12,7 @@
  "cluster/cluster-energy-and-forces"
  "wall/stacking-energy"
  "wall/surface-energy"
+ "wall/grain-boundary"
  "line/"
  "point/vacancy-formation-energy"
  "point/vacancy-migration-energy"
