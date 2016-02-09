@@ -1,4 +1,4 @@
-Crystal type = @<  short-name.source-value >@
+Crystal type = @< short-name.source-value >@
 
 Species = @< species.source-value >@
 Basis atom coordinates = @< basis-atom-coordinates.source-value >@ @< basis-atom-coordinates.source-unit >@

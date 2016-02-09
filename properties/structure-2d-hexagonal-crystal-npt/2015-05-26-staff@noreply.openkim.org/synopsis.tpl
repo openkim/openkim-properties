@@ -1,4 +1,4 @@
-Crystal type = @<  short-name.source-value >@
+Crystal type = @< short-name.source-value >@
 
 Temperature = @< temperature.source-value >@ @< temperature.source-unit >@
 Cauchy in-plane stress = @< cauchy-in-plane-stress.source-value >@ @< cauchy-in-plane-stress.source-unit >@

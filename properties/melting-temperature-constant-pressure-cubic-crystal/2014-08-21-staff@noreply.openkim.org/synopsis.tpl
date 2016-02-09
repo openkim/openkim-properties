@@ -1,4 +1,4 @@
-Crystal type = @<  short-name.source-value >@
+Crystal type = @< short-name.source-value >@
 
 a = @< a.source-value >@ @< a.source-unit >@
 Species = @< species.source-value >@
