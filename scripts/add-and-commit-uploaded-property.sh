@@ -113,7 +113,7 @@ if test ! \( \
         -a   \( -f "$uplddir/status.edn" \) \
         -a   \( -f "$uplddir/synopsis.tpl" \) \
         \); then
-  pritnf "\n"
+  printf "\n"
   printf "The required files are not present in the upload-directory.\n"
   usage;
   exit 6;
