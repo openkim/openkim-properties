@@ -6,7 +6,7 @@ Basis atom coordinates = @< basis-atom-coordinates.source-value >@ @< basis-atom
 
 Tilt axis = @< tilt-axis.source-value >@
 Tilt angle = @< tilt-angle.source-value >@ @< tilt-angle.source-unit >@
-Interface offset = @< interface-offset >@
+Interface offset = @< interface-offset.source-value >@
 
 Minimum atom separation = @< minimum-atom-separation.source-value >@ @< minimum-atom-separation.source-unit >@
 

@@ -86,7 +86,7 @@
     "type"         "float"
     "has-unit"     true
     "extent"       []
-    "required"     true
+    "required"     false
   "description"    "The minimal atomic separation in the bi-crystal. This parameter is necessary for characterizing the grain boundary, since when computing a grain boundary energy it is conventional to prevent situations where a pair of atoms are too close together by removing one of them.  (Note that in such cases all removed atoms must be taken from the same grain.)  In situations where the minimum atom separation is unknown (e.g., experimental data), use the perfect crystal nearest neighbor distance."
   }
   "ideal-grain-boundary-energy" {
