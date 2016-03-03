@@ -103,4 +103,11 @@
     "required"     false
     "description"  "The [x,y,z] coordinates of each particle after relaxation."
   }
+  "sigma" {
+    "type"         "int"
+    "has-unit"     false
+    "extent"       []
+    "required"     false
+    "description"  "Sigma is the ratio of volume of the coincident-site lattice unit cell to the lattice unit cell volume."
+  }
 }

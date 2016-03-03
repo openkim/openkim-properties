@@ -103,4 +103,11 @@
     "required"     false
     "description"  "The [x,y,z] coordinates of each particle after relaxation for each of the computed grain boundaries. The first index identifies the tilt angle and must correspond to the order of entries in 'tilt-angle'."
   }
+  "sigma" {
+    "type"         "int"
+    "has-unit"     false
+    "extent"       [":"]
+    "required"     false
+    "description"  "Sigma is the ratio of volume of the coincident-site lattice unit cell to the lattice unit cell volume.  The order of the entries must correspond to the order of the entries in 'tilt-angle'."
+  }
 }

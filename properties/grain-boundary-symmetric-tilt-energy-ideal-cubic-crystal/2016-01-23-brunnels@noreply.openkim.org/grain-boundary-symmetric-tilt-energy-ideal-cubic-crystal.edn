@@ -96,4 +96,11 @@
     "required"     true
     "description"  "Unrelaxed grain boundary excess energy density (energy per unit area), i.e. the difference between the enegy of the bi-crystal containing the symmetric tilt grain boundary structure and the perfect crystal per unit area of the interface."
   }
+  "sigma" {
+    "type"         "int"
+    "has-unit"     false
+    "extent"       []
+    "required"     false
+    "description"  "Sigma is the ratio of volume of the coincident-site lattice unit cell to the lattice unit cell volume."
+  }
 }
