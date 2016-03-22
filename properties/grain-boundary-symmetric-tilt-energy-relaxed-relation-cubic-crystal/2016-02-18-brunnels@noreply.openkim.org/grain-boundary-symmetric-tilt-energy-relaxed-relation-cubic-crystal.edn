@@ -92,7 +92,7 @@
   "relaxed-grain-boundary-energy" {
     "type"         "float"
     "has-unit"     true
-    "extent"       []
+    "extent"       [":"]
     "required"     true
     "description"  "Vector of relaxed grain boundary excess energy densities (energy per unit area), i.e. the difference between the energy of the bi-crystal containing the symmetric tilt grain boundary structure and the energy of an ideal crystal with the same number of atoms per unit area of the interface. The order of the entries must correspond to the order of the entries in 'tilt-angle'."
   }
