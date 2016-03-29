@@ -97,11 +97,11 @@
     "description"  "Vector of relaxed grain boundary excess energy densities (energy per unit area), i.e. the difference between the energy of the bi-crystal containing the symmetric tilt grain boundary structure and the energy of an ideal crystal with the same number of atoms per unit area of the interface. The order of the entries must correspond to the order of the entries in 'tilt-angle'."
   }
   "relaxed-interface-positions" {
-    "type"         "float"
-    "has-unit"     true
-    "extent"       [":",":",3]
+    "type"         "file"
+    "has-unit"     false
+    "extent"       [":"]
     "required"     false
-    "description"  "The [x,y,z] coordinates of each particle after relaxation for each of the computed grain boundaries. The first index identifies the tilt angle and must correspond to the order of entries in 'tilt-angle'."
+    "description"  "A file containing the atomic configuration including information such as the species, x,y,z coordinates of each particle after relaxation, and super-cell periodicity information for the computed grain boundary.  The order of listed files must correspond to the order of entries in 'tilt-angle'."
   }
   "sigma" {
     "type"         "int"

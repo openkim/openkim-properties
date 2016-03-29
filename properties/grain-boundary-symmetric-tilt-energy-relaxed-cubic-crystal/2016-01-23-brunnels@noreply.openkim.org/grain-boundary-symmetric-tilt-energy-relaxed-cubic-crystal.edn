@@ -97,11 +97,11 @@
     "description"  "Relaxed grain boundary excess energy density (energy per unit area), i.e. the difference between the energy of the bi-crystal containing the symmetric tilt grain boundary structure and the energy of an ideal crystal with the same number of atoms per unit area of the interface."
   }
   "relaxed-interface-positions" {
-    "type"         "float"
-    "has-unit"     true
-    "extent"       [":",3]
+    "type"         "file"
+    "has-unit"     false
+    "extent"       []
     "required"     false
-    "description"  "The [x,y,z] coordinates of each particle after relaxation."
+    "description"  "A file containing the atomic configuration including information such as the species, x,y,z coordinates of each particle after relaxation, and super-cell periodicity information for the computed grain boundary."
   }
   "sigma" {
     "type"         "int"
