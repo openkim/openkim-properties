@@ -101,7 +101,7 @@
     "has-unit"     false
     "extent"       [":"]
     "required"     false
-    "description"  "A file containing the atomic configuration including information such as the species, x,y,z coordinates of each particle after relaxation, and super-cell periodicity information for the computed grain boundary.  The order of listed files must correspond to the order of entries in 'tilt-angle'."
+    "description"  "A file containing the atomic configuration including information such as the species, x,y,z coordinates of each particle after relaxation, and super-cell periodicity data for the computed grain boundary.  The order of listed files must correspond to the order of entries in 'tilt-angle'."
   }
   "sigma" {
     "type"         "int"
