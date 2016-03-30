@@ -142,7 +142,7 @@
    \"int\", or \"bool\"."
   [k m errors]
   (let [type-str (m "type")]
-    (if (some #{"string" "float" "int" "bool"} [type-str])
+    (if (some #{"string" "file" "float" "int" "bool"} [type-str])
       errors
       (add-to-errors errors (keyword k) (vector (str "invalid string for \"type\": \"" type-str "\""))))))
 

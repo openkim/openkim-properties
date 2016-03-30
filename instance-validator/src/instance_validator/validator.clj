@@ -140,7 +140,7 @@
 (defn- items-to-types1
   [item]
   (cond
-   (string? item) "string"
+   (string? item) "string-or-file"
    (float? item) "float"
    (integer? item) "int"
    (or (= true item) (= false item)) "bool"
@@ -158,9 +158,12 @@
         set-of-types (items-to-types source-value)
         definition-type (mdef "type")]
     (condp = definition-type
-      "string" (if (= set-of-types #{"string"})
+      "string" (if (= set-of-types #{"string-or-file"})
                  errors
                  (add-to-errors errors k ["not of declared type string"]))
+      "file" (if (= set-of-types #{"string-or-file"})
+                 errors
+                 (add-to-errors errors k ["not of declared type file"]))
       "float" (if (or (= set-of-types #{"float"})
                       (= set-of-types #{"int"})
                       (= set-of-types #{"float" "int"}))
@@ -172,7 +175,7 @@
       "bool" (if (= set-of-types #{"bool"})
                errors
                (add-to-errors errors k ["not of declared type bool"]))
-      (throw (Exception. (str "unrecognized type in Propety definition \"" definition-type "\""))))))
+      (throw (Exception. (str "unrecognized type in Propety Definition \"" definition-type "\""))))))
 
 #_(defn- check-extent-dimensions
     [k v mdef errors]
