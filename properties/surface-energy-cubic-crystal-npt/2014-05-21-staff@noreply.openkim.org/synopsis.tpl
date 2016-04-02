@@ -15,5 +15,3 @@ Wood notation =  @< step-structure-notation.source-value >@
 Surface energy = @< surface-energy.source-value >@ @< surface-energy.source-unit >@
 
 Reconstruction description =  @< reconstruction-description.source-value >@
-
-Relaxed surface positions = @< relaxed-surface-positions.source-value >@ @< relaxed-surface-positions.source-unit >@
