@@ -126,7 +126,8 @@ cleanTextFile "synopsis.tpl"
 
 # Validate the property definition and get the property name
 defValidation=`./definition-validator/definition-validator -i \
-               "$uplddir/property.edn" 2>&1 | grep "tag:"`
+               "$uplddir/property.edn" 2>&1`
+defValidationTag=`printf "${defValidation}" | grep "tag:"`
 
 if test $? -ne 0; then
   printf "\n"
@@ -135,21 +136,23 @@ if test $? -ne 0; then
   exit 7;
 fi
 
-errStr=`printf "$defValidation" | sed -e 's/^\(.\{6,6\}\).*/\1/'`
+errStr=`printf "$defValidationTag" | sed -e 's/^\(.\{6,6\}\).*/\1/'`
 
 if test "Errors" = "$errStr"; then
   printf "\n"
   printf "The provided property failed validation.\n"
-  printf "Please fix and try again.\n";
+  printf "Please fix and try again.\n"
+  printf "\n"
+  printf "$defValidation\n\n"
   exit 8;
 fi
 
 # Now extract property Name, Email, Date
-propName=`printf "$defValidation" | \
+propName=`printf "$defValidationTag" | \
           sed -e 's|^.*tag:[^:]*:property/\([^[:space:]]*\).*$|\1|'`
-propEmail=`printf "$defValidation" | \
+propEmail=`printf "$defValidationTag" | \
            sed -e 's|^.*tag:\([^,]*\),.*|\1|'`
-propDate=`printf "$defValidation" | \
+propDate=`printf "$defValidationTag" | \
            sed -e 's|^.*tag:[^,]*,\([^:]*\):.*|\1|'`
 
 # Now extract user Name and uuid
