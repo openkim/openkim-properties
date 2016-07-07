@@ -1,0 +1,174 @@
+#!/usr/bin/env python
+
+# This file serves as a physics validator for instances of the 'cohesive-potential-energy-cubic-crystal' property.
+# Author: Daniel S. Karls, University of Minnesota (karl0100 |AT| umn DOT edu)
+
+import inspect, os
+import clj, sys, re, numpy as np
+import cPickle as pickle
+
+# Used to flatten the results file so that it is a list with one level of depth.  Thus, it doesn't matter whether the file
+# already has square brackets around the outside of it or not
+def flatten(test_list):
+    if isinstance(test_list, list):
+        if len(test_list) == 0:
+            return []
+        first, rest = test_list[0], test_list[1:]
+        return flatten(first) + flatten(rest)
+    else:
+        return [test_list]
+
+# Common sections of messages output by this validator
+validation_error="physics-validator ERROR: "
+validation_pass="physics-validator PASS: "
+validation_warning="physics-validator WARNING: "
+validation_info="physics-validator INFO: "
+validation_passwithwarnings="KIM physics-validator pass with warnings"
+validation_passnowarnings="KIM physics-validator pass no warnings"
+
+# Property name and key names used in its Property Definition
+property_title='tag:staff@noreply.openkim.org,2014-04-15:property/cohesive-potential-energy-cubic-crystal'
+property_id="property-id"
+property_short_name="short-name"
+property_species="species"
+property_a="a"
+property_basis_atom_coordinates="basis-atom-coordinates"
+property_space_group="space-group"
+property_cohesive_potential_energy="cohesive-potential-energy"
+property_wyck_mult_letter="wyckoff-multiplicity-and-letter"
+property_wyck_coord="wyckoff-coordinates"
+
+# Get the directory name for this physics-validator
+scriptDir = os.path.dirname(os.path.abspath(inspect.stack()[0][1]))
+
+# Load the results EDN file with clojure.
+# The file contents have already been verified as valid EDN by a separate validator internal to the KIM system.
+if len(sys.argv) == 1:
+    raise Exception(validation_error+"no test result directory was specified.  Proper usage should be, e.g. \"./physics-validator <test-result-dir>\", where <test-result-dir> is the absolute path to the test result you wish to verify. Exiting...")
+if len(sys.argv) > 2:
+    raise Exception(validation_error+"too many input arguments.  Proper usage should be, e.g. \"./physics-validator <test-result-dir>\", where <test-result-dir> is the absolute path to the test result you wish to verify. Exiting...")
+testResultDir=sys.argv[1]
+resultsfile=testResultDir+"/results.edn"
+with open(resultsfile) as f:
+    # Insert brackets around outside in case they weren't already there, then flatten (this is so we have a consistent format)
+    fr = "[" + f.read() + "]"
+    results = flatten(clj.loads(fr))
+
+# Now, loop over all of the instances in the results file and, if they are reporting the correct property, check them
+foundinstance=False
+for instance in results:
+    if instance[property_id]==property_title:
+        # Indicate that we've found at least one instance of the correct property in the results file
+        foundinstance=True
+
+        # Lists to hold strings that describe each success, warning, and error
+        successes=[]
+        warnings=[]
+        errors=[]
+
+        # Running tally of errors for multidimensional arrays used
+        totalwycklettererr=0
+        totalwyckcoorderr=0
+        specieserr=0
+        basisatomcoorderr=0
+
+        # Load data of required keys (which are verified to all be present, as enforced by a separate validator internal to the KIM system) into local variables
+        short_name                = instance[property_short_name]['source-value']              # One-dimensional array
+        species                   = instance[property_species]['source-value']                 # One-dimensional array
+        a                         = instance[property_a]['si-value']                           # Scalar
+        basis_atom_coordinates    = instance[property_basis_atom_coordinates]['source-value']  # Two-dimensional array
+        cohesive_potential_energy = instance[property_cohesive_potential_energy]['si-value']   # Scalar
+
+        # Check existence of optional keys
+        # If any one of keys corresponding to property_space_group, property_wyck_mult_letter, or property_wyck_coord exists, check that the other two also exist by attempting to load them into local variables.
+        if (property_space_group in instance) or (property_wyck_mult_letter in instance) or (property_wyck_coord in instance):
+            space_group                     = instance[property_space_group]['source-value']       # String scalar
+            wyckoff_multiplicity_and_letter = instance[property_wyck_mult_letter]['source-value']  # One-dimensional array
+            wyckoff_coordinates             = instance[property_wyck_coord]['source-value']        # Two-dimensional array
+            # Check that the space group is one of the 36 cubic space groups
+            # Import cubic space groups from cubicspacegroups.pkl pickle binary
+            cubicspacegroupspkl=pickle.load(open(scriptDir+"/cubicspacegroups.pkl","rb"))
+            cubicspacegroups={k.lower():v for k, v in cubicspacegroupspkl.items()}
+            space_group_formatted=space_group.lower().replace(" ","")
+            if space_group_formatted not in cubicspacegroups:
+                errors.append(validation_error+"space group "+space_group+" does not correspond to one of the 36 cubic space groups!")
+            else:
+                successes.append(validation_pass+"space group "+space_group+" is a valid cubic spacegroup.")
+            # Check that the wyckoff-multiplicity-and-letter entries all consist of a positive integer followed by a single letter and are
+            # consistent with the cubic space group given
+            for wyckmultletter in wyckoff_multiplicity_and_letter:
+                if wyckmultletter.lower() not in cubicspacegroups[space_group_formatted]:
+                    errors.append(validation_error+"wyckoff site "+wyckmultletter+" does not belong to cubic space group "+space_group+"!")
+                    totalwycklettererr+=1
+            if totalwycklettererr == 0:
+                successes.append(validation_pass+"all wyckoff multiplicity-letter designations are valid.")
+            # Check that all wyckoff-coordinates components are in [-1,1]
+            for wyckcoord in wyckoff_coordinates:
+                for component in wyckcoord:
+                    if component < -1 or component > 1:
+                        errors.append(validation_error+"wyckoff coordinate "+str(wyckcoord)+" has component "+str(component)+" not in [-1,1]!")
+                        totalwyckcoorderr+=1
+            if totalwyckcoorderr == 0:
+                successes.append(validation_pass+"all wyckoff coordinates valid.")
+
+        #############################################
+        # Begin physical checks on required results #
+        #############################################
+
+        # Check that the species names are valid.  Note that in this Property Definition, the species must be labeled according to standard element names in the periodic table.
+        # Import element names from periodic_table.txt
+        periodictable=[]
+        with open(scriptDir+"/periodic_table.txt") as f:
+            for line in f:
+                split = line.split()
+                periodictable.append(split[1])
+        for atom in species:
+            if atom not in periodictable:
+                errors.append(validation_error+"species "+atom+" not found in periodic table!")
+                specieserr+=1
+        if specieserr == 0:
+            successes.append(validation_pass+"all species symbols are valid.")
+
+        # Check that the lattice constant is positive
+        if a <= 0.0:
+            errors.append(validation_error+"lattice constant 'a' is not positive!")
+        else:
+            successes.append(validation_pass+"lattice constant is positive.")
+
+        # Check that all basis-atom-coordinates components are in [0,1)
+        for coord in basis_atom_coordinates:
+            for component in coord:
+                if component < 0 or component >= 1:
+                    errors.append(validation_error+"basis atom coordinate "+str(coord)+" has component "+str(component)+" not in [0,1)!")
+                    basisatomcoorderr+=1
+        if basisatomcoorderr == 0:
+            successes.append(validation_pass+"all basis atom coordinates valid.")
+
+        print "{"
+        print validation_info+"instance-id = ", instance['instance-id']
+        # Write successful checks to stdout
+        successoutput="\n".join(successes)
+        print successoutput
+
+        # Print any errors and warnings
+        if len(errors) > 0 and len(warnings) == 0:
+            erroroutput="\n".join(errors)
+            raise Exception("\n"+erroroutput)
+        elif len(errors) == 0 and len(warnings) > 0:
+            warningoutput="\n".join(warnings)
+            print warningoutput
+            # Print standard message to last line of stdout indicating successful validation
+            print validation_passwithwarnings
+        elif len(errors) > 0 and len(warnings) > 0:
+            erroroutput="\n".join(errors)
+            warningoutput="\n".join(warnings)
+            print warningoutput
+            raise Exception("\n"+erroroutput)
+        elif len(errors) == 0 and len(warnings) == 0:
+            # Print standard message to last line of stdout indicating successful validation
+            print validation_passnowarnings
+
+        print "}"
+
+if foundinstance == False:
+    raise Exception(validation_error+"Could not find any instances of property "+property_title+" in the indicated results file")
