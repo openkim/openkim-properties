@@ -1,0 +1,132 @@
+#!/usr/bin/env python
+
+# This file serves as a physics validator for instances of the 'verification-check' property.
+# Author: Andrew Akerson, University of Minnesota (akers049 |AT| umn DOT edu)
+
+import sys, re
+import cPickle as pickle
+import os.path
+import clj # Note: the clojure Python module is not installed by default on most distributions, but can be added
+           # using `pip install pyclj`
+
+# Used to flatten the results file so that it is a list with one level of depth.  Thus, it doesn't matter whether the file
+# already has square brackets around the outside of it or not
+def flatten(test_list):
+    if isinstance(test_list, list):
+        if len(test_list) == 0:
+            return []
+        first, rest = test_list[0], test_list[1:]
+        return flatten(first) + flatten(rest)
+    else:
+        return [test_list]
+
+# Common sections of messages output by this validator
+validation_error="physics-validator ERROR: "
+validation_pass="physics-validator PASS: "
+validation_warning="physics-validator WARNING: "
+validation_info="physics-validator INFO: "
+validation_passwithwarnings="KIM physics-validator pass with warnings"
+validation_passnowarnings="KIM physics-validator pass no warnings"
+
+# Property name and key names used in its Property Definition
+property_title='tag:tadmor@noreply.openkim.org,2016-07-07:property/verification-check'
+property_id="property-id"
+property_vc_name="vc-name"
+property_vc_category="vc-category"
+property_vc_grade_basis="vc-grade-basis"
+property_vc_grade="vc-grade"
+property_vc_files="vc-files"
+property_vc_comment="vc-comment"
+
+# Load the results EDN file with clojure.
+# The file contents have already been verified as valid EDN by a separate validator internal to the KIM system.
+if len(sys.argv) == 1:
+    raise Exception(validation_error+"no test result directory was specified.  Proper usage should be, e.g. \"./physics-validator <test-result-dir>\", where <test-result-dir> is the absolute path to the test result you wish to verify. Exiting...")
+if len(sys.argv) > 2:
+    raise Exception(validation_error+"too many input arguments.  Proper usage should be, e.g. \"./physics-validator <test-result-dir\", where <test-result-dir> is the absolute path to the test result you wish to verify. Exiting...")
+testResultDir=sys.argv[1]
+resultsfile=testResultDir+"/results.edn"
+with open(resultsfile) as f:
+    # Insert brackets around outside in case they weren't already there, then flatten (this is so we have a consistent format)
+    fr = "[" + f.read() + "]"
+    results = flatten(clj.loads(fr))
+
+# Now, loop over all of the instances in the results file and, if they are reporting the correct property, check them
+foundinstance=False
+for instance in results:
+    if instance[property_id]==property_title:
+        # Indicate that we've found at least one instance of the correct property in the results file
+        foundinstance=True
+
+        # Lists to hold strings that describe each success, warning, and error
+        successes=[]
+        warnings=[]
+        errors=[]
+
+        # load data of required keys
+        vc_name        = instance[property_vc_name]['source-value']
+        vc_category    = instance[property_vc_category]['source-value']
+        vc_grade_basis = instance[property_vc_grade_basis]['source-value']
+        vc_grade       = instance[property_vc_grade]['source-value']
+
+        # begin checks on required results
+
+        valid_categories = ['informational', 'consistency', 'mandatory']
+        if vc_category in valid_categories:
+            successes.append(validation_pass+"vc-category "+vc_category+" is a valid category")
+        else:
+            errors.append(validation_error+"vc-category "+vc_category+" is not a valid category")
+
+        valid_grade_basis = ['graded', 'passfail']
+        if vc_grade_basis in valid_grade_basis:
+            successes.append(validation_pass+"vc-grade-basis "+vc_grade_basis+" is a valid grading basis")
+            if (vc_grade_basis == 'graded'):
+                valid_grade = ['A', 'B', 'C', 'D', 'F']
+            else:
+                valid_grade = ['P', 'F']
+        else:
+            valid_grade = []
+            errors.append(validation_error+"vc-grade-basis "+vc_grade_basis+" is not a valid grading basis")
+
+        if vc_grade in valid_grade:
+            successes.append(validation_pass+"vc-grade "+vc_grade+" is a valid grade for grading basis "+vc_grade_basis)
+        else:
+            errors.append(validation_error+"vc-grade "+vc_grade+" is not a valid grade for grading basis "+vc_grade_basis)
+
+        # check for the optional key of vc-files. load and check if valid
+        if property_vc_files in instance:
+            vc_files = instance[property_vc_files]['source-value']
+            for file_name in vc_files:
+                if (os.path.isfile(testResultDir+"/"+file_name)):
+                    successes.append(validation_pass+"vc-file "+file_name+" is a valid file")
+                else:
+                    errors.append(validation_error+"vc-file "+file_name+" is not a valid file name")
+
+        print "{"
+        print validation_info+"instance-id = ", instance['instance-id']
+        # write successful checks to stdout
+        successoutput="\n".join(successes)
+        print successoutput
+
+        # print any errors and warning
+        if len(errors) > 0 and len(warnings) == 0:
+            erroroutput="\n".join(errors)
+            raise Exception("\n"+erroroutput)
+        elif len(errors) == 0 and len(warnings) > 0:
+            warningoutput="\n".join(warnings)
+            print warningoutput
+            # Print standard message to last line of stdout indicating successful validation
+            print validation_passwithwarnings
+        elif len(errors) > 0 and len(warnings) > 0:
+            erroroutput="\n".join(errors)
+            warningoutput="\n".join(warnings)
+            print warningoutput
+            raise Exception("\n"+erroroutput)
+        elif len(errors) == 0 and len(warnings) == 0:
+            # Print standard message to last line of stdout indicating successful validation
+            print validation_passnowarnings
+
+        print "}"
+
+if foundinstance == False:
+    raise Exception(validation_error+"Could not find any instances of property "+property_title+" in the indicated results file")

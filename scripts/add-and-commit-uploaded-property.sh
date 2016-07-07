@@ -204,19 +204,20 @@ pvDir="./physics-validator/$propName"
 if test ! -d "$pvDir"; then
   mkdir "$pvDir" || errorReport 11
 fi
-pvDir="$pvDir/${propDate}-${propEmail}"
-if test ! -d "$pvDir"; then
-  mkdir "$pvDir" || errorReport 12
-fi
-
 if test "$physValidatorPresent" = "true"; then
   pvFl="$pvDir/physics-validator"
   cp "$uplddir/physics-validator" "$pvFl" || errorReport 13
+  chmod 755 "$pvFl"
 else
   pvFl="$pvDir/.gitkeep"
   touch "$pvFl" || errorReport 13
 fi
 git add "$pvFl"
+
+pvDir="$pvDir/${propDate}-${propEmail}"
+if test ! -d "$pvDir"; then
+  mkdir "$pvDir" || errorReport 12
+fi
 
 propDir="./properties/$propName"
 if test ! -d "$propDir"; then
