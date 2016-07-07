@@ -45,7 +45,7 @@ usage () {
   printf "     synopsis.tpl\n"
   printf "\n"
   printf "  'upload-abs-directory' may also contain the following file:\n"
-  printf "     instance-validator.py\n"
+  printf "     physics-validator\n"
   printf "\n"
   printf "  all other files in upload-abs-directory will be ignored.\n"
   printf "\n"
@@ -119,10 +119,20 @@ if test ! \( \
   exit 6;
 fi
 
+# Check for optional physics validator
+if test -f "$uplddir/physics-validator"; then
+  physValidatorPresent=true
+else
+  physValidatorPresent=false
+fi
+
 # Convert files for CRLF and trailing whitespace
 cleanTextFile "property-table-category.edn"
 cleanTextFile "property.edn"
 cleanTextFile "synopsis.tpl"
+if test "$physValidatorPresent" = "true"; then
+  cleanTextFile "physics-validator"
+fi
 
 # Validate the property definition and get the property name
 defValidation=`./definition-validator/definition-validator -i \
@@ -198,8 +208,14 @@ pvDir="$pvDir/${propDate}-${propEmail}"
 if test ! -d "$pvDir"; then
   mkdir "$pvDir" || errorReport 12
 fi
-pvFl="$pvDir/.gitkeep"
-touch "$pvFl" || errorReport 13
+
+if test "$physValidatorPresent" = "true"; then
+  pvFl="$pvDir/physics-validator"
+  cp "$uplddir/physics-validator" "$pvFl" || errorReport 13
+else
+  pvFl="$pvDir/.gitkeep"
+  touch "$pvFl" || errorReport 13
+fi
 git add "$pvFl"
 
 propDir="./properties/$propName"
