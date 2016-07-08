@@ -30,6 +30,6 @@ The `contributor-uuid` is permanent once defined. In the event that the contribu
 The `physics-validator` file, located in subdirectories with the `physics-validator/` path, has the following requirements:
 
 * The file must be executable (mode 755)
-* The executable must take exactly one command-line argument: the absolute directory name of the test-result to be validated.
+* The executable must take exactly one command-line argument: the absolute path to the results.edn file of the Test Result to be validated.
 * The executable must work correctly when called with any value for the current working directory.
 * If the test result passes the physics validator, the executable must provide an exit status (aka return status or exit code) of 0 (success).  Otherwise, the exit status must be non-zero.

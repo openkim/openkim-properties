@@ -41,11 +41,11 @@ property_vc_comment="vc-comment"
 # Load the results EDN file with clojure.
 # The file contents have already been verified as valid EDN by a separate validator internal to the KIM system.
 if len(sys.argv) == 1:
-    raise Exception(validation_error+"no test result directory was specified.  Proper usage should be, e.g. \"./physics-validator <test-result-dir>\", where <test-result-dir> is the absolute path to the test result you wish to verify. Exiting...")
+    raise Exception(validation_error+"no result.edn file was specified.  Proper usage should be, e.g. \"./physics-validator <absolute-path-of-results.edn-file>\". Exiting...")
 if len(sys.argv) > 2:
-    raise Exception(validation_error+"too many input arguments.  Proper usage should be, e.g. \"./physics-validator <test-result-dir\", where <test-result-dir> is the absolute path to the test result you wish to verify. Exiting...")
-testResultDir=sys.argv[1]
-resultsfile=testResultDir+"/results.edn"
+    raise Exception(validation_error+"too many input arguments.  Proper usage should be, e.g. \"./physics-validator <absolute-path-of-results.edn-file>\". Exiting...")
+resultsfile=sys.argv[1]
+testResultDir=os.path.dirname(resultsfile)
 with open(resultsfile) as f:
     # Insert brackets around outside in case they weren't already there, then flatten (this is so we have a consistent format)
     fr = "[" + f.read() + "]"
