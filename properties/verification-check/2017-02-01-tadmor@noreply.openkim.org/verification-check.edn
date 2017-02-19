@@ -28,7 +28,7 @@
     "has-unit"     false
     "extent"       []
     "required"     true
-    "description"  "Each verification check returns a grade indicating how well the test was passed.  The type of grade returned is defined by the vc-grade-basis. There are two options: `graded' and `passfail'. A `graded' verification check returns a letter grade `A', `B', `C', `D' or `F' (where `A' is best, and `F' indicated failure). A `passfail' verification check returns `P' for pass, or `F' for fail. In situations where the verification check could not be performed, a value of `N/A' (for not available) must be returned.""
+    "description"  "Each verification check returns a grade indicating how well the test was passed.  The type of grade returned is defined by the vc-grade-basis. There are two options: `graded' and `passfail'. A `graded' verification check returns a letter grade `A', `B', `C', `D' or `F' (where `A' is best, and `F' indicated failure). A `passfail' verification check returns `P' for pass, or `F' for fail. In situations where the verification check could not be performed, a value of `N/A' (for not available) must be returned."
   }
   "vc-grade" {
     "type"         "string"
