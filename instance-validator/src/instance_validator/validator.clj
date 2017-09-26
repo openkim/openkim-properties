@@ -157,25 +157,27 @@
   (let [source-value (v "source-value")
         set-of-types (items-to-types source-value)
         definition-type (mdef "type")]
-    (condp = definition-type
-      "string" (if (= set-of-types #{"string-or-file"})
-                 errors
-                 (add-to-errors errors k ["not of declared type string"]))
-      "file" (if (= set-of-types #{"string-or-file"})
-                 errors
-                 (add-to-errors errors k ["not of declared type file"]))
-      "float" (if (or (= set-of-types #{"float"})
-                      (= set-of-types #{"int"})
-                      (= set-of-types #{"float" "int"}))
+    (if (empty? set-of-types)
+      errors
+      (condp = definition-type
+        "string" (if (= set-of-types #{"string-or-file"})
+                   errors
+                   (add-to-errors errors k ["not of declared type string"]))
+        "file" (if (= set-of-types #{"string-or-file"})
+                   errors
+                   (add-to-errors errors k ["not of declared type file"]))
+        "float" (if (or (= set-of-types #{"float"})
+                        (= set-of-types #{"int"})
+                        (= set-of-types #{"float" "int"}))
+                  errors
+                  (add-to-errors errors k ["not of declared type float"]))
+        "int" (if (= set-of-types #{"int"})
                 errors
-                (add-to-errors errors k ["not of declared type float"]))
-      "int" (if (= set-of-types #{"int"})
-              errors
-              (add-to-errors errors k ["not of declared type int"]))
-      "bool" (if (= set-of-types #{"bool"})
-               errors
-               (add-to-errors errors k ["not of declared type bool"]))
-      (throw (Exception. (str "unrecognized type in Propety Definition \"" definition-type "\""))))))
+                (add-to-errors errors k ["not of declared type int"]))
+        "bool" (if (= set-of-types #{"bool"})
+                 errors
+                 (add-to-errors errors k ["not of declared type bool"]))
+        (throw (Exception. (str "unrecognized type in Propety Definition \"" definition-type "\"")))))))
 
 #_(defn- check-extent-dimensions
     [k v mdef errors]
