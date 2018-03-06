@@ -1,16 +1,16 @@
 {
-   "property-id" "tag:staff@noreply.openkim.org,2015-05-26:property/intrinsic-stacking-fault-energy-fcc-crystal-npt"
+   "property-id" "tag:staff@noreply.openkim.org,2015-05-26:property/extrinsic-stacking-fault-relaxed-energy-fcc-crystal-npt"
 
-   "property-title" "Intrinsic stacking fault energy for a monoatomic fcc crystal at a specified pressure and temperature"
+   "property-title" "Relaxed extrinsic stacking fault energy for a monoatomic fcc crystal at a zero temperature and a given pressure"
 
-   "property-description" "The intrinsic stacking fault (ISF) energy for a monoatomic fcc crystal at a specified pressure and temperature. The ISF corresponds to a fault of the form ABC|BCA."
+   "property-description" "The extrinsic stacking fault (ESF) energy for a monoatomic fcc crystal at zero temperature and a specified pressure. The ESF corresponds to an ABC|BA|BC stacking, which can also be understood as a two-layer twin nucleus. Relaxation of the atomic coordinates is performed in the direction perpendicular to the fault plane."
 
    "a" {
        "type"         "float"
        "has-unit"     true
        "extent"       []
        "required"     true
-       "description"  "Average equilibrium conventional lattice constant of the fcc crystal consistent with the specified pressure and temperature."
+       "description"  "Zero-temperature, equilibrium conventional lattice constant of the fcc crystal consistent with the specified pressure."
    }
 
    "species" {
@@ -21,14 +21,6 @@
        "description"  "The element symbol of the fcc crystal material. This should contain only a single entry."
    }
 
-   "temperature" {
-      "type"          "float"
-      "has-unit"      true
-      "extent"        []
-      "required"      true
-      "description"   "Temperature of the crystal."
-   }
-
    "cauchy-stress" {
       "type"         "float"
       "has-unit"     true
@@ -37,11 +29,12 @@
       "description"  "The [xx,yy,zz,yz,xz,xy] (i.e. [11,22,33,23,13,12]) components of the Cauchy stress acting on the crystal.  The orthonormal basis used to express the stress should be aligned with the cubic 4-fold axes of the ideal crystal and the expected form of the stress tensor should be [d d d 0 0 0], where d > 0 indicates tensile stress."
    }
 
-   "intrinsic-stacking-fault-energy" {
+   "extrinsic-stacking-fault-energy" {
        "type"         "float"
        "has-unit"     true
        "extent"       []
        "required"     true
-       "description"  "The intrinsic stacking fault energy in units of energy per area."
+       "description"  "The relaxed extrinsic stacking fault energy in units of energy per area."
    }
+
 }

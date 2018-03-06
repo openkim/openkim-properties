@@ -1,16 +1,16 @@
 {
-   "property-id" "tag:staff@noreply.openkim.org,2015-05-26:property/gamma-surface-fcc-crystal-npt"
+   "property-id" "tag:staff@noreply.openkim.org,2015-05-26:property/gamma-surface-relaxed-fcc-crystal-npt"
 
-   "property-title" "The gamma surface created by rigid slip of a (111) plane on a grid of points defined by [112] and [-110] directions in a monoatomic fcc crystal at a specified pressure and temperature"
+   "property-title" "The relaxed gamma surface created by rigid slip of a (111) plane on a grid of points defined by [112] and [-110] directions in a monoatomic fcc crystal at zero temperature and a given pressure"
 
-   "property-description" "The energy-per-area versus all possible slips lying in the (111) lattice plane defines the Gamma surface. Due to periodicity of the crystal lattice, it suffices to sample a grid of points that span  a*sqrt(6)/2 and a*sqrt(2)/2  along the [112] and [-110] directions, respectively. This is achieved through a sequence of rigid displacements applied to one part of an fcc crystal relative to another on the (111) plane on a grid defined by the [112] and [-110] directions at a specified pressure and temperature."
+   "property-description" "The relaxed energy-per-area versus all possible slips lying in the (111) lattice plane defines the Gamma surface. Due to periodicity of the crystal lattice, it suffices to sample a grid of points that span  a*sqrt(6)/2 and a*sqrt(2)/2  along the [112] and [-110] directions, respectively. This is achieved through a sequence of rigid displacements applied to one part of an fcc crystal relative to another on the (111) plane on a grid defined by the [112] and [-110] directions at zero temperature and a specified pressure. Following each slip displacement, a relaxation of the atomic coordinates is performed in the direction perpendicular to the slip plane to arrive at the energy-per-area."
 
    "a" {
        "type"         "float"
        "has-unit"     true
        "extent"       []
        "required"     true
-       "description"  "Average equilibrium conventional lattice constant of the fcc crystal consistent with the specified pressure and temperature."
+       "description"  "Zero-temperature, equilibrium conventional lattice constant of the fcc crystal consistent with the specified pressure."
    }
 
    "species" {
@@ -19,14 +19,6 @@
        "extent"       [":"]
        "required"     true
        "description"  "The element symbol of the fcc crystal material. This should contain only a single entry."
-   }
-
-   "temperature" {
-      "type"          "float"
-      "has-unit"      true
-      "extent"        []
-      "required"      true
-      "description"   "Absolute temperature of the crystal."
    }
 
    "cauchy-stress" {
@@ -58,6 +50,6 @@
        "has-unit"     true
        "extent"       [":",":"]
        "required"     true
-       "description"  "The excess energy-per-area of the fault plane for a given relative displacement of the two crystal parts. This is a two dimensional array. Each row is evaluated at a fractional displacement of the corresponding index in the 'fault-plane-shift-fraction-110' array and each column is evaluated at a fractional displacement of the corresponding index in the 'fault-plane-shift-fraction-112' array."
+       "description"  "The relaxed excess energy-per-area of the fault plane for a given relative displacement of the two crystal parts.  All of the elements in a given sub-array contained within this array correspond to a single fractional displacement in the [-110] direction, but different fractional displacements in the [112] direction.  That is, if each sub-array contained in this array is taken to be a column in a matrix, the rows of this matrix would correspond to the elements in 'fault-plane-shift-fraction-112' and its columns would correspond to the elements of 'fault-plane-shift-fraction-110'."
    }
 }

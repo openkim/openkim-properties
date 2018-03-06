@@ -3,7 +3,6 @@ Crystal type = fcc
 a = @< a.source-value >@ @< a.source-unit >@
 Species = @< species.source-value >@
 
-Temperature = @< temperature.source-value >@ @< temperature.source-unit >@
 Cauchy stress = @< cauchy-stress.source-value >@ @< cauchy-stress.source-unit >@
 
 Displacement arrays for the fault plane and corresponding excess energy-per-area:
