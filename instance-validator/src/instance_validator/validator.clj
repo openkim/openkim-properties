@@ -144,7 +144,7 @@
    (float? item) "float"
    (integer? item) "int"
    (or (= true item) (= false item)) "bool"
-   :else (throw (Exception. (str "unrecognized type in Propety Instance for \"" item "\"")))))
+   :else (throw (Exception. (str "unrecognized type in Property Instance for \"" item "\"")))))
 
 (defn- items-to-types
   [items]
@@ -177,7 +177,7 @@
         "bool" (if (= set-of-types #{"bool"})
                  errors
                  (add-to-errors errors k ["not of declared type bool"]))
-        (throw (Exception. (str "unrecognized type in Propety Definition \"" definition-type "\"")))))))
+        (throw (Exception. (str "unrecognized type in Property Definition \"" definition-type "\"")))))))
 
 #_(defn- check-extent-dimensions
     [k v mdef errors]
