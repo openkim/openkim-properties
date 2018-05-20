@@ -1,0 +1,285 @@
+#!/usr/bin/env python
+
+# This file serves as a physics validator for instances of the 'enthalpy-of-mixing-curve-substitutional-binary-cubic-crystal-npt' property.
+# Author: Daniel S. Karls, University of Minnesota (karl0100 |AT| umn DOT edu)
+
+import inspect, os
+import clj, sys, re, numpy as np
+import cPickle as pickle
+
+# Used to flatten the results file so that it is a list with one level of depth.  Thus, it doesn't matter whether the file
+# already has square brackets around the outside of it or not
+def flatten(test_list):
+    if isinstance(test_list, list):
+        if len(test_list) == 0:
+            return []
+        first, rest = test_list[0], test_list[1:]
+        return flatten(first) + flatten(rest)
+    else:
+        return [test_list]
+
+# Common sections of messages output by this validator
+validation_error="physics-validator ERROR: "
+validation_pass="physics-validator PASS: "
+validation_warning="physics-validator WARNING: "
+validation_info="physics-validator INFO: "
+validation_passwithwarnings="KIM physics-validator pass with warnings"
+validation_passnowarnings="KIM physics-validator pass no warnings"
+
+# Property name and key names used in its Property Definition
+property_title='tag:staff@noreply.openkim.org,2017-07-31:property/enthalpy-of-mixing-curve-substitutional-binary-cubic-crystal-npt'
+property_id="property-id"
+property_short_name="short-name"
+property_basis_atom_coordinates="basis-atom-coordinates"
+property_space_group="space-group"
+property_wyck_mult_letter="wyckoff-multiplicity-and-letter"
+property_wyck_coord="wyckoff-coordinates"
+property_A_species="A-species"
+property_A_a="A-a"
+property_A_wyckoff_species="A-wyckoff-species"
+property_B_species="B-species"
+property_B_a="B-a"
+property_B_wyckoff_species="B-wyckoff-species"
+property_a="a"
+property_cauchy_stress="cauchy-stress"
+property_concentration="concentration"
+property_temperature="temperature"
+property_enthalpy_of_mixing="enthalpy-of-mixing"
+property_crystal_is_stable="crystal-is-stable"
+
+# Get the directory name for this physics-validator
+scriptDir = os.path.dirname(os.path.abspath(inspect.stack()[0][1]))
+
+# Load the results EDN file with clojure.
+# The file contents have already been verified as valid EDN by a separate validator internal to the KIM system.
+if len(sys.argv) == 1:
+    raise Exception(validation_error+"no result.edn file was specified.  Proper usage should be, e.g. \"./physics-validator <absolute-path-of-results.edn-file>\". Exiting...")
+if len(sys.argv) > 2:
+    raise Exception(validation_error+"too many input arguments.  Proper usage should be, e.g. \"./physics-validator <absolute-path-of-results.edn-file>\". Exiting...")
+resultsfile=sys.argv[1]
+testResultDir=os.path.dirname(resultsfile)
+with open(resultsfile) as f:
+    # Insert brackets around outside in case they weren't already there, then flatten (this is so we have a consistent format)
+    fr = "[" + f.read() + "]"
+    results = flatten(clj.loads(fr))
+
+# Now, loop over all of the instances in the results file and, if they are reporting the correct property, check them
+foundinstance=False
+for instance in results:
+    if instance[property_id]==property_title:
+        # Indicate that we've found at least one instance of the correct property in the results file
+        foundinstance=True
+
+        # Lists to hold strings that describe each success, warning, and error
+        successes=[]
+        warnings=[]
+        errors=[]
+
+        # Running tally of errors for multidimensional arrays used
+        totalwycklettererr=0
+        totalwyckcoorderr=0
+        specieserr=0
+        basisatomcoorderr=0
+
+        # Load data of required keys (which are verified to all be present, as enforced by a separate validator internal to the KIM system) into local variables
+        short_name                = instance[property_short_name]['source-value']              # One-dimensional array
+        basis_atom_coordinates    = instance[property_basis_atom_coordinates]['source-value']  # Two-dimensional array
+        concentration             = instance[property_concentration]['source-value']           # One-dimensional array
+        temperature               = instance[property_temperature]['si-value']             # Scalar
+
+        A_species                 = instance[property_A_species]['source-value']                 # String
+        A_a                       = instance[property_A_a]['si-value']                           # Scalar
+
+        B_species                 = instance[property_B_species]['source-value']                 # String
+        B_a                       = instance[property_B_a]['si-value']                           # Scalar
+
+        # Check existence of optional keys
+        # If any one of keys corresponding to property_space_group, property_wyck_mult_letter, or property_wyck_coord exists, check that the other two also exist by attempting to load them into local variables.
+        if (property_space_group in instance) or (property_wyck_mult_letter in instance) or (property_wyck_coord in instance):
+            space_group                     = instance[property_space_group]['source-value']       # String scalar
+            wyckoff_multiplicity_and_letter = instance[property_wyck_mult_letter]['source-value']  # One-dimensional array
+            wyckoff_coordinates             = instance[property_wyck_coord]['source-value']        # Two-dimensional array
+            # Check that the space group is one of the 36 cubic space groups
+            # Import cubic space groups from cubicspacegroups.pkl pickle binary
+            cubicspacegroupspkl=pickle.load(open(scriptDir+"/cubicspacegroups.pkl","rb"))
+            cubicspacegroups={k.lower():v for k, v in cubicspacegroupspkl.items()}
+            space_group_formatted=space_group.lower().replace(" ","")
+            if space_group_formatted not in cubicspacegroups:
+                errors.append(validation_error+"space group "+space_group+" does not correspond to one of the 36 cubic space groups!")
+            else:
+                successes.append(validation_pass+"space group "+space_group+" is a valid cubic spacegroup.")
+            # Check that the wyckoff-multiplicity-and-letter entries all consist of a positive integer followed by a single letter and are
+            # consistent with the cubic space group given
+            for wyckmultletter in wyckoff_multiplicity_and_letter:
+                if wyckmultletter.lower() not in cubicspacegroups[space_group_formatted]:
+                    errors.append(validation_error+"wyckoff site "+wyckmultletter+" does not belong to cubic space group "+space_group+"!")
+                    totalwycklettererr+=1
+            if totalwycklettererr == 0:
+                successes.append(validation_pass+"all wyckoff multiplicity-letter designations are valid.")
+            # Check that all wyckoff-coordinates components are in [-1,1]
+            for wyckcoord in wyckoff_coordinates:
+                for component in wyckcoord:
+                    if component < -1 or component > 1:
+                        errors.append(validation_error+"wyckoff coordinate "+str(wyckcoord)+" has component "+str(component)+" not in [-1,1]!")
+                        totalwyckcoorderr+=1
+            if totalwyckcoorderr == 0:
+                successes.append(validation_pass+"all wyckoff coordinates valid.")
+
+        # Also check if optional wyckoff species were given and, if so, that they match the required
+        # species keys
+        if (property_A_wyckoff_species in instance) and (property_B_wyckoff_species in instance):
+
+            A_wyckoff_species = instance[property_A_wyckoff_species]['source-value'] # One-dimensional array
+            if A_wyckoff_species != A_species:
+                errors.append(validation_error+"crystal A wyckoff species "+A_wyckoff_species+" does "
+                              "not match A-species ("+A_species+")!")
+
+            B_wyckoff_species = instance[property_B_wyckoff_species]['source-value']  # One-dimensional array
+            if B_wyckoff_species != B_species:
+                errors.append(validation_error+"crystal B wyckoff species "+B_wyckoff_species+" does "
+                              "not match B-species ("+B_species+")!")
+
+            # Check that all entries in A_wyckoff_species must be the same as A_species
+            for sp in A_wyckoff_species:
+                if sp != A_species:
+                    errors.append(validation_error+"wyckoff species "+sp+" listed for type A crystal does not match the value of key 'A-species' ("+A_species+")")
+
+            # Check that all entries in B_wyckoff_species must be the same as B_species
+            for sp in B_wyckoff_species:
+                if sp != B_species:
+                    errors.append(validation_error+"wyckoff species "+sp+" listed for type B crystal does not match the value of key 'B-species' ("+B_species+")")
+
+        elif (property_A_wyckoff_species in instance and property_B_wyckoff_species not in instance):
+            errors.append(validation_error+"key 'A-wyckoff-species' was given, but key "
+                          "'B-wyckoff-species' was not found!")
+        elif (property_B_wyckoff_species in instance and property_A_wyckoff_species not in instance):
+            errors.append(validation_error+"key 'B-wyckoff-species' was given, but key "
+                          "'A-wyckoff-species' was not found!")
+
+        if property_a in instance:
+            a = instance[property_a]['si-value']
+
+            # If lattice constant array 'a' was given, ensure that all entries of
+            # it are positive
+            a_sign_err = 0
+            for ind, entry in enumerate(a):
+                if entry <= 0.0:
+                    errors.append(validation_error+"element "+str(ind)+" (in 0-based indexing) of "
+                                  "lattice constant array 'a' has value "+str(entry)+" and is not "
+                                  "positive!")
+                    a_sign_err += 1
+
+            if a_sign_err == 0:
+                successes.append(validation_pass+"all elements of lattice constant array 'a' are positive.")
+
+            # Check that the first element of lattice constant array 'a' is equal
+            # to A_a and that the final element is equal to B_a
+            a_endpoints_err = 0
+            if abs(a[0] - A_a) > 1e-3:
+                errors.append(validation_error+"first element of lattice constant array 'a' ("+str(a[0])+
+                              ") is not equal to A-a ("+str(A_a)+")!")
+                a_endpoints_err += 1
+
+            if abs(a[-1] - B_a) > 1e-3:
+                errors.append(validation_error+"last element of lattice constant array 'a' ("+str(a[-1])+
+                              ") is not equal to B-a ("+str(B_a)+")!")
+                a_endpoints_err += 1
+
+            if a_endpoints_err == 0:
+                successes.append(validation_pass+"first and last elements of lattice constant array 'a' "
+                                 "match A-a and B-a, respectively.")
+
+
+        #############################################
+        # Begin physical checks on required results #
+        #############################################
+
+        # Check that the species names are valid.  Note that in this Property Definition, the species must be labeled according to standard element names in the periodic table.
+        # Import element names from periodic_table.txt
+        periodictable=[]
+        with open(scriptDir+"/periodic_table.txt") as f:
+            for line in f:
+                split = line.split()
+                periodictable.append(split[1])
+        if A_species not in periodictable:
+            errors.append(validation_error+"the A-type species "+A_species+" not found in periodic table!")
+            specieserr+=1
+        if B_species not in periodictable:
+            errors.append(validation_error+"the B-type species "+B_species+" not found in periodic table!")
+            specieserr+=1
+
+        if A_species == B_species:
+            errors.append(validation_error+"species "+A_species+" of type A atoms must differ from species "+B_species+" of type B atoms!")
+            specieserr+=1
+
+        if specieserr == 0:
+            successes.append(validation_pass+"all species symbols are valid.")
+
+        # Check that the lattice constant is positive
+        if A_a <= 0.0:
+            errors.append(validation_error+"lattice constant A-a="+str(A_a)+" is not positive!")
+        else:
+            successes.append(validation_pass+"lattice constant A-a="+str(A_a)+" is positive.")
+
+        if B_a <= 0.0:
+            errors.append(validation_error+"lattice constant B-a="+str(B_a)+" is not positive!")
+        else:
+            successes.append(validation_pass+"lattice constant B-a="+str(B_a)+" is positive.")
+
+
+        # Check that all basis-atom-coordinates components are in [0,1)
+        for coord in basis_atom_coordinates:
+            for component in coord:
+                if component < 0 or component >= 1:
+                    errors.append(validation_error+"basis atom coordinate "+str(coord)+" has component "+str(component)+" not in [0,1)!")
+                    basisatomcoorderr+=1
+        if basisatomcoorderr == 0:
+            successes.append(validation_pass+"all basis atom coordinates valid.")
+
+        # Check that concentration is in [0,1]
+        concentrationerrs = 0
+        for c in concentration:
+            if c < 0:
+                errors.append(validation_error+"value "+c+" found in 'concentration' array is negative")
+                concentrationerrs+=1
+            elif c > 1:
+                errors.append(validation_error+"value "+c+" found in 'concentration' array is greater than unity")
+                concentrationerrs+=1
+
+        if concentrationerrs == 0:
+            successes.append(validation_pass+"all concentrations are in the range [0,1].")
+
+        # Check that temperature (in K) is non-negative
+        if float(temperature) < 0.0:
+            errors.append(validation_error+"temperature given ("+str(temperature)+" K) is negative!")
+        else:
+            successes.append(validation_pass+"temperature given (in K) is positive.")
+
+        print "{"
+        print validation_info+"instance-id = ", instance['instance-id']
+        # Write successful checks to stdout
+        successoutput="\n".join(successes)
+        print successoutput
+
+        # Print any errors and warnings
+        if len(errors) > 0 and len(warnings) == 0:
+            erroroutput="\n".join(errors)
+            raise Exception("\n"+erroroutput)
+        elif len(errors) == 0 and len(warnings) > 0:
+            warningoutput="\n".join(warnings)
+            print warningoutput
+            # Print standard message to last line of stdout indicating successful validation
+            print validation_passwithwarnings
+        elif len(errors) > 0 and len(warnings) > 0:
+            erroroutput="\n".join(errors)
+            warningoutput="\n".join(warnings)
+            print warningoutput
+            raise Exception("\n"+erroroutput)
+        elif len(errors) == 0 and len(warnings) == 0:
+            # Print standard message to last line of stdout indicating successful validation
+            print validation_passnowarnings
+
+        print "}"
+
+if foundinstance == False:
+    raise Exception(validation_error+"Could not find any instances of property "+property_title+" in the indicated results file")
