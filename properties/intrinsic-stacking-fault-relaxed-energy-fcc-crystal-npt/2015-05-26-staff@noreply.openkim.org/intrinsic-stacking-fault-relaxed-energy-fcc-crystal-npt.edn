@@ -3,7 +3,7 @@
 
    "property-title" "Relaxed intrinsic stacking fault energy for a monoatomic fcc crystal at zero temperature and a given pressure"
 
-   "property-description" "The intrinsic stacking fault (ISF) energy for a monoatomic fcc crystal at a specified pressure and temperature. The ISF corresponds to a fault of the form ABC|BCA. Relaxation of the atomic coordinates is performed in the direction perpendicular to the fault plane."
+   "property-description" "The intrinsic stacking fault (ISF) energy for a monoatomic fcc crystal at zero temperature and a specified pressure. The ISF corresponds to a fault of the form ABC|BCA. Relaxation of the atomic coordinates is performed in the direction perpendicular to the fault plane."
 
    "a" {
        "type"         "float"
