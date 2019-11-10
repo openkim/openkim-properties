@@ -11,6 +11,6 @@ Arrays of nominal shear strain and corresponding shear stress and Cauchy-Born st
 
    Nominal shear strain array (dimensionless) = @< nominal-shear-strain.source-value >@
 
-   Nominal shear stress array (@<nominal-shear-stress.source-unit @>) = @< nominal-shear-stress.source-value >@
+   Nominal shear stress array (@<nominal-shear-stress.source-unit >@) = @< nominal-shear-stress.source-value >@
 
    Cauchy-Born stability (boolean) = @< cauchy-born-stability.source-value >@

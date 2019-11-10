@@ -11,4 +11,4 @@ Arrays of shear parameter and corresponding cohesive energy:
 
    Shear parameter array (dimensionless) = @< shear-parameter.source-value >@
 
-   Cohesive potential energy array (@<cohesive-potential-energy.source-unit @>) = @< cohesive-potential-energy.source-value >@
+   Cohesive potential energy array (@<cohesive-potential-energy.source-unit >@) = @< cohesive-potential-energy.source-value >@

@@ -9,8 +9,8 @@ Shear direction =  @< shear-direction.source-value >@
 
 Arrays of applied nominal (first Piola-Kirchhoff) shear stress and corresponding cohesive energy and Cauchy-Born stability:
 
-   Nominal shear stress array (@<nominal-shear-stress.source-unit @>) = @< nominal-shear-stress.source-value >@
+   Nominal shear stress array (@<nominal-shear-stress.source-unit >@) = @< nominal-shear-stress.source-value >@
 
-   Cohesive potential energy array (@<cohesive-potential-energy.source-unit @>) = @< cohesive-potential-energy.source-value >@
+   Cohesive potential energy array (@<cohesive-potential-energy.source-unit >@) = @< cohesive-potential-energy.source-value >@
 
    Cauchy-Born stability array (boolean) = @< cauchy-born-stability.source-value >@
