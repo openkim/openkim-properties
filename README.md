@@ -4,7 +4,7 @@
 
 This content populates the Property Definitions of the OpenKIM project.
 
-This information is used to generate <https://kim-items.openkim.org/properties>
+This information is used to generate <https://openkim.org/properties>
 
 See also the companion repository which contains the content of the Property Definitions Documentation Wiki: <https://github.com/openkim/openkim-properties-wiki>
 
