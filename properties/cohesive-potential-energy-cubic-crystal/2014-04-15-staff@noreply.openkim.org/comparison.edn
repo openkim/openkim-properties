@@ -1,0 +1,13 @@
+{
+   "property" "cohesive-potential-energy-cubic-crystal"
+
+   "match-keys" [ "basis-atom-coordinates", "species" ]
+
+   "comparison-keys" [
+     {
+       "definition-item-key" "cohesive-potential-energy"
+       "definition-item-key-display" "Ec"
+       "unit" "eV"
+     }
+   ]
+}
