@@ -1,0 +1,12 @@
+{
+   "property" "structure-cubic-crystal-npt"
+
+   "match-keys" [ "basis-atom-coordinates", "cauchy-stress", "species", "temperature" ]
+
+   "comparison-keys" [
+     {
+       "definition-item-key" "a"
+       "unit" "angstrom"
+     }
+   ]
+}
