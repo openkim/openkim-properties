@@ -1,0 +1,13 @@
+{
+   "property" "cohesive-potential-energy-2d-hexagonal-crystal"
+
+   "match-keys" [ "basis-atom-coordinates", "species" ]
+
+   "comparison-keys" [
+     {
+       "definition-item-key" "conesive-potential-energy"
+       "definition-item-key-display" "Ec"  ;; An optional field to say this should be in uppercase when displayed to the user
+       "unit" "eV"
+     }
+   ]
+}
