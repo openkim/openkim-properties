@@ -1,0 +1,13 @@
+{
+   "property" "bulk-modulus-isothermal-hexagonal-crystal-npt"
+
+   "match-keys" [ "basis-atom-coordinates", "cauchy-stress", "species", "temperature" ]
+
+   "comparison-keys" [
+     {
+       "definition-item-key" "isothermal-bulk-modulus"
+       "definition-item-key-display" "B"  ;; An optional field to say this should be in uppercase when displayed to the user
+       "unit" "GPa"
+     }
+   ]
+}
