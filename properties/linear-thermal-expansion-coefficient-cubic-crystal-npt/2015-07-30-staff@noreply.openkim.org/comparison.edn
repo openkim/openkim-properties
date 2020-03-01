@@ -1,0 +1,13 @@
+{
+   "property" "linear-thermal-expansion-coefficient-cubic-crystal-npt"
+
+   "match-keys" [ "basis-atom-coordinates", "cauchy-stress", "species", "temperature" ]
+
+   "comparison-keys" [
+     {
+       "definition-item-key" "linear-thermal-expansion-coefficient"
+       "definition-item-key-display" "alphaL"  ;; An optional field to say this should be in uppercase when displayed to the user
+       "unit" "GPa"
+     }
+   ]
+}
