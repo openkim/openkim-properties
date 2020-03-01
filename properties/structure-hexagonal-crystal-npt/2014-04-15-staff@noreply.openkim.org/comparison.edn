@@ -1,0 +1,16 @@
+{
+   "property" "structure-hexagonal-crystal-npt"
+
+   "match-keys" [ "basis-atom-coordinates", "cauchy-stress", "species", "temperature" ]
+
+   "comparison-keys" [
+     {
+       "definition-item-key" "a"
+       "unit" "angstrom"
+     }
+     {
+       "definition-item-key" "c"
+       "unit" "angstrom"
+     }
+   ]
+}
