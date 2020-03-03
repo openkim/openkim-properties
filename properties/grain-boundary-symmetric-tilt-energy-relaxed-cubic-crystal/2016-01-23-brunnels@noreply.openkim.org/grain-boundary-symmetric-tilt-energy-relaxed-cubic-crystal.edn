@@ -94,7 +94,7 @@
     "has-unit"     true
     "extent"       []
     "required"     true
-    "description"  "Relaxed grain boundary excess energy density (energy per unit area), i.e. the difference between the energy of the bi-crystal containing the symmetric tilt grain boundary structure and the energy of an ideal crystal with the same number of atoms per unit area of the interface."
+    "description"  "Relaxed grain boundary excess energy density (energy per unit area), i.e. the difference between the ground state energy of the bi-crystal containing the symmetric tilt grain boundary structure and the energy of an ideal crystal with the same number of atoms per unit area of the interface."
   }
   "relaxed-interface-positions" {
     "type"         "file"
