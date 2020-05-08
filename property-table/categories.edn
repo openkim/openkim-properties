@@ -13,7 +13,7 @@
  "wall/stacking-energy"
  "wall/surface-energy"
  "wall/grain-boundary"
- "line/"
+ "line/dislocation-core"
  "point/vacancy-formation-energy"
  "point/vacancy-migration-energy"
 ]
