@@ -1,0 +1,19 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2015-09-16:property/monovacancy-neutral-migration-energy-crystal-npt"
+        "display-name" "Migration energy of neutral monovacancy at zero temperature and given stress state"
+    },
+
+    "comparison-keys" [
+        {"key" "vacancy-migration-energy", "units" "eV", "extent" [], "display-name" "Vacancy migration energy"}
+    ],
+
+    "match-keys" [
+        {"key" "host-short-name", "units" nil, "extent" [], "display-name" "Crystal structure"}
+        {"key" "host-wyckoff-species", "units" nil, "extent" [":"], "display-name" "Wyckoff species"}
+        {"key" "host-missing-atom-start", "units" nil, "extent" [], "display-name" "Initial missing atom index", "match-requirement" "optional"}
+        {"key" "host-missing-atom-end", "units" nil, "extent" [], "display-name" "Final missing atom index", "match-requirement" "optional"}
+        {"key" "host-cauchy-stress", "units" "GPa", "extent" [":"], "display-name" "Cauchy stress"}
+
+    ]
+}

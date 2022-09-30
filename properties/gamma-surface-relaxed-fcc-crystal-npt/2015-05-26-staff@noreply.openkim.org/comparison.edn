@@ -1,0 +1,18 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2015-05-26:property/gamma-surface-relaxed-fcc-crystal-npt"
+        "display-name" "The relaxed gamma surface created by rigid slip of a (111) plane on a grid of points defined by [112] and [-110] directions in a monoatomic fcc crystal at zero temperature and a given pressure"
+    },
+
+    "comparison-keys" [
+        {"key" "fault-plane-shift-fraction-112", "units" nil, "extent" [":"], "display-name" "[112] fault plane shift fraction"}
+        {"key" "fault-plane-shift-fraction-110", "units" nil, "extent" [":"], "display-name" "[110] fault plane shift fraction"}
+        {"key" "gamma-surface", "units" "eV/angstrom^2", "extent" [":",":"], "display-name" "Gamma surface energy"}
+    ],
+
+    "match-keys" [
+        {"key" "species", "units" nil, "extent" [], "display-name" "Species"}
+        {"key" "short-name", "units" nil, "extent" [], "display-name" "Crystal structure"}
+        {"key" "cauchy-stress", "units" "GPa", "extent" [":"], "display-name" "Cauchy stress"}
+    ]
+}

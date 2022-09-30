@@ -1,12 +1,16 @@
 {
     "property" {
-        "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/structure-hexagonal-crystal-npt"
-        "display-name" "Equilibrium hexagonal crystal structure at a given temperature and stress state"
+        "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/structure-triclinic-crystal-npt"
+        "display-name" "Equilibrium triclinic crystal structure at a given temperature and stress state"
     },
 
     "comparison-keys" [
         {"key" "a", "units" "angstrom", "extent" [], "display-name" "a"}
+        {"key" "b", "units" "angstrom", "extent" [], "display-name" "b"}
         {"key" "c", "units" "angstrom", "extent" [], "display-name" "c"}
+        {"key" "alpha", "units" "degrees", "extent" [], "display-name" "alpha"}
+        {"key" "beta", "units" "degrees", "extent" [], "display-name" "beta"}
+        {"key" "gamma", "units" "degrees", "extent" [], "display-name" "gamma"}
     ],
 
     "match-keys" [

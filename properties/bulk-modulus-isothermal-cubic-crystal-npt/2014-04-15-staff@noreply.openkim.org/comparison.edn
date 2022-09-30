@@ -1,11 +1,12 @@
 {
     "property" {
-        "property-id" "tag:staff@noreply.openkim.org,2015-07-30:property/linear-thermal-expansion-coefficient-cubic-crystal-npt"
-        "display-name" "Linear thermal expansion coefficient of a cubic crystal structure at given temperature and pressure"
+        "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/bulk-modulus-isothermal-cubic-crystal-npt"
+        "display-name" "Isothermal bulk modulus of a cubic crystal at constant temperature and hydrostatic stress"
     },
 
     "comparison-keys" [
-        {"key" "linear-thermal-expansion-coefficient", "units" "1/K", "extent" [], "display-name" "Linear thermal expansion coefficient"}
+        {"key" "a", "units" "angstrom", "extent" [], "display-name" "Lattice constant a"}
+        {"key" "isothermal-bulk-modulus", "units" "GPa", "extent" [], "display-name" "Isothermal bulk modulus"}
     ],
 
     "match-keys" [

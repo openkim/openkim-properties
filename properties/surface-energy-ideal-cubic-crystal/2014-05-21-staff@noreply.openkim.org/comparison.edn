@@ -1,0 +1,21 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2014-05-21:property/surface-energy-ideal-cubic-crystal"
+        "display-name" "Ideal surface energy for a cubic crystal"
+    },
+
+    "comparison-keys" [
+        {"key" "ideal-surface-energy", "units" "eV/angstrom^2", "extent" [], "display-name" "Surface energy"}
+    ],
+
+    "match-keys" [
+        {"key" "species", "units" nil, "extent" [], "display-name" "Species"}
+        {"key" "short-name", "units" nil, "extent" [], "display-name" "Crystal structure"}
+        {"key" "cauchy-stress", "units" "GPa", "extent" [":"], "display-name" "Cauchy stress"}
+        {"key" "temperature", "units" "K", "extent" [], "display-name" "Temperature"}
+        {"key" "miller-indices", "units" nil, "extent" [":"], "display-name" "Surface Miller indices"}
+        {"key" "termination", "units" nil, "extent" [], "display-name" "Surface termination", "match-requirement" "optional"}
+        {"key" "step-structure-notation", "units" nil, "extent" [], "display-name" "Step structure notation", "match-requirement" "optional"}
+        {"key" "wood-notation", "units" nil, "extent" [], "display-name" "Wood notation", "match-requirement" "optional"}
+    ]
+}

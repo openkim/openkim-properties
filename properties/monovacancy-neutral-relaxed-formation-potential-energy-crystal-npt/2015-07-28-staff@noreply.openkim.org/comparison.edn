@@ -1,0 +1,21 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2015-07-28:property/monovacancy-neutral-relaxed-formation-potential-energy-crystal-npt"
+        "display-name" "Relaxed formation potential energy of a neutral monovacancy in a crystal at zero temperature and a given stress state"
+    },
+
+    "comparison-keys" [
+        {"key" "relaxed-formation-potential-energy", "units" "eV", "extent" [], "display-name" "Relaxed formation potential energy"}
+    ],
+
+    "match-keys" [
+        {"key" "host-short-name", "units" nil, "extent" [], "display-name" "Host crystal structure"}
+        {"key" "host-wyckoff-species", "units" nil, "extent" [":"], "display-name" "Host Wyckoff species"}
+        {"key" "host-removed-atom", "units" nil, "extent" [], "display-name" "Host removed atom index", "match-requirement" "optional"}
+        {"key" "host-cauchy-stress", "units" "GPa", "extent" [":"], "display-name" "Host Cauchy stress"}
+        {"key" "reservoir-short-name", "units" nil, "extent" [], "display-name" "Reservoir crystal structure"}
+        {"key" "reservoir-wyckoff-species", "units" nil, "extent" [":"], "display-name" "Reservoir Wyckoff species"}
+        {"key" "reservoir-cauchy-stress", "units" "GPa", "extent" [":"], "display-name" "Reservoir Cauchy stress"}
+
+    ]
+}

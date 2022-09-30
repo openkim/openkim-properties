@@ -1,0 +1,16 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2014-08-21:property/melting-temperature-constant-pressure-cubic-crystal"
+        "display-name" "Melting temperature of a cubic crystal structure at a given hydrostatic stress"
+    },
+
+    "comparison-keys" [
+        {"key" "melting-temperature", "units" "K", "extent" [], "display-name" "Melting temperature"}
+    ],
+
+    "match-keys" [
+        {"key" "species", "units" nil, "extent" [], "display-name" "Species"}
+        {"key" "short-name", "units" nil, "extent" [], "display-name" "Crystal structure"}
+        {"key" "cauchy-stress", "units" "GPa", "extent" [":"], "display-name" "Cauchy stress"}
+    ]
+}

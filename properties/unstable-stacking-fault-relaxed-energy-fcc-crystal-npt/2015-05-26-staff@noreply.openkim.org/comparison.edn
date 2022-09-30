@@ -1,0 +1,17 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2015-05-26:property/unstable-stacking-fault-relaxed-energy-fcc-crystal-npt"
+        "display-name" "Relaxed unstable stacking energy for a monoatomic fcc crystal at zero temperature and a given pressure"
+    },
+
+    "comparison-keys" [
+        {"key" "unstable-stacking-energy", "units" "eV/angstrom^2", "extent" [], "display-name" "Unstable stacking energy"}
+        {"key" "unstable-slip-fraction", "units" nil, "extent" [], "display-name" "Unstable slip fraction"}
+    ],
+
+    "match-keys" [
+        {"key" "species", "units" nil, "extent" [], "display-name" "Species"}
+        {"key" "short-name", "units" nil, "extent" [], "display-name" "Crystal structure"}
+        {"key" "cauchy-stress", "units" "GPa", "extent" [":"], "display-name" "Cauchy stress"}
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/monovacancy-formation-energy-monoatomic-cubic-diamond"
+        "display-name" "Formation energy of a monovacancy in a monoatomic cubic diamond crystal at zero absolute temperature"
+    },
+
+    "comparison-keys" [
+        {"key" "formation-free-energy", "units" "eV", "extent" [], "display-name" "Formation free energy"}
+    ],
+
+    "match-keys" [
+        {"key" "host-short-name", "units" nil, "extent" [], "display-name" "Host crystal structure"}
+        {"key" "host-wyckoff-species", "units" nil, "extent" [":"], "display-name" "Host Wyckoff species"}
+        {"key" "host-removed-atom", "units" nil, "extent" [], "display-name" "Host removed atom index", "match-requirement" "optional"}
+        {"key" "host-temperature", "units" "K", "extent" [], "display-name" "Host temperature"}
+        {"key" "host-cauchy-stress", "units" "GPa", "extent" [":"], "display-name" "Host Cauchy stress"}
+        {"key" "reservoir-short-name", "units" nil, "extent" [], "display-name" "Reservoir crystal structure"}
+        {"key" "reservoir-wyckoff-species", "units" nil, "extent" [":"], "display-name" "Reservoir Wyckoff species"}
+        {"key" "reservoir-temperature", "units" "K", "extent" [], "display-name" "Reservoir temperature"}
+        {"key" "reservoir-cauchy-stress", "units" "GPa", "extent" [":"], "display-name" "Reservoir Cauchy stress"}
+
+    ]
+}

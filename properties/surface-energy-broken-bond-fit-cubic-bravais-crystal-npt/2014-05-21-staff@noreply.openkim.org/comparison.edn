@@ -1,0 +1,22 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2014-05-21:property/surface-energy-broken-bond-fit-cubic-bravais-crystal-npt"
+        "display-name" "Surface energy broken bond fit model"
+    },
+
+    "comparison-keys" [
+        {"key" "fit-c", "units" "eV/angstrom^2", "extent" [], "display-name" "c-parameter broken bond model"}
+        {"key" "fit-p1", "units" "eV/angstrom^2", "extent" [], "display-name" "p1-parameter broken bond model"}
+        {"key" "fit-p2", "units" "eV/angstrom^2", "extent" [], "display-name" "p2-parameter broken bond model"}
+        {"key" "fit-p3", "units" "eV/angstrom^2", "extent" [], "display-name" "p3-parameter broken bond model"}
+        {"key" "fit-error-max", "units" nil, "extent" [], "display-name" "Maximum relative error of fit"}
+        {"key" "fit-error-range", "units" nil, "extent" [], "display-name" "Averge relative error range of fit"}
+    ],
+
+    "match-keys" [
+        {"key" "species", "units" nil, "extent" [], "display-name" "Species"}
+        {"key" "short-name", "units" nil, "extent" [], "display-name" "Crystal structure"}
+        {"key" "cauchy-stress", "units" "GPa", "extent" [":"], "display-name" "Cauchy stress"}
+        {"key" "temperature", "units" "K", "extent" [], "display-name" "Temperature"}
+    ]
+}

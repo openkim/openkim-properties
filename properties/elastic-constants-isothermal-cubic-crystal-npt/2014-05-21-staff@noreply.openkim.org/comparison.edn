@@ -1,23 +1,19 @@
 {
-   "property" "elastic-constants-isothermal-cubic-crystal-npt"
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2014-05-21:property/elastic-constants-isothermal-cubic-crystal-npt"
+        "display-name" "Isothermal elastic constants for a cubic crystal at constant temperature and stress"
+    },
 
-   "match-keys" [ "basis-atom-coordinates", "cauchy-stress", "species", "temperature" ]
+    "comparison-keys" [
+        {"key" "c11", "units" "GPa", "extent" [], "display-name" "Isothermal C11"}
+        {"key" "c12", "units" "GPa", "extent" [], "display-name" "Isothermal C12"}
+        {"key" "c44", "units" "GPa", "extent" [], "display-name" "Isothermal C44"}
+    ],
 
-   "comparison-keys" [
-     {
-       "definition-item-key" "c11"
-       "definition-item-key-display" "C11"  ;; An optional field to say this should be in uppercase when displayed to the user
-       "unit" "GPa"
-     }
-     {
-       "definition-item-key" "c12"
-       "definition-item-key-display" "C12"
-       "unit" "GPa"
-     }
-     {
-       "definition-item-key" "c44"
-       "definition-item-key-display" "C44"
-       "unit" "GPa"
-     }
-   ]
+    "match-keys" [
+        {"key" "species", "units" nil, "extent" [], "display-name" "Species"}
+        {"key" "short-name", "units" nil, "extent" [], "display-name" "Crystal structure"}
+        {"key" "cauchy-stress", "units" "GPa", "extent" [":"], "display-name" "Cauchy stress"}
+        {"key" "temperature", "units" "K", "extent" [], "display-name" "Temperature"}
+    ]
 }

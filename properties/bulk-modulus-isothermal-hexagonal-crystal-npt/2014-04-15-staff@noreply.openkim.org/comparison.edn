@@ -1,13 +1,19 @@
 {
-   "property" "bulk-modulus-isothermal-hexagonal-crystal-npt"
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/bulk-modulus-isothermal-hexagonal-crystal-npt"
+        "display-name" "Isothermal bulk modulus of a hexagonal crystal structure at constant temperature and stress"
+    },
 
-   "match-keys" [ "basis-atom-coordinates", "cauchy-stress", "species", "temperature" ]
+    "comparison-keys" [
+        {"key" "a", "units" "angstrom", "extent" [], "display-name" "Lattice constant a"}
+        {"key" "c", "units" "angstrom", "extent" [], "display-name" "Lattice constant c"}
+        {"key" "isothermal-bulk-modulus", "units" "GPa", "extent" [], "display-name" "Isothermal bulk modulus"}
+    ],
 
-   "comparison-keys" [
-     {
-       "definition-item-key" "isothermal-bulk-modulus"
-       "definition-item-key-display" "B"  ;; An optional field to say this should be in uppercase when displayed to the user
-       "unit" "GPa"
-     }
-   ]
+    "match-keys" [
+        {"key" "species", "units" nil, "extent" [], "display-name" "Species"}
+        {"key" "short-name", "units" nil, "extent" [], "display-name" "Crystal structure"}
+        {"key" "cauchy-stress", "units" "GPa", "extent" [":"], "display-name" "Cauchy stress"}
+        {"key" "temperature", "units" "K", "extent" [], "display-name" "Temperature"}
+    ]
 }

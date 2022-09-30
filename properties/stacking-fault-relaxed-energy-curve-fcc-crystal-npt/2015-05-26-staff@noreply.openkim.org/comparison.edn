@@ -1,0 +1,17 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2015-05-26:property/stacking-fault-relaxed-energy-curve-fcc-crystal-npt"
+        "display-name" "Relaxed stacking energy per unit area curve for layer-by-layer rigid slip on {111}<112> in a monoatomic fcc crystal at zero temperature and a specified pressure"
+    },
+
+    "comparison-keys" [
+        {"key" "fault-plane-shift-fraction", "units" nil, "extent" [":"], "display-name" "Fault plane shift fraction"}
+        {"key" "fault-plane-energy", "units" "eV/angstrom^2", "extent" [":"], "display-name" "Fault plane energy"}
+    ],
+
+    "match-keys" [
+        {"key" "species", "units" nil, "extent" [], "display-name" "Species"}
+        {"key" "short-name", "units" nil, "extent" [], "display-name" "Crystal structure"}
+        {"key" "cauchy-stress", "units" "GPa", "extent" [":"], "display-name" "Cauchy stress"}
+    ]
+}

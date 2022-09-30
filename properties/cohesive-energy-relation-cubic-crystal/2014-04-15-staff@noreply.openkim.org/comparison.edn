@@ -1,0 +1,16 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/cohesive-energy-relation-cubic-crystal"
+        "display-name" "Cohesive energy versus lattice constant relation for a cubic crystal"
+    },
+
+    "comparison-keys" [
+        {"key" "a", "units" "angstrom", "extent" [":"], "display-name" "Lattice constant vector"}
+        {"key" "cohesive-potential-energy", "units" "eV", "extent" [":"], "display-name" "Cohesive energy"}
+    ],
+
+    "match-keys" [
+        {"key" "species", "units" nil, "extent" [], "display-name" "Species"}
+        {"key" "short-name", "units" nil, "extent" [], "display-name" "Crystal structure"}
+    ]
+}

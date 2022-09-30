@@ -1,0 +1,19 @@
+{
+    "property" {
+        "property-id" "tag:brunnels@noreply.openkim.org,2016-01-23:property/grain-boundary-symmetric-tilt-energy-ideal-cubic-crystal"
+        "display-name" "Ideal symmetric tilt grain boundary energy for a cubic crystal"
+    },
+
+    "comparison-keys" [
+        {"key" "ideal-grain-boundary-energy", "units" "eV/angstrom^2", "extent" [], "display-name" "Ideal grain boundary energy"}
+    ],
+
+    "match-keys" [
+        {"key" "species", "units" nil, "extent" [], "display-name" "Species"}
+        {"key" "short-name", "units" nil, "extent" [], "display-name" "Crystal structure"}
+        {"key" "tilt-axis", "units" nil, "extent" [":"], "display-name" "Tilt axis"}
+        {"key" "tilt-angle", "units" nil, "extent" [], "display-name" "Tilt angle"}
+        {"key" "minimum-atom-separation", "units" "angstrom", "extent" [], "display-name" "Tilt angle", "match-requirement" "optional"}
+        {"key" "sigma", "units" nil, "extent" [], "display-name" "Sigma ratio", "match-requirement" "optional"}
+    ]
+}

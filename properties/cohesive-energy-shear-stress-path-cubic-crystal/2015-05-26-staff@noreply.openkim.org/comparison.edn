@@ -1,0 +1,19 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2015-05-26:property/cohesive-energy-shear-stress-path-cubic-crystal"
+        "display-name" "Cohesive energy and stability versus first Piola-Kirchhoff shear stress path of a cubic crystal"
+    },
+
+    "comparison-keys" [
+        {"key" "nominal-shear-stress", "units" "eV/angstrom^3", "extent" [":"], "display-name" "Nominal (1st PK) shear stress"}
+        {"key" "cohesive-potential-energy", "units" "eV", "extent" [":"], "display-name" "Cauchy-Born stability"}
+        {"key" "cauchy-born-stability", "units" nil, "extent" [":"], "display-name" "Cauchy-Born stability"}
+    ],
+
+    "match-keys" [
+        {"key" "species", "units" nil, "extent" [], "display-name" "Species"}
+        {"key" "short-name", "units" nil, "extent" [], "display-name" "Crystal structure"}
+        {"key" "shear-direction", "units" nil, "extent" [":"], "display-name" "Shear direction"}
+        {"key" "shear-plane-normal", "units" nil, "extent" [":"], "display-name" "Shear plane normal"}
+    ]
+}

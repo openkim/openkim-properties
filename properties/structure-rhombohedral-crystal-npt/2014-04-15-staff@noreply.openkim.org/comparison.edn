@@ -1,11 +1,12 @@
 {
     "property" {
-        "property-id" "tag:staff@noreply.openkim.org,2015-07-30:property/linear-thermal-expansion-coefficient-cubic-crystal-npt"
-        "display-name" "Linear thermal expansion coefficient of a cubic crystal structure at given temperature and pressure"
+        "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/structure-rhombohedral-crystal-npt"
+        "display-name" "Equilibrium rhombohedral crystal structure at a given temperature and stress state"
     },
 
     "comparison-keys" [
-        {"key" "linear-thermal-expansion-coefficient", "units" "1/K", "extent" [], "display-name" "Linear thermal expansion coefficient"}
+        {"key" "a", "units" "angstrom", "extent" [], "display-name" "a"}
+        {"key" "alpha", "units" "degrees", "extent" [], "display-name" "alpha"}
     ],
 
     "match-keys" [

@@ -1,0 +1,21 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2017-07-31:property/enthalpy-of-mixing-curve-substitutional-binary-cubic-crystal-npt"
+        "display-name" "Enthalpy of Mixing versus Concentration for Substitutional Random Binary A-B Cubic Crystal Alloys under NPT Conditions"
+    },
+
+    "comparison-keys" [
+        {"key" "concentration", "units" nil, "extent" [":"], "display-name" "Concentration (fraction of atom sites with B atoms)"}
+        {"key" "a", "units" "angstrom", "extent" [":"], "display-name" "Lattice constant a"}
+        {"key" "enthalpy-of-mixing", "units" "eV", "extent" [":"], "display-name" "Enthalpy of mixing"}
+        {"key" "crystal-is-stable", "units" nil, "extent" [":"], "display-name" "Crystal stability"}
+    ],
+
+    "match-keys" [
+        {"key" "short-name", "units" nil, "extent" [], "display-name" "Crystal structure"}
+        {"key" "A-species", "units" nil, "extent" [], "display-name" "Type A atom species"}
+        {"key" "B-species", "units" nil, "extent" [], "display-name" "Type B atom species"}
+        {"key" "cauchy-stress", "units" "GPa", "extent" [":"], "display-name" "Cauchy stress"}
+        {"key" "temperature", "units" "K", "extent" [], "display-name" "Temperature"}
+    ]
+}

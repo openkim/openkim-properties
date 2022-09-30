@@ -1,0 +1,16 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2015-05-26:property/extrinsic-stacking-fault-relaxed-energy-fcc-crystal-npt"
+        "display-name" "Relaxed extrinsic stacking fault energy for a monoatomic fcc crystal at a zero temperature and a given pressure"
+    },
+
+    "comparison-keys" [
+        {"key" "extrinsic-stacking-fault-energy", "units" "eV/angstrom^2", "extent" [], "display-name" "Extrinsic stacking fault energy"}
+    ],
+
+    "match-keys" [
+        {"key" "species", "units" nil, "extent" [], "display-name" "Species"}
+        {"key" "short-name", "units" nil, "extent" [], "display-name" "Crystal structure"}
+        {"key" "cauchy-stress", "units" "GPa", "extent" [":"], "display-name" "Cauchy stress"}
+    ]
+}
