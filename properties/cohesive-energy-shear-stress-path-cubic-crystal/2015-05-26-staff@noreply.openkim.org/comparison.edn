@@ -5,15 +5,15 @@
     },
 
     "comparison-keys" [
-        {"key" "nominal-shear-stress", "units" "eV/angstrom^3", "extent" [":"], "display-name" "Nominal (1st PK) shear stress"}
-        {"key" "cohesive-potential-energy", "units" "eV", "extent" [":"], "display-name" "Cauchy-Born stability"}
-        {"key" "cauchy-born-stability", "units" nil, "extent" [":"], "display-name" "Cauchy-Born stability"}
+        {"key" "nominal-shear-stress", "units" "eV/angstrom^3", "display-name" "Nominal (1st PK) shear stress"}
+        {"key" "cohesive-potential-energy", "units" "eV", "display-name" "Cauchy-Born stability"}
+        {"key" "cauchy-born-stability", "units" nil, "display-name" "Cauchy-Born stability"}
     ],
 
     "match-keys" [
-        {"key" "species", "units" nil, "extent" [], "display-name" "Species"}
-        {"key" "short-name", "units" nil, "extent" [], "display-name" "Crystal structure"}
-        {"key" "shear-direction", "units" nil, "extent" [":"], "display-name" "Shear direction"}
-        {"key" "shear-plane-normal", "units" nil, "extent" [":"], "display-name" "Shear plane normal"}
+        {"key" "species", "units" nil, "display-name" "Species"}
+        {"key" "short-name", "units" nil, "display-name" "Crystal structure"}
+        {"key" "shear-direction", "units" nil, "display-name" "Shear direction"}
+        {"key" "shear-plane-normal", "units" nil, "display-name" "Shear plane normal"}
     ]
 }

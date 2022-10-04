@@ -5,11 +5,11 @@
     },
 
     "comparison-keys" [
-        {"key" "unrelaxed-formation-energy", "units" "eV", "extent" [], "display-name" "Unrelaxed formation energy"}
-        {"key" "relaxed-formation-energy", "units" "eV", "extent" [], "display-name" "Relaxed formation energy"}
+        {"key" "unrelaxed-formation-energy", "units" "eV", "display-name" "Unrelaxed formation energy"}
+        {"key" "relaxed-formation-energy", "units" "eV", "display-name" "Relaxed formation energy"}
     ],
 
     "match-keys" [
-        {"key" "species", "units" nil, "extent" [], "display-name" "Species"}
+        {"key" "species", "units" nil, "display-name" "Species"}
     ]
 }

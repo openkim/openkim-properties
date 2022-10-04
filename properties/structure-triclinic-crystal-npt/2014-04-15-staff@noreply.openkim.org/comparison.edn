@@ -5,18 +5,18 @@
     },
 
     "comparison-keys" [
-        {"key" "a", "units" "angstrom", "extent" [], "display-name" "a"}
-        {"key" "b", "units" "angstrom", "extent" [], "display-name" "b"}
-        {"key" "c", "units" "angstrom", "extent" [], "display-name" "c"}
-        {"key" "alpha", "units" "degrees", "extent" [], "display-name" "alpha"}
-        {"key" "beta", "units" "degrees", "extent" [], "display-name" "beta"}
-        {"key" "gamma", "units" "degrees", "extent" [], "display-name" "gamma"}
+        {"key" "a", "units" "angstrom", "display-name" "a"}
+        {"key" "b", "units" "angstrom", "display-name" "b"}
+        {"key" "c", "units" "angstrom", "display-name" "c"}
+        {"key" "alpha", "units" "degrees", "display-name" "alpha"}
+        {"key" "beta", "units" "degrees", "display-name" "beta"}
+        {"key" "gamma", "units" "degrees", "display-name" "gamma"}
     ],
 
     "match-keys" [
-        {"key" "species", "units" nil, "extent" [], "display-name" "Species"}
-        {"key" "short-name", "units" nil, "extent" [], "display-name" "Crystal structure"}
-        {"key" "cauchy-stress", "units" "GPa", "extent" [":"], "display-name" "Cauchy stress"}
-        {"key" "temperature", "units" "K", "extent" [], "display-name" "Temperature"}
+        {"key" "species", "units" nil, "display-name" "Species"}
+        {"key" "short-name", "units" nil, "display-name" "Crystal structure"}
+        {"key" "cauchy-stress", "units" "GPa", "display-name" "Cauchy stress"}
+        {"key" "temperature", "units" "K", "display-name" "Temperature"}
     ]
 }

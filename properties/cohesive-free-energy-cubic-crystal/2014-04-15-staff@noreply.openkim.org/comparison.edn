@@ -5,12 +5,12 @@
     },
 
     "comparison-keys" [
-        {"key" "cohesive-free-energy", "units" "eV", "extent" [], "display-name" "Cohesive free energy"}
+        {"key" "cohesive-free-energy", "units" "eV", "display-name" "Cohesive free energy"}
     ],
 
     "match-keys" [
-        {"key" "species", "units" nil, "extent" [], "display-name" "Species"}
-        {"key" "short-name", "units" nil, "extent" [], "display-name" "Crystal structure"}
-        {"key" "temperature", "units" "K", "extent" [], "display-name" "Temperature"}
+        {"key" "species", "units" nil, "display-name" "Species"}
+        {"key" "short-name", "units" nil, "display-name" "Crystal structure"}
+        {"key" "temperature", "units" "K", "display-name" "Temperature"}
     ]
 }

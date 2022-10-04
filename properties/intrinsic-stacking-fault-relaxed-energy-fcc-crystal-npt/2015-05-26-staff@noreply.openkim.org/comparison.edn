@@ -5,12 +5,12 @@
     },
 
     "comparison-keys" [
-        {"key" "intrinsic-stacking-fault-energy", "units" "eV/angstrom^2", "extent" [], "display-name" "Intrinsic stacking fault energy"}
+        {"key" "intrinsic-stacking-fault-energy", "units" "eV/angstrom^2", "display-name" "Intrinsic stacking fault energy"}
     ],
 
     "match-keys" [
-        {"key" "species", "units" nil, "extent" [], "display-name" "Species"}
-        {"key" "short-name", "units" nil, "extent" [], "display-name" "Crystal structure"}
-        {"key" "cauchy-stress", "units" "GPa", "extent" [":"], "display-name" "Cauchy stress"}
+        {"key" "species", "units" nil, "display-name" "Species"}
+        {"key" "short-name", "units" nil, "display-name" "Crystal structure"}
+        {"key" "cauchy-stress", "units" "GPa", "display-name" "Cauchy stress"}
     ]
 }

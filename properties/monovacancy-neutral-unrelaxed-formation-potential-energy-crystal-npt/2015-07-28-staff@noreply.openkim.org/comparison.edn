@@ -5,17 +5,17 @@
     },
 
     "comparison-keys" [
-        {"key" "unrelaxed-formation-potential-energy", "units" "eV", "extent" [], "display-name" "Unrelaxed formation potential energy"}
+        {"key" "unrelaxed-formation-potential-energy", "units" "eV", "display-name" "Unrelaxed formation potential energy"}
     ],
 
     "match-keys" [
-        {"key" "host-short-name", "units" nil, "extent" [], "display-name" "Host crystal structure"}
-        {"key" "host-wyckoff-species", "units" nil, "extent" [":"], "display-name" "Host Wyckoff species"}
-        {"key" "host-removed-atom", "units" nil, "extent" [], "display-name" "Host removed atom index", "match-requirement" "optional"}
-        {"key" "host-cauchy-stress", "units" "GPa", "extent" [":"], "display-name" "Host Cauchy stress"}
-        {"key" "reservoir-short-name", "units" nil, "extent" [], "display-name" "Reservoir crystal structure"}
-        {"key" "reservoir-wyckoff-species", "units" nil, "extent" [":"], "display-name" "Reservoir Wyckoff species"}
-        {"key" "reservoir-cauchy-stress", "units" "GPa", "extent" [":"], "display-name" "Reservoir Cauchy stress"}
+        {"key" "host-short-name", "units" nil, "display-name" "Host crystal structure"}
+        {"key" "host-wyckoff-species", "units" nil, "display-name" "Host Wyckoff species"}
+        {"key" "host-removed-atom", "units" nil, "display-name" "Host removed atom index", "match-requirement" "optional"}
+        {"key" "host-cauchy-stress", "units" "GPa", "display-name" "Host Cauchy stress"}
+        {"key" "reservoir-short-name", "units" nil, "display-name" "Reservoir crystal structure"}
+        {"key" "reservoir-wyckoff-species", "units" nil, "display-name" "Reservoir Wyckoff species"}
+        {"key" "reservoir-cauchy-stress", "units" "GPa", "display-name" "Reservoir Cauchy stress"}
 
     ]
 }

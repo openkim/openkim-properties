@@ -5,13 +5,13 @@
     },
 
     "comparison-keys" [
-        {"key" "linear-thermal-expansion-coefficient", "units" "1/K", "extent" [], "display-name" "Linear thermal expansion coefficient"}
+        {"key" "linear-thermal-expansion-coefficient", "units" "1/K", "display-name" "Linear thermal expansion coefficient"}
     ],
 
     "match-keys" [
-        {"key" "species", "units" nil, "extent" [], "display-name" "Species"}
-        {"key" "short-name", "units" nil, "extent" [], "display-name" "Crystal structure"}
-        {"key" "cauchy-stress", "units" "GPa", "extent" [":"], "display-name" "Cauchy stress"}
-        {"key" "temperature", "units" "K", "extent" [], "display-name" "Temperature"}
+        {"key" "species", "units" nil, "display-name" "Species"}
+        {"key" "short-name", "units" nil, "display-name" "Crystal structure"}
+        {"key" "cauchy-stress", "units" "GPa", "display-name" "Cauchy stress"}
+        {"key" "temperature", "units" "K", "display-name" "Temperature"}
     ]
 }

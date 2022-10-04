@@ -5,13 +5,13 @@
     },
 
     "comparison-keys" [
-        {"key" "unstable-twinning-energy", "units" "eV/angstrom^2", "extent" [], "display-name" "Unstable twinning energy"}
-        {"key" "unstable-slip-fraction", "units" nil, "extent" [], "display-name" "Unstable slip fraction"}
+        {"key" "unstable-twinning-energy", "units" "eV/angstrom^2", "display-name" "Unstable twinning energy"}
+        {"key" "unstable-slip-fraction", "units" nil, "display-name" "Unstable slip fraction"}
     ],
 
     "match-keys" [
-        {"key" "species", "units" nil, "extent" [], "display-name" "Species"}
-        {"key" "short-name", "units" nil, "extent" [], "display-name" "Crystal structure"}
-        {"key" "cauchy-stress", "units" "GPa", "extent" [":"], "display-name" "Cauchy stress"}
+        {"key" "species", "units" nil, "display-name" "Species"}
+        {"key" "short-name", "units" nil, "display-name" "Crystal structure"}
+        {"key" "cauchy-stress", "units" "GPa", "display-name" "Cauchy stress"}
     ]
 }

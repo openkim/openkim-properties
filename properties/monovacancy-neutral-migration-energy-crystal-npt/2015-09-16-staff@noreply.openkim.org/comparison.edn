@@ -5,15 +5,15 @@
     },
 
     "comparison-keys" [
-        {"key" "vacancy-migration-energy", "units" "eV", "extent" [], "display-name" "Vacancy migration energy"}
+        {"key" "vacancy-migration-energy", "units" "eV", "display-name" "Vacancy migration energy"}
     ],
 
     "match-keys" [
-        {"key" "host-short-name", "units" nil, "extent" [], "display-name" "Crystal structure"}
-        {"key" "host-wyckoff-species", "units" nil, "extent" [":"], "display-name" "Wyckoff species"}
-        {"key" "host-missing-atom-start", "units" nil, "extent" [], "display-name" "Initial missing atom index", "match-requirement" "optional"}
-        {"key" "host-missing-atom-end", "units" nil, "extent" [], "display-name" "Final missing atom index", "match-requirement" "optional"}
-        {"key" "host-cauchy-stress", "units" "GPa", "extent" [":"], "display-name" "Cauchy stress"}
+        {"key" "host-short-name", "units" nil, "display-name" "Crystal structure"}
+        {"key" "host-wyckoff-species", "units" nil, "display-name" "Wyckoff species"}
+        {"key" "host-missing-atom-start", "units" nil, "display-name" "Initial missing atom index", "match-requirement" "optional"}
+        {"key" "host-missing-atom-end", "units" nil, "display-name" "Final missing atom index", "match-requirement" "optional"}
+        {"key" "host-cauchy-stress", "units" "GPa", "display-name" "Cauchy stress"}
 
     ]
 }

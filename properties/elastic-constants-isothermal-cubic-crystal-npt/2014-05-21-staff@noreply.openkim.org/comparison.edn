@@ -5,15 +5,15 @@
     },
 
     "comparison-keys" [
-        {"key" "c11", "units" "GPa", "extent" [], "display-name" "Isothermal C11"}
-        {"key" "c12", "units" "GPa", "extent" [], "display-name" "Isothermal C12"}
-        {"key" "c44", "units" "GPa", "extent" [], "display-name" "Isothermal C44"}
+        {"key" "c11", "units" "GPa", "display-name" "Isothermal C11"}
+        {"key" "c12", "units" "GPa", "display-name" "Isothermal C12"}
+        {"key" "c44", "units" "GPa", "display-name" "Isothermal C44"}
     ],
 
     "match-keys" [
-        {"key" "species", "units" nil, "extent" [], "display-name" "Species"}
-        {"key" "short-name", "units" nil, "extent" [], "display-name" "Crystal structure"}
-        {"key" "cauchy-stress", "units" "GPa", "extent" [":"], "display-name" "Cauchy stress"}
-        {"key" "temperature", "units" "K", "extent" [], "display-name" "Temperature"}
+        {"key" "species", "units" nil, "display-name" "Species"}
+        {"key" "short-name", "units" nil, "display-name" "Crystal structure"}
+        {"key" "cauchy-stress", "units" "GPa", "display-name" "Cauchy stress"}
+        {"key" "temperature", "units" "K", "display-name" "Temperature"}
     ]
 }

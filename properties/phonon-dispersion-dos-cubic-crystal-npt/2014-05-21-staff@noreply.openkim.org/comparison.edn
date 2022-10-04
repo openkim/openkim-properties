@@ -5,14 +5,14 @@
     },
 
     "comparison-keys" [
-        {"key" "energy", "units" "eV", "extent" [":"], "display-name" "Energy"}
-        {"key" "density-of-states", "units" nil, "extent" [":"], "display-name" "Energy"}
+        {"key" "energy", "units" "eV", "display-name" "Energy"}
+        {"key" "density-of-states", "units" nil, "display-name" "Energy"}
     ],
 
     "match-keys" [
-        {"key" "species", "units" nil, "extent" [], "display-name" "Species"}
-        {"key" "short-name", "units" nil, "extent" [], "display-name" "Crystal structure"}
-        {"key" "cauchy-stress", "units" "GPa", "extent" [":"], "display-name" "Cauchy stress"}
-        {"key" "temperature", "units" "K", "extent" [], "display-name" "Temperature"}
+        {"key" "species", "units" nil, "display-name" "Species"}
+        {"key" "short-name", "units" nil, "display-name" "Crystal structure"}
+        {"key" "cauchy-stress", "units" "GPa", "display-name" "Cauchy stress"}
+        {"key" "temperature", "units" "K", "display-name" "Temperature"}
     ]
 }

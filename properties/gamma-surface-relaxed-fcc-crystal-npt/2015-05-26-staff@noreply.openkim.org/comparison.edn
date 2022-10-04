@@ -5,14 +5,14 @@
     },
 
     "comparison-keys" [
-        {"key" "fault-plane-shift-fraction-112", "units" nil, "extent" [":"], "display-name" "[112] fault plane shift fraction"}
-        {"key" "fault-plane-shift-fraction-110", "units" nil, "extent" [":"], "display-name" "[110] fault plane shift fraction"}
-        {"key" "gamma-surface", "units" "eV/angstrom^2", "extent" [":",":"], "display-name" "Gamma surface energy"}
+        {"key" "fault-plane-shift-fraction-112", "units" nil, "display-name" "[112] fault plane shift fraction"}
+        {"key" "fault-plane-shift-fraction-110", "units" nil, "display-name" "[110] fault plane shift fraction"}
+        {"key" "gamma-surface", "units" "eV/angstrom^2", "display-name" "Gamma surface energy"}
     ],
 
     "match-keys" [
-        {"key" "species", "units" nil, "extent" [], "display-name" "Species"}
-        {"key" "short-name", "units" nil, "extent" [], "display-name" "Crystal structure"}
-        {"key" "cauchy-stress", "units" "GPa", "extent" [":"], "display-name" "Cauchy stress"}
+        {"key" "species", "units" nil, "display-name" "Species"}
+        {"key" "short-name", "units" nil, "display-name" "Crystal structure"}
+        {"key" "cauchy-stress", "units" "GPa", "display-name" "Cauchy stress"}
     ]
 }

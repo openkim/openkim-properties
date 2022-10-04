@@ -5,13 +5,13 @@
     },
 
     "comparison-keys" [
-        {"key" "a", "units" "angstrom", "extent" [], "display-name" "Lattice constant a"}
-        {"key" "c", "units" "angstrom", "extent" [], "display-name" "Lattice constant c"}
-        {"key" "cohesive-potential-energy", "units" "eV", "extent" [], "display-name" "Cohesive energy"}
+        {"key" "a", "units" "angstrom", "display-name" "Lattice constant a"}
+        {"key" "c", "units" "angstrom", "display-name" "Lattice constant c"}
+        {"key" "cohesive-potential-energy", "units" "eV", "display-name" "Cohesive energy"}
     ],
 
     "match-keys" [
-        {"key" "species", "units" nil, "extent" [], "display-name" "Species"}
-        {"key" "short-name", "units" nil, "extent" [], "display-name" "Crystal structure"}
+        {"key" "species", "units" nil, "display-name" "Species"}
+        {"key" "short-name", "units" nil, "display-name" "Crystal structure"}
     ]
 }

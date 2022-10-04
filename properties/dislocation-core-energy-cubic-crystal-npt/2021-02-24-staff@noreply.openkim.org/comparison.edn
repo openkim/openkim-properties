@@ -5,18 +5,18 @@
     },
 
     "comparison-keys" [
-        {"key" "dislocation-core-radius", "units" "angstrom", "extent" [":"], "display-name" "Core radius"}
-        {"key" "core-energy-nonsingular", "units" "eV", "extent" [":"], "display-name" "Nonsingular core energy"}
-        {"key" "core-energy-isotropic", "units" "eV", "extent" [":"], "display-name" "Isotropic core energy"}
-        {"key" "core-energy-anisotropic", "units" "eV", "extent" [":"], "display-name" "Anisotropic core energy"}
+        {"key" "dislocation-core-radius", "units" "angstrom", "display-name" "Core radius"}
+        {"key" "core-energy-nonsingular", "units" "eV", "display-name" "Nonsingular core energy"}
+        {"key" "core-energy-isotropic", "units" "eV", "display-name" "Isotropic core energy"}
+        {"key" "core-energy-anisotropic", "units" "eV", "display-name" "Anisotropic core energy"}
     ],
 
     "match-keys" [
-        {"key" "species", "units" nil, "extent" [], "display-name" "Species"}
-        {"key" "short-name", "units" nil, "extent" [], "display-name" "Crystal structure"}
-        {"key" "cauchy-stress", "units" "GPa", "extent" [":"], "display-name" "Cauchy stress"}
-        {"key" "slip-plane-miller-indices", "units" nil, "extent" [":"], "display-name" "Slip plane Miller indices"}
-        {"key" "dislocation-line-direction", "units" nil, "extent" [":"], "display-name" "Dislocation line direction"}
-        {"key" "burgers-vector-direction", "units" nil, "extent" [":"], "display-name" "Burgers vector direction"}
+        {"key" "species", "units" nil, "display-name" "Species"}
+        {"key" "short-name", "units" nil, "display-name" "Crystal structure"}
+        {"key" "cauchy-stress", "units" "GPa", "display-name" "Cauchy stress"}
+        {"key" "slip-plane-miller-indices", "units" nil, "display-name" "Slip plane Miller indices"}
+        {"key" "dislocation-line-direction", "units" nil, "display-name" "Dislocation line direction"}
+        {"key" "burgers-vector-direction", "units" nil, "display-name" "Burgers vector direction"}
     ]
 }

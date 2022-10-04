@@ -5,19 +5,19 @@
     },
 
     "comparison-keys" [
-        {"key" "formation-free-energy", "units" "eV", "extent" [], "display-name" "Formation free energy"}
+        {"key" "formation-free-energy", "units" "eV", "display-name" "Formation free energy"}
     ],
 
     "match-keys" [
-        {"key" "host-short-name", "units" nil, "extent" [], "display-name" "Host crystal structure"}
-        {"key" "host-wyckoff-species", "units" nil, "extent" [":"], "display-name" "Host Wyckoff species"}
-        {"key" "host-removed-atom", "units" nil, "extent" [], "display-name" "Host removed atom index", "match-requirement" "optional"}
-        {"key" "host-temperature", "units" "K", "extent" [], "display-name" "Host temperature"}
-        {"key" "host-cauchy-stress", "units" "GPa", "extent" [":"], "display-name" "Host Cauchy stress"}
-        {"key" "reservoir-short-name", "units" nil, "extent" [], "display-name" "Reservoir crystal structure"}
-        {"key" "reservoir-wyckoff-species", "units" nil, "extent" [":"], "display-name" "Reservoir Wyckoff species"}
-        {"key" "reservoir-temperature", "units" "K", "extent" [], "display-name" "Reservoir temperature"}
-        {"key" "reservoir-cauchy-stress", "units" "GPa", "extent" [":"], "display-name" "Reservoir Cauchy stress"}
+        {"key" "host-short-name", "units" nil, "display-name" "Host crystal structure"}
+        {"key" "host-wyckoff-species", "units" nil, "display-name" "Host Wyckoff species"}
+        {"key" "host-removed-atom", "units" nil, "display-name" "Host removed atom index", "match-requirement" "optional"}
+        {"key" "host-temperature", "units" "K", "display-name" "Host temperature"}
+        {"key" "host-cauchy-stress", "units" "GPa", "display-name" "Host Cauchy stress"}
+        {"key" "reservoir-short-name", "units" nil, "display-name" "Reservoir crystal structure"}
+        {"key" "reservoir-wyckoff-species", "units" nil, "display-name" "Reservoir Wyckoff species"}
+        {"key" "reservoir-temperature", "units" "K", "display-name" "Reservoir temperature"}
+        {"key" "reservoir-cauchy-stress", "units" "GPa", "display-name" "Reservoir Cauchy stress"}
 
     ]
 }

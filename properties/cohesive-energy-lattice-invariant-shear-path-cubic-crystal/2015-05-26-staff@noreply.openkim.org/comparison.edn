@@ -5,14 +5,14 @@
     },
 
     "comparison-keys" [
-        {"key" "shear-parameter", "units" nil, "extent" [":"], "display-name" "Shear parameter"}
-        {"key" "cohesive-potential-energy", "units" "eV", "extent" [":"], "display-name" "Cohesive potential energy"}
+        {"key" "shear-parameter", "units" nil, "display-name" "Shear parameter"}
+        {"key" "cohesive-potential-energy", "units" "eV", "display-name" "Cohesive potential energy"}
     ],
 
     "match-keys" [
-        {"key" "species", "units" nil, "extent" [], "display-name" "Species"}
-        {"key" "short-name", "units" nil, "extent" [], "display-name" "Crystal structure"}
-        {"key" "shear-direction", "units" nil, "extent" [":"], "display-name" "Shear direction"}
-        {"key" "shear-plane-normal", "units" nil, "extent" [":"], "display-name" "Shear plane normal"}
+        {"key" "species", "units" nil, "display-name" "Species"}
+        {"key" "short-name", "units" nil, "display-name" "Crystal structure"}
+        {"key" "shear-direction", "units" nil, "display-name" "Shear direction"}
+        {"key" "shear-plane-normal", "units" nil, "display-name" "Shear plane normal"}
     ]
 }

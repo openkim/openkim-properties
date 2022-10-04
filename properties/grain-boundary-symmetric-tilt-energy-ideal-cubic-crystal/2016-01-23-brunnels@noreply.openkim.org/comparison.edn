@@ -5,15 +5,15 @@
     },
 
     "comparison-keys" [
-        {"key" "ideal-grain-boundary-energy", "units" "eV/angstrom^2", "extent" [], "display-name" "Ideal grain boundary energy"}
+        {"key" "ideal-grain-boundary-energy", "units" "eV/angstrom^2", "display-name" "Ideal grain boundary energy"}
     ],
 
     "match-keys" [
-        {"key" "species", "units" nil, "extent" [], "display-name" "Species"}
-        {"key" "short-name", "units" nil, "extent" [], "display-name" "Crystal structure"}
-        {"key" "tilt-axis", "units" nil, "extent" [":"], "display-name" "Tilt axis"}
-        {"key" "tilt-angle", "units" nil, "extent" [], "display-name" "Tilt angle"}
-        {"key" "minimum-atom-separation", "units" "angstrom", "extent" [], "display-name" "Tilt angle", "match-requirement" "optional"}
-        {"key" "sigma", "units" nil, "extent" [], "display-name" "Sigma ratio", "match-requirement" "optional"}
+        {"key" "species", "units" nil, "display-name" "Species"}
+        {"key" "short-name", "units" nil, "display-name" "Crystal structure"}
+        {"key" "tilt-axis", "units" nil, "display-name" "Tilt axis"}
+        {"key" "tilt-angle", "units" nil, "display-name" "Tilt angle"}
+        {"key" "minimum-atom-separation", "units" "angstrom", "display-name" "Tilt angle", "match-requirement" "optional"}
+        {"key" "sigma", "units" nil, "display-name" "Sigma ratio", "match-requirement" "optional"}
     ]
 }
