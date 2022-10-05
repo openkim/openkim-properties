@@ -6,7 +6,7 @@
 
     "comparison-keys" [
         {"key" "surface-energy", "units" "eV/angstrom^2", "display-name" "Surface energy"}
-        {"key" "reconstruction-descriptor", "units" nil, "display-name" "Reconstruction descriptor"}
+        {"key" "reconstruction-description", "units" nil, "display-name" "Reconstruction description"}
     ],
 
     "match-keys" [
