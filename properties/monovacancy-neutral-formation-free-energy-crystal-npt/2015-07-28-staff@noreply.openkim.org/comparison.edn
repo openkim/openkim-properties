@@ -1,7 +1,7 @@
 {
     "property" {
-        "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/monovacancy-formation-energy-monoatomic-cubic-diamond"
-        "display-name" "Formation energy of a monovacancy in a monoatomic cubic diamond crystal at zero absolute temperature"
+        "property-id" "tag:staff@noreply.openkim.org,2015-07-28:property/monovacancy-neutral-formation-free-energy-crystal-npt"
+        "property-title" "Formation free energy of a neutral monovacancy in a general crystal at finite temperature and stress"
     },
 
     "comparison-keys" [
