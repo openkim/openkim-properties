@@ -5,8 +5,8 @@
     },
 
     "comparison-keys" [
-        {"key" "a", "units" "angstrom", "display-name" "a"}
-        {"key" "c", "units" "angstrom", "display-name" "c"}
+        {"key" "a", "units" "angstrom", "display-name" "Lattice constant a"}
+        {"key" "c", "units" "angstrom", "display-name" "Lattice constant c"}
     ],
 
     "match-keys" [

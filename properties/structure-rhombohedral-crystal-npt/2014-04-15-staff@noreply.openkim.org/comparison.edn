@@ -5,8 +5,8 @@
     },
 
     "comparison-keys" [
-        {"key" "a", "units" "angstrom", "display-name" "a"}
-        {"key" "alpha", "units" "degrees", "display-name" "alpha"}
+        {"key" "a", "units" "angstrom", "display-name" "Lattice constant a"}
+        {"key" "alpha", "units" "degrees", "display-name" "Unit cell angle alpha"}
     ],
 
     "match-keys" [

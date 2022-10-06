@@ -5,7 +5,7 @@
     },
 
     "comparison-keys" [
-        {"key" "a", "units" "angstrom", "display-name" "Lattice constant vector"}
+        {"key" "a", "units" "angstrom", "display-name" "Lattice constant a"}
         {"key" "cohesive-potential-energy", "units" "eV", "display-name" "Cohesive energy"}
     ],
 
