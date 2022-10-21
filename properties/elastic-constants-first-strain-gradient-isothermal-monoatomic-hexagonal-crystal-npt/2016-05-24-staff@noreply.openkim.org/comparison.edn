@@ -34,8 +34,8 @@
     ],
 
     "match-keys" [
-        {"key" "species", "units" nil, "display-name" "Species"}
         {"key" "short-name", "units" nil, "display-name" "Crystal structure"}
+        {"key" "species", "units" nil, "display-name" "Species"}
         {"key" "temperature", "units" "K", "display-name" "Temperature"}
     ]
 }

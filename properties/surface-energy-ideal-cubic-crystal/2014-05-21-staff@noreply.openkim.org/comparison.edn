@@ -9,8 +9,8 @@
     ],
 
     "match-keys" [
-        {"key" "species", "units" nil, "display-name" "Species"}
         {"key" "short-name", "units" nil, "display-name" "Crystal structure"}
+        {"key" "species", "units" nil, "display-name" "Species"}
         {"key" "cauchy-stress", "units" "GPa", "display-name" "Cauchy stress"}
         {"key" "miller-indices", "units" nil, "display-name" "Surface Miller indices"}
         {"key" "termination", "units" nil, "display-name" "Surface termination", "match-requirement" "optional"}

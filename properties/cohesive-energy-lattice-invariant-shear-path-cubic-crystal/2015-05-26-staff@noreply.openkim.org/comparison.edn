@@ -10,8 +10,8 @@
     ],
 
     "match-keys" [
-        {"key" "species", "units" nil, "display-name" "Species"}
         {"key" "short-name", "units" nil, "display-name" "Crystal structure"}
+        {"key" "species", "units" nil, "display-name" "Species"}
         {"key" "shear-direction", "units" nil, "display-name" "Shear direction"}
         {"key" "shear-plane-normal", "units" nil, "display-name" "Shear plane normal"}
     ]

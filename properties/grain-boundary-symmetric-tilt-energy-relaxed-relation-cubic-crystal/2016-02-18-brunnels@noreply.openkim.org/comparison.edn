@@ -10,8 +10,8 @@
     ],
 
     "match-keys" [
-        {"key" "species", "units" nil, "display-name" "Species"}
         {"key" "short-name", "units" nil, "display-name" "Crystal structure"}
+        {"key" "species", "units" nil, "display-name" "Species"}
         {"key" "tilt-axis", "units" nil, "display-name" "Tilt axis"}
         {"key" "minimum-atom-separation", "units" "angstrom", "display-name" "Tilt angle", "match-requirement" "optional"}
         {"key" "sigma", "units" nil, "display-name" "Sigma ratio", "match-requirement" "optional"}
