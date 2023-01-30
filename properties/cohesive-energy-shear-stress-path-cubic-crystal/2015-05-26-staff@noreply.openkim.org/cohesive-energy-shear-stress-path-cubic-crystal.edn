@@ -84,7 +84,7 @@
   }
   "cohesive-potential-energy" {
     "type"         "float"
-    "has-unit"     false
+    "has-unit"     true
     "extent"       [":"]
     "required"     true
     "description"  "A vector of cohesive energy (negative of the potential energy per atom) values for a crystal sheared by the corresponding shear parameter values in the vector 'nominal-shear-stress'."
