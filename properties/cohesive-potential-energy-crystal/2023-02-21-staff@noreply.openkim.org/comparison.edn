@@ -1,0 +1,20 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2023-02-21:property/cohesive-potential-energy-crystal"
+        "display-name" "Equilibrium crystal structure and potential formation energy at zero temperature and applied stress"
+    }
+
+    "comparison-keys" [
+        {"key" "a", "units" "angstrom", "display-name" "a lattice constant"}
+        {"key" "parameter-values", "display-name" "Crystal prototype parameter values"}
+        {"key" "formation-potential-energy-per-formula", "units" "eV", "display-name" "Formation potential energy per formula"}
+        {"key" "formation-potential-energy-per-atom", "units" "eV", "display-name" "Formation potential energy per atom"}
+    ]
+
+    "match-keys" [
+        {"key" "prototype-label", "display-name" "Crystal prototype label"}
+        {"key" "short-name", "display-name" "Crystal structure", "match-requirement" "optional"}
+        {"key" "stoichiometric-species", "display-name" "Stoichiometric species"}
+        {"key" "formation-potential-energy-type", "display-name" "Potential energy type (cohesive or lattice)", "match-requirement" "optional"}
+    ]
+}
