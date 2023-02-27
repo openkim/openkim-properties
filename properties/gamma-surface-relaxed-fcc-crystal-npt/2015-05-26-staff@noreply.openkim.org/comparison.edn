@@ -5,13 +5,13 @@
     },
 
     "comparison-keys" [
-        {"key" "fault-plane-shift-fraction-112", "units" nil, "display-name" "[112] fault plane shift fraction"}
-        {"key" "fault-plane-shift-fraction-110", "units" nil, "display-name" "[110] fault plane shift fraction"}
+        {"key" "fault-plane-shift-fraction-112", "display-name" "[112] fault plane shift fraction"}
+        {"key" "fault-plane-shift-fraction-110", "display-name" "[110] fault plane shift fraction"}
         {"key" "gamma-surface", "units" "eV/angstrom^2", "display-name" "Gamma surface energy"}
     ],
 
     "match-keys" [
-        {"key" "species", "units" nil, "display-name" "Species"}
+        {"key" "species", "display-name" "Species"}
         {"key" "cauchy-stress", "units" "GPa", "display-name" "Cauchy stress"}
     ]
 }

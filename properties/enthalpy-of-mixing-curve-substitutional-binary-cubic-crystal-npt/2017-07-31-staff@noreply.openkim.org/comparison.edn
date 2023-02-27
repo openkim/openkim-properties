@@ -5,16 +5,16 @@
     },
 
     "comparison-keys" [
-        {"key" "concentration", "units" nil, "display-name" "Concentration (fraction of atom sites with B atoms)"}
+        {"key" "concentration", "display-name" "Concentration (fraction of atom sites with B atoms)"}
         {"key" "a", "units" "angstrom", "display-name" "Lattice constant a"}
         {"key" "enthalpy-of-mixing", "units" "eV", "display-name" "Enthalpy of mixing"}
-        {"key" "crystal-is-stable", "units" nil, "display-name" "Crystal stability"}
+        {"key" "crystal-is-stable", "display-name" "Crystal stability"}
     ],
 
     "match-keys" [
-        {"key" "short-name", "units" nil, "display-name" "Crystal structure"}
-        {"key" "A-species", "units" nil, "display-name" "Type A atom species"}
-        {"key" "B-species", "units" nil, "display-name" "Type B atom species"}
+        {"key" "short-name", "display-name" "Crystal structure"}
+        {"key" "A-species", "display-name" "Type A atom species"}
+        {"key" "B-species", "display-name" "Type B atom species"}
         {"key" "cauchy-stress", "units" "GPa", "display-name" "Cauchy stress"}
         {"key" "temperature", "units" "K", "display-name" "Temperature"}
     ]

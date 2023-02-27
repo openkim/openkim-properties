@@ -9,13 +9,13 @@
         {"key" "fit-p1", "units" "eV/angstrom^2", "display-name" "p1-parameter broken bond model"}
         {"key" "fit-p2", "units" "eV/angstrom^2", "display-name" "p2-parameter broken bond model"}
         {"key" "fit-p3", "units" "eV/angstrom^2", "display-name" "p3-parameter broken bond model"}
-        {"key" "fit-error-max", "units" nil, "display-name" "Maximum relative error of fit"}
-        {"key" "fit-error-range", "units" nil, "display-name" "Averge relative error range of fit"}
+        {"key" "fit-error-max", "display-name" "Maximum relative error of fit"}
+        {"key" "fit-error-range", "display-name" "Averge relative error range of fit"}
     ],
 
     "match-keys" [
-        {"key" "short-name", "units" nil, "display-name" "Crystal structure"}
-        {"key" "species", "units" nil, "display-name" "Species"}
+        {"key" "short-name", "display-name" "Crystal structure"}
+        {"key" "species", "display-name" "Species"}
         {"key" "cauchy-stress", "units" "GPa", "display-name" "Cauchy stress"}
         {"key" "temperature", "units" "K", "display-name" "Temperature"}
     ]

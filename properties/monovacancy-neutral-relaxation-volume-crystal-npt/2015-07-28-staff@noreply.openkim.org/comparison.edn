@@ -9,9 +9,9 @@
     ],
 
     "match-keys" [
-        {"key" "host-short-name", "units" nil, "display-name" "Crystal structure"}
-        {"key" "host-wyckoff-species", "units" nil, "display-name" "Wyckoff species"}
-        {"key" "host-removed-atom", "units" nil, "display-name" "Removed atom index", "match-requirement" "optional"}
+        {"key" "host-short-name", "display-name" "Crystal structure"}
+        {"key" "host-wyckoff-species", "display-name" "Wyckoff species"}
+        {"key" "host-removed-atom", "display-name" "Removed atom index", "match-requirement" "optional"}
         {"key" "host-cauchy-stress", "units" "GPa", "display-name" "Cauchy stress"}
 
     ]
