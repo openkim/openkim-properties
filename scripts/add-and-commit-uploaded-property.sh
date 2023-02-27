@@ -183,11 +183,11 @@ fi
 # Finally ready to create the files in the repo
 cAmDir="./contributor-and-maintainer/$propName"
 if test ! -d "$cAmDir"; then
-  mkdir "$cAmDir" || errorReport 9
+  mkdir "$cAmDir" || errorReport 10
 fi
 cAmDir="$cAmDir/${propDate}-${propEmail}"
 if test ! -d "$cAmDir"; then
-  mkdir "$cAmDir" || errorReport 10
+  mkdir "$cAmDir" || errorReport 11
 fi
 cAmFl="$cAmDir/contributor-and-maintainer.edn"
 cat > "$cAmFl" <<EOF
@@ -202,38 +202,38 @@ git add "$cAmFl"
 
 pvDir="./physics-validator/$propName"
 if test ! -d "$pvDir"; then
-  mkdir "$pvDir" || errorReport 11
+  mkdir "$pvDir" || errorReport 12
 fi
 pvDir="$pvDir/${propDate}-${propEmail}"
 if test ! -d "$pvDir"; then
-  mkdir "$pvDir" || errorReport 12
+  mkdir "$pvDir" || errorReport 13
 fi
 if test "$physValidatorPresent" = "true"; then
   pvFl="$pvDir/physics-validator"
-  cp "$uplddir/physics-validator" "$pvFl" || errorReport 13
+  cp "$uplddir/physics-validator" "$pvFl" || errorReport 14
   chmod 755 "$pvFl"
 else
   pvFl="$pvDir/.gitkeep"
-  touch "$pvFl" || errorReport 14
+  touch "$pvFl" || errorReport 15
 fi
 git add "$pvFl"
 
 propDir="./properties/$propName"
 if test ! -d "$propDir"; then
-  mkdir "$propDir" || errorReport 15
+  mkdir "$propDir" || errorReport 16
 fi
 propDir="$propDir/${propDate}-${propEmail}"
 if test ! -d "$propDir"; then
-  mkdir "$propDir" || errorReport 16
+  mkdir "$propDir" || errorReport 17
 fi
 propFl="$propDir/${propName}.edn"
-cp "$uplddir/property.edn" "$propFl" || errorReport 17
+cp "$uplddir/property.edn" "$propFl" || errorReport 18
 git add "$propFl"
 propSy="$propDir/synopsis.tpl"
-cp "$uplddir/synopsis.tpl" "$propSy" || errorReport 18
+cp "$uplddir/synopsis.tpl" "$propSy" || errorReport 19
 git add "$propSy"
 propTb="$propDir/property-table-category.edn"
-cp "$uplddir/property-table-category.edn" "$propTb" || errorReport 19
+cp "$uplddir/property-table-category.edn" "$propTb" || errorReport 20
 git add "$propTb"
 
 printf "Done with property: $propName!\n"
