@@ -9,11 +9,11 @@
     ],
 
     "match-keys" [
-        {"key" "short-name", "units" nil, "display-name" "Crystal structure"}
-        {"key" "species", "units" nil, "display-name" "Species"}
-        {"key" "tilt-axis", "units" nil, "display-name" "Tilt axis"}
-        {"key" "tilt-angle", "units" nil, "display-name" "Tilt angle"}
-        {"key" "minimum-atom-separation", "units" "angstrom", "display-name" "Tilt angle", "match-requirement" "optional"}
-        {"key" "sigma", "units" nil, "display-name" "Sigma ratio", "match-requirement" "optional"}
+        {"key" "short-name", "display-name" "Crystal structure"}
+        {"key" "species", "display-name" "Species"}
+        {"key" "tilt-axis", "display-name" "Tilt axis"}
+        {"key" "tilt-angle", "display-name" "Tilt angle"}
+        {"key" "minimum-atom-separation", "units" "angstrom", "display-name" "Minimum atom separation", "match-requirement" "optional"}
+        {"key" "sigma", "display-name" "Sigma ratio", "match-requirement" "optional"}
     ]
 }
