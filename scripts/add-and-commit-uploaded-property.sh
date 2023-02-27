@@ -204,38 +204,36 @@ pvDir="./physics-validator/$propName"
 if test ! -d "$pvDir"; then
   mkdir "$pvDir" || errorReport 11
 fi
-
 pvDir="$pvDir/${propDate}-${propEmail}"
 if test ! -d "$pvDir"; then
   mkdir "$pvDir" || errorReport 12
 fi
-
 if test "$physValidatorPresent" = "true"; then
   pvFl="$pvDir/physics-validator"
   cp "$uplddir/physics-validator" "$pvFl" || errorReport 13
   chmod 755 "$pvFl"
 else
   pvFl="$pvDir/.gitkeep"
-  touch "$pvFl" || errorReport 13
+  touch "$pvFl" || errorReport 14
 fi
 git add "$pvFl"
 
 propDir="./properties/$propName"
 if test ! -d "$propDir"; then
-  mkdir "$propDir" || errorReport 14
+  mkdir "$propDir" || errorReport 15
 fi
 propDir="$propDir/${propDate}-${propEmail}"
 if test ! -d "$propDir"; then
-  mkdir "$propDir" || errorReport 15
+  mkdir "$propDir" || errorReport 16
 fi
 propFl="$propDir/${propName}.edn"
-cp "$uplddir/property.edn" "$propFl" || errorReport 16
+cp "$uplddir/property.edn" "$propFl" || errorReport 17
 git add "$propFl"
 propSy="$propDir/synopsis.tpl"
-cp "$uplddir/synopsis.tpl" "$propSy" || errorReport 17
+cp "$uplddir/synopsis.tpl" "$propSy" || errorReport 18
 git add "$propSy"
 propTb="$propDir/property-table-category.edn"
-cp "$uplddir/property-table-category.edn" "$propTb" || errorReport 18
+cp "$uplddir/property-table-category.edn" "$propTb" || errorReport 19
 git add "$propTb"
 
 printf "Done with property: $propName!\n"
