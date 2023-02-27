@@ -27,7 +27,7 @@
 #
 # Contributors:
 #    Ryan S. Elliott
-#
+#    Ilia Nikiforov
 
 
 # define usage function
@@ -204,6 +204,12 @@ pvDir="./physics-validator/$propName"
 if test ! -d "$pvDir"; then
   mkdir "$pvDir" || errorReport 11
 fi
+
+pvDir="$pvDir/${propDate}-${propEmail}"
+if test ! -d "$pvDir"; then
+  mkdir "$pvDir" || errorReport 12
+fi
+
 if test "$physValidatorPresent" = "true"; then
   pvFl="$pvDir/physics-validator"
   cp "$uplddir/physics-validator" "$pvFl" || errorReport 13
@@ -213,11 +219,6 @@ else
   touch "$pvFl" || errorReport 13
 fi
 git add "$pvFl"
-
-pvDir="$pvDir/${propDate}-${propEmail}"
-if test ! -d "$pvDir"; then
-  mkdir "$pvDir" || errorReport 12
-fi
 
 propDir="./properties/$propName"
 if test ! -d "$propDir"; then
