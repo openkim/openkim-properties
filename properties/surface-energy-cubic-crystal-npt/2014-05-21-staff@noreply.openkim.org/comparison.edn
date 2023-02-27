@@ -6,17 +6,17 @@
 
     "comparison-keys" [
         {"key" "surface-energy", "units" "eV/angstrom^2", "display-name" "Surface energy"}
-        {"key" "reconstruction-description", "units" nil, "display-name" "Reconstruction description"}
+        {"key" "reconstruction-description", "display-name" "Reconstruction description"}
     ],
 
     "match-keys" [
-        {"key" "short-name", "units" nil, "display-name" "Crystal structure"}
-        {"key" "species", "units" nil, "display-name" "Species"}
+        {"key" "short-name", "display-name" "Crystal structure"}
+        {"key" "species", "display-name" "Species"}
         {"key" "cauchy-stress", "units" "GPa", "display-name" "Cauchy stress"}
         {"key" "temperature", "units" "K", "display-name" "Temperature"}
-        {"key" "miller-indices", "units" nil, "display-name" "Surface Miller indices"}
-        {"key" "termination", "units" nil, "display-name" "Surface termination", "match-requirement" "optional"}
-        {"key" "step-structure-notation", "units" nil, "display-name" "Step structure notation", "match-requirement" "optional"}
-        {"key" "wood-notation", "units" nil, "display-name" "Wood notation", "match-requirement" "optional"}
+        {"key" "miller-indices", "display-name" "Surface Miller indices"}
+        {"key" "termination", "display-name" "Surface termination", "match-requirement" "optional"}
+        {"key" "step-structure-notation", "display-name" "Step structure notation", "match-requirement" "optional"}
+        {"key" "wood-notation", "display-name" "Wood notation", "match-requirement" "optional"}
     ]
 }

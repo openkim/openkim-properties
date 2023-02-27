@@ -5,15 +5,15 @@
     },
 
     "comparison-keys" [
-        {"key" "nominal-shear-strain", "units" nil, "display-name" "Shear strain"}
+        {"key" "nominal-shear-strain", "display-name" "Shear strain"}
         {"key" "nominal-shear-stress", "units" "eV/angstrom^3", "display-name" "Nominal (1st PK) shear stress"}
-        {"key" "cauchy-born-stability", "units" nil, "display-name" "Cauchy-Born stability"}
+        {"key" "cauchy-born-stability", "display-name" "Cauchy-Born stability"}
     ],
 
     "match-keys" [
-        {"key" "short-name", "units" nil, "display-name" "Crystal structure"}
-        {"key" "species", "units" nil, "display-name" "Species"}
-        {"key" "shear-plane-normal", "units" nil, "display-name" "Shear plane normal"}
-        {"key" "shear-direction", "units" nil, "display-name" "Shear direction"}
+        {"key" "short-name", "display-name" "Crystal structure"}
+        {"key" "species", "display-name" "Species"}
+        {"key" "shear-plane-normal", "display-name" "Shear plane normal"}
+        {"key" "shear-direction", "display-name" "Shear direction"}
     ]
 }

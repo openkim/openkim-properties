@@ -9,7 +9,7 @@
     ],
 
     "match-keys" [
-        {"key" "species", "units" nil, "display-name" "Species"}
+        {"key" "species", "display-name" "Species"}
         {"key" "cauchy-stress", "units" "GPa", "display-name" "Cauchy stress"}
     ]
 }

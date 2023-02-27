@@ -10,8 +10,8 @@
     ],
 
     "match-keys" [
-        {"key" "short-name", "units" nil, "display-name" "Crystal structure"}
-        {"key" "species", "units" nil, "display-name" "Species"}
+        {"key" "short-name", "display-name" "Crystal structure"}
+        {"key" "species", "display-name" "Species"}
         {"key" "cauchy-stress", "units" "GPa", "display-name" "Cauchy stress"}
         {"key" "temperature", "units" "K", "display-name" "Temperature"}
     ]

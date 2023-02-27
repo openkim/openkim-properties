@@ -5,12 +5,12 @@
     },
 
     "comparison-keys" [
-        {"key" "fault-plane-shift-fraction", "units" nil, "display-name" "Fault plane shift fraction"}
+        {"key" "fault-plane-shift-fraction", "display-name" "Fault plane shift fraction"}
         {"key" "fault-plane-energy", "units" "eV/angstrom^2", "display-name" "Fault plane energy"}
     ],
 
     "match-keys" [
-        {"key" "species", "units" nil, "display-name" "Species"}
+        {"key" "species", "display-name" "Species"}
         {"key" "cauchy-stress", "units" "GPa", "display-name" "Cauchy stress"}
     ]
 }

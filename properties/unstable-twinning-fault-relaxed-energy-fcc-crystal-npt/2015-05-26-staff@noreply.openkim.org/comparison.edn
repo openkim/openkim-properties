@@ -6,11 +6,11 @@
 
     "comparison-keys" [
         {"key" "unstable-twinning-energy", "units" "eV/angstrom^2", "display-name" "Unstable twinning energy"}
-        {"key" "unstable-slip-fraction", "units" nil, "display-name" "Unstable slip fraction"}
+        {"key" "unstable-slip-fraction", "display-name" "Unstable slip fraction"}
     ],
 
     "match-keys" [
-        {"key" "species", "units" nil, "display-name" "Species"}
+        {"key" "species", "display-name" "Species"}
         {"key" "cauchy-stress", "units" "GPa", "display-name" "Cauchy stress"}
     ]
 }
