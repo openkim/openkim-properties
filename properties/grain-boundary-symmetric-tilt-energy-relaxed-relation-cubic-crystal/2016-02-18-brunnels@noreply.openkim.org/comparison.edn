@@ -13,7 +13,7 @@
         {"key" "short-name", "display-name" "Crystal structure"}
         {"key" "species", "display-name" "Species"}
         {"key" "tilt-axis", "display-name" "Tilt axis"}
-        {"key" "minimum-atom-separation", "units" "angstrom", "display-name" "Minimum atom separation", "match-requirement" "optional"}
         {"key" "sigma", "display-name" "Sigma ratio", "match-requirement" "optional"}
+        {"key" "minimum-atom-separation", "units" "angstrom", "display-name" "Minimum atom separation", "match-requirement" "optional"}
     ]
 }

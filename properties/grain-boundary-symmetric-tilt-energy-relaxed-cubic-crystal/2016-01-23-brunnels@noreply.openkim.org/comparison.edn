@@ -13,7 +13,7 @@
         {"key" "species", "display-name" "Species"}
         {"key" "tilt-axis", "display-name" "Tilt axis"}
         {"key" "tilt-angle", "display-name" "Tilt angle"}
-        {"key" "minimum-atom-separation", "units" "angstrom", "display-name" "Minimum atom separation", "match-requirement" "optional"}
         {"key" "sigma", "display-name" "Sigma ratio", "match-requirement" "optional"}
+        {"key" "minimum-atom-separation", "units" "angstrom", "display-name" "Minimum atom separation", "match-requirement" "optional"}
     ]
 }

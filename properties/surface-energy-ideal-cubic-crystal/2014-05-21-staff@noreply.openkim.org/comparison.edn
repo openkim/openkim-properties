@@ -11,10 +11,10 @@
     "match-keys" [
         {"key" "short-name", "display-name" "Crystal structure"}
         {"key" "species", "display-name" "Species"}
-        {"key" "cauchy-stress", "units" "GPa", "display-name" "Cauchy stress"}
         {"key" "miller-indices", "display-name" "Surface Miller indices"}
         {"key" "termination", "display-name" "Surface termination", "match-requirement" "optional"}
         {"key" "step-structure-notation", "display-name" "Step structure notation", "match-requirement" "optional"}
         {"key" "wood-notation", "display-name" "Wood notation", "match-requirement" "optional"}
+        {"key" "cauchy-stress", "units" "GPa", "display-name" "Cauchy stress"}
     ]
 }

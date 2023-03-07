@@ -12,9 +12,9 @@
         {"key" "host-short-name", "display-name" "Host crystal structure"}
         {"key" "host-wyckoff-species", "display-name" "Host Wyckoff species"}
         {"key" "host-removed-atom", "display-name" "Host removed atom index", "match-requirement" "optional"}
-        {"key" "host-cauchy-stress", "units" "GPa", "display-name" "Host Cauchy stress"}
         {"key" "reservoir-short-name", "display-name" "Reservoir crystal structure"}
         {"key" "reservoir-wyckoff-species", "display-name" "Reservoir Wyckoff species"}
+        {"key" "host-cauchy-stress", "units" "GPa", "display-name" "Host Cauchy stress"}
         {"key" "reservoir-cauchy-stress", "units" "GPa", "display-name" "Reservoir Cauchy stress"}
 
     ]
