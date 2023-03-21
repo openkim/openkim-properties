@@ -1,0 +1,22 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2021-02-24:property/dislocation-core-energy-cubic-crystal-npt"
+        "display-name" "Dislocation core energy of a cubic crystal at zero temperature and a given stress state"
+    },
+
+    "comparison-keys" [
+        {"key" "dislocation-core-radius", "units" "angstrom", "display-name" "Core radius"}
+        {"key" "core-energy-nonsingular", "units" "eV", "display-name" "Nonsingular core energy"}
+        {"key" "core-energy-isotropic", "units" "eV", "display-name" "Isotropic core energy"}
+        {"key" "core-energy-anisotropic", "units" "eV", "display-name" "Anisotropic core energy"}
+    ],
+
+    "match-keys" [
+        {"key" "short-name", "display-name" "Crystal structure"}
+        {"key" "species", "display-name" "Species"}
+        {"key" "cauchy-stress", "units" "GPa", "display-name" "Cauchy stress"}
+        {"key" "slip-plane-miller-indices", "display-name" "Slip plane Miller indices"}
+        {"key" "dislocation-line-direction", "display-name" "Dislocation line direction"}
+        {"key" "burgers-vector-direction", "display-name" "Burgers vector direction"}
+    ]
+}

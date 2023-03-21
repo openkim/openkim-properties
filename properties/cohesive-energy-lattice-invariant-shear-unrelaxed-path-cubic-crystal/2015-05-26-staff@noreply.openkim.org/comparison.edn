@@ -1,0 +1,18 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2015-05-26:property/cohesive-energy-lattice-invariant-shear-unrelaxed-path-cubic-crystal"
+        "display-name" "Cohesive energy for an unrelaxed lattice-invariant shear path deformation of a cubic crystal"
+    },
+
+    "comparison-keys" [
+        {"key" "shear-parameter", "display-name" "Shear parameter"}
+        {"key" "cohesive-potential-energy-unrelaxed", "units" "eV", "display-name" "Unrelaxed cohesive potential energy"}
+    ],
+
+    "match-keys" [
+        {"key" "short-name", "display-name" "Crystal structure"}
+        {"key" "species", "display-name" "Species"}
+        {"key" "shear-plane-normal", "display-name" "Shear plane normal"}
+        {"key" "shear-direction", "display-name" "Shear direction"}
+    ]
+}

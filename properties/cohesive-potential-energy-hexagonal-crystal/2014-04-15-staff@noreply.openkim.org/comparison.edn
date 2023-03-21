@@ -1,11 +1,12 @@
 {
     "property" {
-        "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/cohesive-potential-energy-cubic-crystal",
-        "display-name" "Cohesive energy of cubic crystal structure at zero temperature under stress-free boundary conditions"
+        "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/cohesive-potential-energy-hexagonal-crystal"
+        "display-name" "Cohesive energy of hexagonal crystal structure at zero temperature under stress-free boundary conditions"
     },
 
     "comparison-keys" [
         {"key" "a", "units" "angstrom", "display-name" "Lattice constant a"}
+        {"key" "c", "units" "angstrom", "display-name" "Lattice constant c"}
         {"key" "cohesive-potential-energy", "units" "eV", "display-name" "Cohesive energy"}
     ],
 

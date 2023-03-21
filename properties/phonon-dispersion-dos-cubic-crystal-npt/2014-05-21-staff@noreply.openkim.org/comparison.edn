@@ -1,11 +1,12 @@
 {
     "property" {
-        "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/structure-cubic-crystal-npt"
-        "display-name" "Equilibrium cubic crystal structure at a given temperature and hydrostatic stress"
+        "property-id" "tag:staff@noreply.openkim.org,2014-05-21:property/phonon-dispersion-dos-cubic-crystal-npt"
+        "display-name" "Phonon dispersion density of states for a cubic crystal"
     },
 
     "comparison-keys" [
-        {"key" "a", "units" "angstrom", "display-name" "Lattice constant a"}
+        {"key" "energy", "units" "eV", "display-name" "Energy"}
+        {"key" "density-of-states", "display-name" "Energy"}
     ],
 
     "match-keys" [

@@ -1,12 +1,17 @@
 {
-   "property" "structure-2d-hexagonal-crystal-npt"
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2015-05-26:property/structure-2d-hexagonal-crystal-npt"
+        "display-name" "Equilibrium two-dimensional layer hexagonal crystal structure at a given temperature and stress state"
+    },
 
-   "match-keys" [ "basis-atom-coordinates", "cauchy-in-plane-stress", "species", "temperature" ]
+    "comparison-keys" [
+        {"key" "a", "units" "angstrom", "display-name" "Lattice constant a"}
+    ],
 
-   "comparison-keys" [
-     {
-       "definition-item-key" "a"
-       "unit" "angstrom"
-     }
-   ]
+    "match-keys" [
+        {"key" "short-name", "display-name" "Crystal structure"}
+        {"key" "species", "display-name" "Species"}
+        {"key" "cauchy-in-plane-stress", "units" "GPa*m", "display-name" "Cauchy in-plane stress"}
+        {"key" "temperature", "units" "K", "display-name" "Temperature"}
+    ]
 }

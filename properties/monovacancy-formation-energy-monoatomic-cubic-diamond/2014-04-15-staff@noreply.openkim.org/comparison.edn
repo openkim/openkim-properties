@@ -1,0 +1,15 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/monovacancy-formation-energy-monoatomic-cubic-diamond"
+        "display-name" "Formation energy of a monovacancy in a monoatomic cubic diamond crystal at zero absolute temperature"
+    },
+
+    "comparison-keys" [
+        {"key" "unrelaxed-formation-energy", "units" "eV", "display-name" "Unrelaxed formation energy"}
+        {"key" "relaxed-formation-energy", "units" "eV", "display-name" "Relaxed formation energy"}
+    ],
+
+    "match-keys" [
+        {"key" "species", "display-name" "Species"}
+    ]
+}

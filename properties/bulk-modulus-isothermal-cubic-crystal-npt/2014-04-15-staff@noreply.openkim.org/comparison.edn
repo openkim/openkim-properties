@@ -1,12 +1,12 @@
 {
     "property" {
-        "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/structure-hexagonal-crystal-npt"
-        "display-name" "Equilibrium hexagonal crystal structure at a given temperature and stress state"
+        "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/bulk-modulus-isothermal-cubic-crystal-npt"
+        "display-name" "Isothermal bulk modulus of a cubic crystal at constant temperature and hydrostatic stress"
     },
 
     "comparison-keys" [
         {"key" "a", "units" "angstrom", "display-name" "Lattice constant a"}
-        {"key" "c", "units" "angstrom", "display-name" "Lattice constant c"}
+        {"key" "isothermal-bulk-modulus", "units" "GPa", "display-name" "Isothermal bulk modulus"}
     ],
 
     "match-keys" [

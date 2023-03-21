@@ -1,0 +1,23 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2015-07-28:property/monovacancy-neutral-formation-free-energy-crystal-npt"
+        "display-name" "Formation free energy of a neutral monovacancy in a general crystal at finite temperature and stress"
+    },
+
+    "comparison-keys" [
+        {"key" "formation-free-energy", "units" "eV", "display-name" "Formation free energy"}
+    ],
+
+    "match-keys" [
+        {"key" "host-short-name", "display-name" "Host crystal structure"}
+        {"key" "host-wyckoff-species", "display-name" "Host Wyckoff species"}
+        {"key" "host-removed-atom", "display-name" "Host removed atom index", "match-requirement" "optional"}
+        {"key" "reservoir-short-name", "display-name" "Reservoir crystal structure"}
+        {"key" "reservoir-wyckoff-species", "display-name" "Reservoir Wyckoff species"}
+        {"key" "host-temperature", "units" "K", "display-name" "Host temperature"}
+        {"key" "host-cauchy-stress", "units" "GPa", "display-name" "Host Cauchy stress"}
+        {"key" "reservoir-temperature", "units" "K", "display-name" "Reservoir temperature"}
+        {"key" "reservoir-cauchy-stress", "units" "GPa", "display-name" "Reservoir Cauchy stress"}
+
+    ]
+}

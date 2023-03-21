@@ -1,7 +1,7 @@
 {
     "property" {
-        "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/cohesive-potential-energy-cubic-crystal",
-        "display-name" "Cohesive energy of cubic crystal structure at zero temperature under stress-free boundary conditions"
+        "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/cohesive-energy-relation-cubic-crystal"
+        "display-name" "Cohesive energy versus lattice constant relation for a cubic crystal"
     },
 
     "comparison-keys" [

@@ -1,12 +1,14 @@
 {
     "property" {
-        "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/structure-hexagonal-crystal-npt"
-        "display-name" "Equilibrium hexagonal crystal structure at a given temperature and stress state"
+        "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/structure-monoclinic-crystal-npt"
+        "display-name" "Equilibrium monoclinic crystal structure at a given temperature and stress state"
     },
 
     "comparison-keys" [
         {"key" "a", "units" "angstrom", "display-name" "Lattice constant a"}
+        {"key" "b", "units" "angstrom", "display-name" "Lattice constant b"}
         {"key" "c", "units" "angstrom", "display-name" "Lattice constant c"}
+        {"key" "beta", "units" "degrees", "display-name" "Unit cell angle beta"}
     ],
 
     "match-keys" [

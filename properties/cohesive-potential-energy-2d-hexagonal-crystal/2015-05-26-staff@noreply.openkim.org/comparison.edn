@@ -1,13 +1,16 @@
 {
-   "property" "cohesive-potential-energy-2d-hexagonal-crystal"
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2015-05-26:property/cohesive-potential-energy-2d-hexagonal-crystal",
+        "display-name" "Cohesive energy of two-dimensional layer hexagonal crystal structure at zero temperature under stress-free boundary conditions"
+    },
 
-   "match-keys" [ "basis-atom-coordinates", "species" ]
+    "comparison-keys" [
+        {"key" "a", "units" "angstrom", "display-name" "Lattice constant a"}
+        {"key" "cohesive-potential-energy", "units" "eV", "display-name" "Cohesive energy"}
+    ],
 
-   "comparison-keys" [
-     {
-       "definition-item-key" "conesive-potential-energy"
-       "definition-item-key-display" "Ec"  ;; An optional field to say this should be in uppercase when displayed to the user
-       "unit" "eV"
-     }
-   ]
+    "match-keys" [
+        {"key" "short-name", "display-name" "Crystal structure"}
+        {"key" "species", "display-name" "Species"}
+    ]
 }

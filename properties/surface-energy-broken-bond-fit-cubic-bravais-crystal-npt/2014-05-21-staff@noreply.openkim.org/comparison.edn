@@ -1,0 +1,22 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2014-05-21:property/surface-energy-broken-bond-fit-cubic-bravais-crystal-npt"
+        "display-name" "Surface energy broken bond fit model"
+    },
+
+    "comparison-keys" [
+        {"key" "fit-c", "units" "eV/angstrom^2", "display-name" "c-parameter broken bond model"}
+        {"key" "fit-p1", "units" "eV/angstrom^2", "display-name" "p1-parameter broken bond model"}
+        {"key" "fit-p2", "units" "eV/angstrom^2", "display-name" "p2-parameter broken bond model"}
+        {"key" "fit-p3", "units" "eV/angstrom^2", "display-name" "p3-parameter broken bond model"}
+        {"key" "fit-error-max", "display-name" "Maximum relative error of fit"}
+        {"key" "fit-error-range", "display-name" "Averge relative error range of fit"}
+    ],
+
+    "match-keys" [
+        {"key" "short-name", "display-name" "Crystal structure"}
+        {"key" "species", "display-name" "Species"}
+        {"key" "cauchy-stress", "units" "GPa", "display-name" "Cauchy stress"}
+        {"key" "temperature", "units" "K", "display-name" "Temperature"}
+    ]
+}

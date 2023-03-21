@@ -1,0 +1,18 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2015-07-28:property/monovacancy-neutral-relaxation-volume-crystal-npt"
+        "display-name" "Volume change from relaxation of neighboring atoms around a neutral vacant atom site in a crystal at zero temperature and a given stress state"
+    },
+
+    "comparison-keys" [
+        {"key" "relaxation-volume", "units" "angstrom^3", "display-name" "Vacancy relaxation volume"}
+    ],
+
+    "match-keys" [
+        {"key" "host-short-name", "display-name" "Crystal structure"}
+        {"key" "host-wyckoff-species", "display-name" "Wyckoff species"}
+        {"key" "host-removed-atom", "display-name" "Removed atom index", "match-requirement" "optional"}
+        {"key" "host-cauchy-stress", "units" "GPa", "display-name" "Cauchy stress"}
+
+    ]
+}

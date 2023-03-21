@@ -1,0 +1,20 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2014-05-21:property/phonon-dispersion-relation-cubic-crystal-npt"
+        "display-name" "Single wave direction phonon dispersion relation for a cubic crystal"
+    },
+
+    "comparison-keys" [
+        {"key" "wave-vector-direction", "units" "1/angstrom", "display-name" "Wave vector direction"}
+        {"key" "wave-number", "units" "1/angstrom", "display-name" "Wave number"}
+        {"key" "response-frequency", "units" "eV", "display-name" "Response frequency"}
+        {"key" "branch-label", "display-name" "Branch label"}
+    ],
+
+    "match-keys" [
+        {"key" "short-name", "display-name" "Crystal structure"}
+        {"key" "species", "display-name" "Species"}
+        {"key" "cauchy-stress", "units" "GPa", "display-name" "Cauchy stress"}
+        {"key" "temperature", "units" "K", "display-name" "Temperature"}
+    ]
+}

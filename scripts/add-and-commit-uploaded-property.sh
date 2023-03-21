@@ -43,6 +43,7 @@ usage () {
   printf "     property-table-category.edn\n"
   printf "     status.edn\n"
   printf "     synopsis.tpl\n"
+  printf "     comparison.edn\n"
   printf "\n"
   printf "  'upload-abs-directory' may also contain the following file:\n"
   printf "     physics-validator\n"
@@ -112,6 +113,7 @@ if test ! \( \
         -a   \( -f "$uplddir/property.edn" \) \
         -a   \( -f "$uplddir/status.edn" \) \
         -a   \( -f "$uplddir/synopsis.tpl" \) \
+        -a   \( -f "$uplddir/comparison.edn" \) \
         \); then
   printf "\n"
   printf "The required files are not present in the upload-directory.\n"
@@ -235,6 +237,9 @@ git add "$propSy"
 propTb="$propDir/property-table-category.edn"
 cp "$uplddir/property-table-category.edn" "$propTb" || errorReport 20
 git add "$propTb"
+propCo="$propDir/comparison.edn"
+cp "$uplddir/comparison.edn" "$propCo" || errorReport 21
+git add "$propCo"
 
 printf "Done with property: $propName!\n"
 exit 0;

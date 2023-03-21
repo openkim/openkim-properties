@@ -1,0 +1,22 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2014-05-21:property/surface-energy-cubic-crystal-npt"
+        "display-name" "Surface energy for a cubic crystal"
+    },
+
+    "comparison-keys" [
+        {"key" "surface-energy", "units" "eV/angstrom^2", "display-name" "Surface energy"}
+        {"key" "reconstruction-description", "display-name" "Reconstruction description"}
+    ],
+
+    "match-keys" [
+        {"key" "short-name", "display-name" "Crystal structure"}
+        {"key" "species", "display-name" "Species"}
+        {"key" "miller-indices", "display-name" "Surface Miller indices"}
+        {"key" "termination", "display-name" "Surface termination", "match-requirement" "optional"}
+        {"key" "step-structure-notation", "display-name" "Step structure notation", "match-requirement" "optional"}
+        {"key" "wood-notation", "display-name" "Wood notation", "match-requirement" "optional"}
+        {"key" "cauchy-stress", "units" "GPa", "display-name" "Cauchy stress"}
+        {"key" "temperature", "units" "K", "display-name" "Temperature"}
+    ]
+}

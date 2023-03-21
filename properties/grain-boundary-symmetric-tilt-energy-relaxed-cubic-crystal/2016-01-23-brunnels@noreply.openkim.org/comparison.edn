@@ -1,0 +1,19 @@
+{
+    "property" {
+        "property-id" "tag:brunnels@noreply.openkim.org,2016-01-23:property/grain-boundary-symmetric-tilt-energy-relaxed-cubic-crystal"
+        "display-name" "Relaxed symmetric tilt grain boundary energy for a cubic crystal"
+    },
+
+    "comparison-keys" [
+        {"key" "relaxed-grain-boundary-energy", "units" "eV/angstrom^2", "display-name" "Relaxed grain boundary energy"}
+    ],
+
+    "match-keys" [
+        {"key" "short-name", "display-name" "Crystal structure"}
+        {"key" "species", "display-name" "Species"}
+        {"key" "tilt-axis", "display-name" "Tilt axis"}
+        {"key" "tilt-angle", "display-name" "Tilt angle"}
+        {"key" "sigma", "display-name" "Sigma ratio", "match-requirement" "optional"}
+        {"key" "minimum-atom-separation", "units" "angstrom", "display-name" "Minimum atom separation", "match-requirement" "optional"}
+    ]
+}
