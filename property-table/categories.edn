@@ -1,7 +1,7 @@
 [
  "bulk/2d-crystals"
  "bulk/2d-periodic-cell-energy-and-forces"
- "bulk/cohesive-energy"
+ "bulk/binding-energy"
  "bulk/crystal-structure"
  "bulk/elastic-constant"
  "bulk/melting-temperature"
