@@ -6,7 +6,7 @@
 
     "comparison-keys" [
         {"key" "a", "units" "angstrom", "display-name" "a lattice constant"}
-        {"key" "parameter-values", "display-name" "Crystal prototype parameter values"}
+        {"key" "parameter-values", "display-name" "Crystal prototype parameter values", "labels" "parameter-names"}
         {"key" "binding-potential-energy-per-formula", "units" "eV", "display-name" "Binding potential energy per formula"}
         {"key" "binding-potential-energy-per-atom", "units" "eV", "display-name" "Binding potential energy per atom"}
     ]
