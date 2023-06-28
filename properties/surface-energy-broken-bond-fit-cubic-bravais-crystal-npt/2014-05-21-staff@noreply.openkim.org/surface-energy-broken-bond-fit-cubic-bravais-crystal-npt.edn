@@ -8,7 +8,7 @@
   "short-name" {
     "type"         "string"
     "has-unit"     false
-    "extent"       [1]
+    "extent"       [":"]
     "required"     false
     "description"  "Short name defining the cubic crystal type."
   }
