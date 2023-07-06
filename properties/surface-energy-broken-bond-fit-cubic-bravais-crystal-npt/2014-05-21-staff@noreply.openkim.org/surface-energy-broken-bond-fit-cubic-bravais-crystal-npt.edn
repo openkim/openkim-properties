@@ -15,7 +15,7 @@
   "species" {
     "type"         "string"
     "has-unit"     false
-    "extent"       [1]
+    "extent"       [":"]
     "required"     true
     "description"  "The element symbols of the basis atoms.  The order in which the species are specified must correspond to the order of the atoms listed in 'basis-atom-coordinates'."
   }
