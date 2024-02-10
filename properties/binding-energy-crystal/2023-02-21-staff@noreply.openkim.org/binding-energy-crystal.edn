@@ -70,4 +70,11 @@
     "required"     true
     "description" "This variable has the same definition as 'binding-potential-energy-per-atom' except that the energy is normalized per chemical formula instead of per atom, i.e. \\Delta \\bar{V}_{formula} = \\Delta \\bar{V}_{atom} N_{formula}, where N_{formula} is the number of atoms in the reduced stoichiometric formula, i.e. the sum of indices in the first section of the prototype-label."
   }
+  "coordinates-file" {
+    "type"         "file"
+    "has-unit"     false
+    "extent"       []
+    "required"     false
+    "description"  "A file containing the atomic configuration including information such as the species, x,y,z coordinates of each particle, and periodicity data."
+  }  
 }
