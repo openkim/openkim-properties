@@ -92,9 +92,9 @@
   "wave-number" {
     "type"      "float"
     "has-unit"  true
-    "extent"    [":",":"]
+    "extent"    [":"]
     "required"  true
-    "description" "For each branch (first index of the array), the wave numbers of each of the k-points along the branch (second index of array). All branches must have the same number of wave numbers."
+    "description" "The wave numbers of each of the k-points."
   }
   "response-frequency" {
     "type"      "float"
