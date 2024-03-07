@@ -52,7 +52,7 @@
   "short-name" {
     "type"         "string"
     "has-unit"     false
-    "extent"       []
+    "extent"       [":"]
     "required"     false
     "description"  "Commonly used name associated with the 'library-prototype-label' key according to the AFLOW prototype library (e.g. 'Face-Centered Cubic' or 'Molybdenite')."
   }
