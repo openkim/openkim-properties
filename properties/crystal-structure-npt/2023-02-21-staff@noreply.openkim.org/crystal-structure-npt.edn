@@ -73,6 +73,13 @@
     "has-unit"     false
     "extent"       []
     "required"     false
-    "description"  "A file containing the atomic configuration including information such as the species, x,y,z coordinates of each particle, and periodicity data."
+    "description"  "A file containing the average atomic configuration including information such as the species, x,y,z coordinates of each particle, and periodicity data."
+  }
+  "restart-file" {
+    "type"         "file"
+    "has-unit"     false
+    "extent"       []
+    "required"     false
+    "description"  "A molecular dynamics restart file containing the instantaneous atomic configuration including information such as the species, x,y,z coordinates of each particle, and periodicity data, as well as velocities. The snapshot should be equilibrated at the prescribed stress and temperature."
   }
 }
