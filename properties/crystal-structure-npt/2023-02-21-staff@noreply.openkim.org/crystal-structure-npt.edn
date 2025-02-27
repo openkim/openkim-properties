@@ -82,4 +82,11 @@
     "required"     false
     "description"  "A molecular dynamics restart file containing the instantaneous atomic configuration including information such as the species, x,y,z coordinates of each particle, and periodicity data, as well as velocities. The snapshot should be equilibrated at the prescribed stress and temperature."
   }
+  "crystal-genome-source-structure-id" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       [":"]
+    "required"     false
+    "description"  "The identifier (ID) of the Crystal Genome (CG) structure(s) for which the property (test result and instance) containing this key was computed. The ID points to (an) archived CG structure(s) (test result and instance) and has the following format: '[KIM test result uuid]:[instance-id]', e.g., 'TE_258644009221_002-and-MO_751354403791_005-1715722494-tr:2'. If absent, this indicates that no previous Test Results were used in computing this property instance."
+  }
 }
