@@ -77,4 +77,11 @@
     "required"     false
     "description"  "A file containing the atomic configuration including information such as the species, x,y,z coordinates of each particle, and periodicity data."
   }  
+  "crystal-genome-source-structure-id" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       [":",":"]
+    "required"     false
+    "description"  "The identifiers (ID) of the Crystal Genome (CG) structures for which the property (test result and instance) containing this key was computed. Each element is the KIM ID of an OpenKIM Reference Data item that served as the initial configuration before it was relaxed or equilibrated with an interatomic model. Each row corresponds to a structure in the test, i.e. a test computing a property of a single crystal will only have one row, while something like a transformation between two pre-determined crystals would have two rows, and so on. Within each row, there may be multiple columns in the case when multiple initial structures converged to a single final structure during this test or one of its upstream dependencies. Because KIM Property values must be regular arrays, rows will be padded with empty strings to match the longest row."
+  }  
 }
