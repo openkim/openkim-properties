@@ -73,7 +73,14 @@
     "has-unit"     false
     "extent"       []
     "required"     false
-    "description"  "A file containing the average atomic configuration including information such as the species, x,y,z coordinates of each particle, and periodicity data."
+    "description"  "A file containing the atomic configuration including information such as the species, x,y,z coordinates of each particle, and periodicity data. This configuration is the primitive unit cell of the crystal according to the cell choice defined in M. J. Mehl et al., Comput. Mater. Sci. 136, S1 (2017)."
+  }
+  "coordinates-file-conventional" {
+    "type"         "file"
+    "has-unit"     false
+    "extent"       []
+    "required"     false
+    "description"  "A file containing the atomic configuration including information such as the species, x,y,z coordinates of each particle, and periodicity data. This configuration is the conventional unit cell of the crystal according to the cell choice defined in M. J. Mehl et al., Comput. Mater. Sci. 136, S1 (2017)."
   }
   "restart-file" {
     "type"         "file"
