@@ -3,6 +3,7 @@
  "bulk/2d-periodic-cell-energy-and-forces"
  "bulk/binding-energy"
  "bulk/crystal-structure"
+ "bulk/mass-density"
  "bulk/elastic-constant"
  "bulk/melting-temperature"
  "bulk/periodic-cell-energy-and-forces"

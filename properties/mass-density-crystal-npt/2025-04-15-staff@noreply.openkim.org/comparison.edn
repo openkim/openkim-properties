@@ -1,0 +1,19 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2025-04-15:property/mass-density-crystal-npt"
+        "display-name" "Mass density of a crystal at a given temperature and stress state"
+    }
+
+    "comparison-keys" [
+        {"key" "a", "units" "angstrom", "display-name" "a lattice constant"}
+        {"key" "parameter-values", "display-name" "Crystal prototype parameter values", "labels" "parameter-names"}        
+        {"key" "mass-density", "units" "kg/m^3", "display-name" "Mass density"}
+    ]
+
+    "match-keys" [
+        {"key" "prototype-label", "display-name" "Crystal prototype label"}
+        {"key" "short-name", "display-name" "Crystal structure", "match-requirement" "optional"}
+        {"key" "stoichiometric-species", "display-name" "Stoichiometric species"}
+    ]
+}
+
