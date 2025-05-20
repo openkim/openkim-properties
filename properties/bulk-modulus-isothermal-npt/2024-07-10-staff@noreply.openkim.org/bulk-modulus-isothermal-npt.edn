@@ -80,13 +80,20 @@
     "has-unit"     false
     "extent"       []
     "required"     false
-    "description"  "A file containing the atomic configuration including information such as the species, x,y,z coordinates of each particle, and periodicity data."
+    "description"  "A file containing the atomic configuration including information such as the species, x,y,z coordinates of each particle, and periodicity data. This configuration is the primitive unit cell of the crystal according to the cell choice defined in M. J. Mehl et al., Comput. Mater. Sci. 136, S1 (2017)."
+  }
+  "coordinates-file-conventional" {
+    "type"         "file"
+    "has-unit"     false
+    "extent"       []
+    "required"     false
+    "description"  "A file containing the atomic configuration including information such as the species, x,y,z coordinates of each particle, and periodicity data. This configuration is the conventional unit cell of the crystal according to the cell choice defined in M. J. Mehl et al., Comput. Mater. Sci. 136, S1 (2017)."
   }
   "crystal-genome-source-structure-id" {
     "type"         "string"
     "has-unit"     false
-    "extent"       [":"]
+    "extent"       [":",":"]
     "required"     false
-    "description"  "The identifier (ID) of the Crystal Genome (CG) structure for which the property (test result and instance) containing this key was computed. The ID points to an archived CG structure (test result and instance) and has the following format: '[KIM test result uuid]:[instance-id]', e.g., 'TE_258644009221_002-and-MO_751354403791_005-1715722494-tr:2'."
-  }
+    "description"  "The identifiers (ID) of the Crystal Genome (CG) structures for which the property (test result and instance) containing this key was computed. Each element is the KIM ID of an OpenKIM Reference Data item that served as the initial configuration before it was relaxed or equilibrated with an interatomic model. Each row corresponds to a structure in the test, i.e. a test computing a property of a single crystal will only have one row, while something like a transformation between two pre-determined crystals would have two rows, and so on. Within each row, there may be multiple columns in the case when multiple initial structures converged to a single final structure during this test or one of its upstream dependencies. Because KIM Property values must be regular arrays, rows will be padded with empty strings to match the longest row."
+  }  
 }
