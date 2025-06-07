@@ -12,4 +12,4 @@ Temperature = @< temperature.source-value >@ @< temperature.source-unit >@
 Cauchy stress = @< cell-cauchy-stress.source-value >@ @< cell-cauchy-stress.source-unit >@
 
 Unique elastic constants =  @< elastic-constants-names.source-value >@
-Unique elastic constants values = @< elastic-constants-values.source-value >@
+Unique elastic constants values = @< elastic-constants-values.source-value >@ @< elastic-constants-values.source-unit >@ 
