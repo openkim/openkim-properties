@@ -66,14 +66,14 @@
     "has-unit"     true
     "extent"       [6]
     "required"     true
-    "description"  "The [xx,yy,zz,yz,xz,xy] components of the symmetric Cauchy stress tensor at the reference configuration at which the elasticity tensor is evaluated. The components should be expressed in the same coordinate system as the structure specified by prototype-label and parameter-values, with the orientation of lattice vectors defined in M. J. Mehl et al., Comput. Mater. Sci. 136, S1 (2017)."
+    "description"  "The [xx,yy,zz,yz,xz,xy] components of the symmetric Cauchy stress tensor at the reference configuration at which the elasticity tensor is evaluated. The components are expressed in the same coordinate system as the structure specified by prototype-label and parameter-values, with the orientation of lattice vectors defined in M. J. Mehl et al., Comput. Mater. Sci. 136, S1 (2017)."
   }
   "elastic-constants-names" {
     "type"         "string"
     "has-unit"     false
     "extent"       [":"]
     "required"     true
-    "description"  "Names of the unique elastic constants of the crystal system to which the crystal belongs. They are expressed in Voigt notation with the order [xx,yy,zz,yz,xz,xy]. The components should be expressed in the same coordinate system as the structure specified by the prototype-label and parameter-values, with the orientation of lattice vectors defined in M. J. Mehl et al., Comput. Mater. Sci. 136, S1 (2017)."
+    "description"  "Names of the unique elastic constants of the crystal system to which the crystal belongs. They are expressed in Voigt notation with the order [xx,yy,zz,yz,xz,xy]. The components are expressed in the same coordinate system as the structure specified by the prototype-label and parameter-values, with the orientation of lattice vectors defined in M. J. Mehl et al., Comput. Mater. Sci. 136, S1 (2017)."
   }
   "elastic-constants-values" {
     "type"         "float"
@@ -87,14 +87,21 @@
     "has-unit"     true
     "extent"       [6,6]
     "required"     true
-    "description"  "The elasticity matrix in Voigt notation with the order [xx,yy,zz,yz,xz,xy]. It is guaranteed to obey the symmetry of the described crystal. If the elastic constants were not computed or measured using a procedure that is inherently symmetry reduced, this is computed from 'elasticity-matrix-raw' by algebraically correcting to enforce the crystal symmetry."
+    "description"  "The elasticity matrix in Voigt notation with the order [xx,yy,zz,yz,xz,xy]. It is guaranteed to obey the symmetry of the described crystal. If the elastic constants were not computed or measured using a procedure that is inherently symmetry reduced, this is computed from 'elasticity-matrix-raw' by algebraically correcting to enforce the crystal symmetry. The components are expressed in the same coordinate system as the structure specified by prototype-label and parameter-values, with the orientation of lattice vectors defined in M. J. Mehl et al., Comput. Mater. Sci. 136, S1 (2017)."
   }
   "elasticity-matrix-raw" {
     "type"         "float"
     "has-unit"     true
     "extent"       [6,6]
     "required"     false
-    "description"  "The elasticity matrix in Voigt notation with the order [xx,yy,zz,yz,xz,xy]. This is provided if the elastic constants were computed or measured in a non-symmetry-reduced fashion. Due to numerical or experimental errors, this matrix may not satisfy expected symmetries exactly. Symmetrized results are provided in 'elasticity-matrix'."
+    "description"  "The elasticity matrix in Voigt notation with the order [xx,yy,zz,yz,xz,xy]. This is provided if the elastic constants were computed or measured in a non-symmetry-reduced fashion. Due to numerical or experimental errors, this matrix may not satisfy expected symmetries exactly. Symmetrized results are provided in 'elasticity-matrix'. The components are expressed in the same coordinate system as the structure specified by prototype-label and parameter-values, with the orientation of lattice vectors defined in M. J. Mehl et al., Comput. Mater. Sci. 136, S1 (2017)."
+  }
+  "elasticity-matrix-structure" {
+    "type"         "file"
+    "has-unit"     false
+    "extent"       []
+    "required"     false
+    "description"  "An image showing the nonzero components of the elasticity matrix and their relationships. The upper triangle of the symmetric elasticity matrix in Voigt notation with the order [xx,yy,zz,yz,xz,xy] is shown. Small dots correspond to zero elements. Circles and X-symbols are nonzero elements. Elements are equal when connected by a line. A white filled circle is equal to the negative of the black element to which it is connected. Elements marked with an X are equal to (c11-c12)/2. The components are expressed in the same coordinate system as the structure specified by prototype-label and parameter-values, with the orientation of lattice vectors defined in M. J. Mehl et al., Comput. Mater. Sci. 136, S1 (2017)."
   }
   "distance-to-isotropy" {
     "type"         "float"
