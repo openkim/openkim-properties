@@ -1,0 +1,183 @@
+{
+  "property-id" "tag:staff@noreply.openkim.org,2025-08-09:property/energy-and-crystal-structure-vs-hydrostatic-pressure-relation"
+
+  "property-title" "Energy and crystal structure as a function of hydrostatic pressure for an arbitrary crystal"
+
+  "property-description" "Energy and crystal structure as a function of hydrostatic pressure for an arbitrary crystal. It is expected that the values reported are computed under load boundary conditions and not displacement boundary conditions. This means, for example, that in a noncubic crystal, simply isotropically expanding and shrinking the crystal would not be an acceptable way to compute this property except for cubic crystals. The crystal structure is expressed as an AFLOW prototype label and its corresponding free parameters. The crystal must not transform away from the symmetry specified in this property at any of the reported pressure-energy-structure points. Because of this, only a single prototype label is reported. However, because both the internal and unit cell free parameters may change, they are reported as arrays, with values for each pressure step."
+
+  "binding-potential-energy-per-atom" {
+    "type"         "float"
+    "has-unit"     true
+    "extent"       [":"]
+    "required"     true
+    "description" "Binding potential energy per atom of the crystal defined as follows: \\Delta \\bar{V}_{atom} = ( V(A_{N_A}B_{N_B}...) - [N_A V_{isolated}(A) + N_B V_{isolated}(B) + ...] )/(N_A + N_B ...), where \\Delta \\bar{V}_{atom} is the binding energy per atom, V(A_{N_A}B_{N_B}...) is the energy of (any) unit cell, V_{isolated}(X) is the energy of an isolated particle of species X, and N_X is the number of atoms of species X in the (same) unit cell. Each element of this array corresponds to the state of this crystal under hydrostatic loading reported in the corresponding element of the 'pressure' array."
+  }
+  "binding-potential-energy-per-formula" {
+    "type"         "float"
+    "has-unit"     true
+    "extent"       [":"]
+    "required"     true
+    "description" "This variable has the same definition as 'binding-potential-energy-per-atom' except that the energy is normalized per chemical formula instead of per atom, i.e. \\Delta \\bar{V}_{formula} = \\Delta \\bar{V}_{atom} N_{formula}, where N_{formula} is the number of atoms in the reduced stoichiometric formula, i.e. the sum of indices in the first section of the prototype-label. Each element of this array corresponds to the state of this crystal under hydrostatic loading reported in the corresponding element of the 'pressure' array."
+  }
+  "volume-per-atom" {
+    "type"         "float"
+    "has-unit"     true
+    "extent"       [":"]
+    "required"     true
+    "description" "The volume of the unit cell divided by the number of atoms in the unit cell. Each element of this array corresponds to the state of this crystal under hydrostatic loading reported in the corresponding element of the 'pressure' array."
+  }
+  "volume-per-formula" {
+    "type"         "float"
+    "has-unit"     true
+    "extent"       [":"]
+    "required"     true
+    "description" "The volume of the unit cell divided by the number of atoms in the unit cell, multiplied by the number of atoms in the reduced stoichiometric formula, i.e. the sum of indices in the first section of the prototype-label. Each element of this array corresponds to the state of this crystal under hydrostatic loading reported in the corresponding element of the 'pressure' array."
+  }
+  "mass-density" {
+    "type"         "float"
+    "has-unit"     true
+    "extent"       [":"]
+    "required"     true
+    "description"  "The mass per unit volume of the crystal structure. Each element of this array corresponds to the state of this crystal under hydrostatic loading reported in the corresponding element of the 'pressure' array."
+  }
+  "pressure" {
+    "type"         "float"
+    "has-unit"      true
+    "extent"        [":"]
+    "required"      true
+    "description"  "The applied hydrostatic pressure at each point in the run."
+  }
+  "binding-potential-energy-per-atom-vs-pressure-curve" {
+    "type"         "file"
+    "has-unit"     false
+    "extent"       []
+    "required"     false
+    "description" "The binding potential energy per atom vs pressure curve."
+  }
+  "volume-per-atom-vs-pressure-curve" {
+    "type"         "file"
+    "has-unit"     false
+    "extent"       []
+    "required"     false
+    "description" "The volume per atom vs pressure curve."
+  }
+  "density-vs-pressure-curve" {
+    "type"         "file"
+    "has-unit"     false
+    "extent"       []
+    "required"     false
+    "description" "The mass density vs pressure curve."
+  }
+  "a-vs-pressure-curve" {
+    "type"         "file"
+    "has-unit"     false
+    "extent"       []
+    "required"     false
+    "description" "The 'a' lattice parameter vs pressure curve."
+  }
+  "b-over-a-vs-pressure-curve" {
+    "type"         "file"
+    "has-unit"     false
+    "extent"       []
+    "required"     false
+    "description" "The 'b/a' lattice parameter vs pressure curve."
+  }
+  "c-over-a-vs-pressure-curve" {
+    "type"         "file"
+    "has-unit"     false
+    "extent"       []
+    "required"     false
+    "description" "The 'c/a' lattice parameter vs pressure curve."
+  }
+  "alpha-vs-pressure-curve" {
+    "type"         "file"
+    "has-unit"     false
+    "extent"       []
+    "required"     false
+    "description" "The 'alpha' lattice parameter vs pressure curve."
+  }
+  "beta-vs-pressure-curve" {
+    "type"         "file"
+    "has-unit"     false
+    "extent"       []
+    "required"     false
+    "description" "The 'beta' lattice parameter vs pressure curve."
+  }
+  "gamma-vs-pressure-curve" {
+    "type"         "file"
+    "has-unit"     false
+    "extent"       []
+    "required"     false
+    "description" "The 'gamma' lattice parameter vs pressure curve."
+  }
+  "prototype-label" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       []
+    "required"     true
+    "description"  "Prototype label (not including an enumeration suffix) as defined by the AFLOW standard (e.g. 'A_tI4_141_a') for the structure. It is expected that the alphabetically lowest of all equivalent labels is chosen. This prototype label must apply to every point in the pressure scan. If the crystal transforms away from this prototype label during one or more points in the pressure scan, those points should not be reported."
+  }
+  "stoichiometric-species" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       [":"]
+    "required"     true
+    "description"  "Element symbols corresponding to the atom types in the stoichiometric formula which appears at the start of the prototype label (e.g. ['Mo','S'] for the AB2 stoichiometric formula, means that the 'A' atom is 'Mo' and the 'B' atom is 'S' for the MoS_2 structure)."
+  }
+  "a" {
+    "type"         "float"
+    "has-unit"     true
+    "extent"       [":"]
+    "required"     true
+    "description"  "The 'a' lattice constant of the crystal structure as defined by the AFLOW standard. Each element of this array corresponds to the state of this crystal under hydrostatic loading reported in the corresponding element of the 'pressure' array. Relative values of other lattice parameters (if present) are given in the 'parameter-values' key."
+  }
+  "parameter-names" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       [":"]
+    "required"     false
+    "description"  "Names of the parameters other than 'a', if present, corresponding to this AFLOW prototype. These can include lattice parameters from the set {'b/a','c/a','alpha','beta','gamma'} (for the conventional crystal structure defined by lattice parameters a, b, and c and angles alpha, beta, gamma), and coordinates of Wyckoff positions that have a degree of variability labeled as 'x*', 'y*' and 'z*' where the asterisk represents an integer as defined by the AFLOW standard."
+  }
+  "parameter-values" {
+    "type"         "float"
+    "has-unit"     false
+    "extent"       [":", ":"]
+    "required"     false
+    "description"  "Values for the parameters listed in 'parameter-names'. Note that all parameters are dimensionless. The first index of this array corresponds to the state of this crystal under hydrostatic loading reported in the corresponding element of the 'pressure' array. The second index corresponds to the 'parameter-names'."
+  }
+  "library-prototype-label" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       []
+    "required"     false
+    "description"  "The AFLOW library prototype, if any, matching the structure. Prototypes in the AFLOW library are associated with common short names used by the materials community. The library prototype includes an integer enumeration suffix defined by the AFLOW standard when there are multiple parameter values associated with the structure (e.g. 'A_tI4_141_a-001' for 'betaSn'). Because these prototype labels are named according to their original material's conventional chemical formula, they may differ from the 'prototype-label' key, which is expected to be standardized to have the alphabetically lowest possible of all equivalent labels. This corresponds to the zero-pressure nominal structure."
+  }
+  "short-name" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       [":"]
+    "required"     false
+    "description"  "Commonly used name associated with the 'library-prototype-label' key according to the AFLOW prototype library (e.g. 'Face-Centered Cubic' or 'Molybdenite'). This corresponds to the zero-pressure nominal structure."
+  }
+  "crystal-genome-source-structure-id" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       [":",":"]
+    "required"     false
+    "description"  "The identifiers (ID) of the Crystal Genome (CG) structures for which the property (test result and instance) containing this key was computed. Each element is the KIM ID of an OpenKIM Reference Data item that served as the initial configuration before it was relaxed or equilibrated with an interatomic model. Each row corresponds to a structure in the test, i.e. a test computing a property of a single crystal will only have one row, while something like a transformation between two pre-determined crystals would have two rows, and so on. Within each row, there may be multiple columns in the case when multiple initial structures converged to a single final structure during this test or one of its upstream dependencies. Because KIM Property values must be regular arrays, rows will be padded with empty strings to match the longest row."
+  }
+  "coordinates-file" {
+    "type"         "file"
+    "has-unit"     false
+    "extent"       [":"]
+    "required"     false
+    "description"  "Files containing the atomic configuration including information such as the species, x,y,z coordinates of each particle, and periodicity data. This configuration is the primitive unit cell of the crystal according to the cell choice defined in M. J. Mehl et al., Comput. Mater. Sci. 136, S1 (2017). Each element of this array corresponds to the state of this crystal under hydrostatic loading reported in the corresponding element of the 'pressure' array."
+  }
+  "coordinates-file-conventional" {
+    "type"         "file"
+    "has-unit"     false
+    "extent"       [":"]
+    "required"     false
+    "description"  "Files containing the atomic configuration including information such as the species, x,y,z coordinates of each particle, and periodicity data. This configuration is the conventional unit cell of the crystal according to the cell choice defined in M. J. Mehl et al., Comput. Mater. Sci. 136, S1 (2017). Each element of this array corresponds to the state of this crystal under hydrostatic loading reported in the corresponding element of the 'pressure' array."
+  }
+}

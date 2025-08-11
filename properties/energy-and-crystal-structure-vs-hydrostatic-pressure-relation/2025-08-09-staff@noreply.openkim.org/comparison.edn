@@ -1,0 +1,23 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2025-08-09:property/energy-and-crystal-structure-vs-hydrostatic-pressure-relation"
+        "display-name" "Energy and crystal structure as a function of hydrostatic pressure for an arbitrary crystal"
+    }
+
+    "comparison-keys" [
+        {"key" "pressure", "units" "GPa", "display-name" "Pressure"}
+        {"key" "a", "units" "angstrom", "display-name" "a lattice constant"}
+        {"key" "parameter-values", "display-name" "Crystal prototype parameter values", "labels" "parameter-names"}
+        {"key" "binding-potential-energy-per-formula", "units" "eV", "display-name" "Binding potential energy per formula"}
+        {"key" "binding-potential-energy-per-atom", "units" "eV", "display-name" "Binding potential energy per atom"}
+        {"key" "volume-per-formula", "units" "angstrom^3", "display-name" "Volume energy per atom"}
+        {"key" "volume-per-atom", "units" "angstrom^3", "display-name" "Volume energy per atom"}
+        {"key" "mass-density", "units" "kg/m^3", "display-name" "Density"}        
+    ]
+
+    "match-keys" [
+        {"key" "prototype-label", "display-name" "Crystal prototype label"}
+        {"key" "short-name", "display-name" "Crystal structure", "match-requirement" "optional"}
+        {"key" "stoichiometric-species", "display-name" "Stoichiometric species"}
+    ]
+}
