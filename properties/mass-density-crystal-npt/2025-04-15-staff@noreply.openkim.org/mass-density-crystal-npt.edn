@@ -52,7 +52,7 @@
     "has-unit"     false
     "extent"       []
     "required"     false
-    "description"  "The AFLOW library prototype, if any, matching the equilibrium structure. Prototypes in the AFLOW library are associated with common short names used by the materials community. The library prototype includes an integer enumeration suffix defined by the AFLOW standard when there are multiple parameter values associated with the structure (e.g. 'A_tI4_141_a-001' for 'betaSn'). Because these prototype labels are named according to their original material's conventional chemical formula, they may differ from the 'prototype-label' key, which is expected to be standardized to have the alphabetically lowest possible of all equivalent labels."
+    "description"  "The AFLOW library prototype, if any, matching the equilibrium structure. Prototypes in the AFLOW library are associated with common short names used by the materials community. The library prototype includes an integer enumeration suffix defined by the AFLOW prototype encyclopedia (e.g. 'A_tI4_141_a-001' for '$\beta$-Sn ($A5$) Structure'). Because these prototype labels are named according to their original material's conventional chemical formula, they may differ from the 'prototype-label' key, which is expected to be standardized to have the alphabetically lowest possible of all equivalent labels."
   }
   "short-name" {
     "type"         "string"
