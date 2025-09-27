@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - master
-    paths:
-      - 'properties/**'
 
 jobs:
   check-and-update:
@@ -36,9 +34,10 @@ jobs:
           git config --global user.name "OpenKIM Bot"
 
           # Clone kim-property repository
-          git clone --recursive git@github.com:openkim/kim-property.git
+          gh repo clone openkim/kim-property
           cd kim-property
           git checkout $TARGET_BRANCH
+          git submodule update --init
           
           # Create new branch
           TIMESTAMP=$(date +%Y%m%d-%H%M%S)
