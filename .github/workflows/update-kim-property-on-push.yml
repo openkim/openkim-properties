@@ -1,0 +1,63 @@
+name: Update kim-property on Changes
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'properties/**'
+
+jobs:
+  check-and-update:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install kim-edn
+
+      - name: Update kim-property and create PR
+        run: |
+          TARGET_BRANCH=automate-ednify
+
+          # Store the PAT in a file that can be accessed by the
+          # GitHub CLI.
+          echo "${{ secrets.KIM_PROPERTY_PUSH_AND_PR_TOKEN }}" > token.txt
+          gh auth login --with-token < token.txt
+          gh auth setup-git
+
+          git config --global user.email "noreply@openkim.org"
+          git config --global user.name "OpenKIM Bot"
+
+          # Clone kim-property repository
+          git clone --recursive git@github.com:openkim/kim-property.git
+          cd kim-property
+          git checkout $TARGET_BRANCH
+          
+          # Create new branch
+          TIMESTAMP=$(date +%Y%m%d-%H%M%S)
+          BRANCH_NAME="update-properties-${TIMESTAMP}"
+          git checkout -b $BRANCH_NAME          
+          
+          # Update openkim-properties submodule and properties
+          git submodule update --remote
+          python -c "import kim_property; kim_property.ednify.ednify_kim_properties()"
+          
+          # Commit and push changes
+          git add external/openkim-properties kim_property/properties/kim_properties.edn
+          git commit -m "Update properties from openkim-properties"
+          git push origin $BRANCH_NAME
+          
+          # Create PR
+          gh pr create \
+            --title "Incorporate openkim-properties changes at ${TIMESTAMP}" \
+            --body "Automatic PR triggered on push to openkim-properties" \
+            --head $BRANCH_NAME \
+            --base $TARGET_BRANCH \
+            --repo openkim/kim-property
