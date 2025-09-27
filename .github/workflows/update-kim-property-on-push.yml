@@ -3,7 +3,7 @@ name: Update kim-property on Changes
 on:
   push:
     branches:
-      - main
+      - master
     paths:
       - 'properties/**'
 
