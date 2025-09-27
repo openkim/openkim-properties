@@ -59,7 +59,7 @@
     "has-unit"     false
     "extent"       [":"]
     "required"     false
-    "description"  "Commonly used name associated with the 'library-prototype-label' key according to the AFLOW prototype library (e.g. 'Face-Centered Cubic' or 'Molybdenite')."
+    "description"  "Commonly used name associated with the 'library-prototype-label' key according to the AFLOW prototype library (e.g. '$\beta$-Sn ($A5$) Structure')."
   }
   "temperature" {
     "type"         "float"
