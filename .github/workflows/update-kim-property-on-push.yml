@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'properties/**'
 
 jobs:
   check-and-update:
