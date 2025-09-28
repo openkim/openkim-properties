@@ -17,4 +17,5 @@
  "line/dislocation-core"
  "point/vacancy-formation-energy"
  "point/vacancy-migration-energy"
+ "point/vacancy-relaxation-volume"
 ]
