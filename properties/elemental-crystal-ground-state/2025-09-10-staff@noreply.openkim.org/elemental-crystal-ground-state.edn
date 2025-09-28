@@ -1,0 +1,85 @@
+{
+  "property-id" "tag:staff@noreply.openkim.org,2025-09-10:property/elemental-crystal-ground-state"
+
+  "property-title" "Crystal structure and binding potential energy of an elemental ground state at zero temperature and applied stress"
+
+  "property-description" "Crystal structure and binding potential energy of an elemental ground state at zero temperature and applied stress. The crystal structure is expressed as an AFLOW prototype label and its corresponding free parameters. The reported binding potential energy is defined as the energy of the crystal less the energies of the isolated constituent particles. No specific method for determining the ground state is prescribed. The method for determining the ground state must be specified in the accompanying metadata."
+
+  "binding-potential-energy-per-atom" {
+    "type"         "float"
+    "has-unit"     true
+    "extent"       []
+    "required"     true
+    "description" "Binding potential energy per atom of the crystal defined as follows: \\Delta \\bar{V}_{atom} = ( V(N) - N V_{isolated} )/N, where \\Delta \\bar{V}_{atom} is the binding energy per atom, V(N) is the energy of (any) unit cell, V_{isolated} is the energy of an isolated atom, and N is the number of atoms in the (same) unit cell."
+  }
+  "prototype-label" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       []
+    "required"     true
+    "description"  "Prototype label (not including an enumeration suffix) as defined by the AFLOW standard (e.g. 'A_tI4_141_a') for the structure. It is expected that the alphabetically lowest of all equivalent labels is chosen."
+  }
+  "stoichiometric-species" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       [":"]
+    "required"     true
+    "description"  "Element symbol corresponding to the atom type present in the reference ground state structure."
+  }
+  "a" {
+    "type"         "float"
+    "has-unit"     true
+    "extent"       []
+    "required"     true
+    "description"  "The 'a' lattice constant of the crystal structure as defined by the AFLOW standard. Relative values of other lattice parameters (if present) are given in the 'parameter-values' key."
+  }
+  "parameter-names" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       [":"]
+    "required"     false
+    "description"  "Names of the parameters other than 'a', if present, corresponding to this AFLOW prototype. These can include lattice parameters from the set {'b/a','c/a','alpha','beta','gamma'} (for the conventional crystal structure defined by lattice parameters a, b, and c and angles alpha, beta, gamma), and coordinates of Wyckoff positions that have a degree of variability labeled as 'x*', 'y*' and 'z*' where the asterisk represents an integer as defined by the AFLOW standard."
+  }
+  "parameter-values" {
+    "type"         "float"
+    "has-unit"     false
+    "extent"       [":"]
+    "required"     false
+    "description"  "Values for the parameters listed in 'parameter-names' corresponding to the positions of the atoms. Note that all parameters are dimensionless."
+  }
+  "library-prototype-label" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       []
+    "required"     false
+    "description"  "The AFLOW library prototype, if any, matching the structure. Prototypes in the AFLOW library are associated with common short names used by the materials community. The library prototype includes an integer enumeration suffix defined by the AFLOW prototype encyclopedia (e.g. 'A_tI4_141_a-001' for '$\beta$-Sn ($A5$) Structure'). Because these prototype labels are named according to their original material's conventional chemical formula, they may differ from the 'prototype-label' key, which is expected to be standardized to have the alphabetically lowest possible of all equivalent labels."
+  }
+  "short-name" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       [":"]
+    "required"     false
+    "description"  "Commonly used name associated with the 'library-prototype-label' key according to the AFLOW prototype library (e.g. '$\beta$-Sn ($A5$) Structure')."
+  }
+  "coordinates-file" {
+    "type"         "file"
+    "has-unit"     false
+    "extent"       []
+    "required"     false
+    "description"  "A file containing the atomic configuration including information such as the species, x,y,z coordinates of each particle, and periodicity data. This configuration is the primitive unit cell of the crystal according to the cell choice defined in M. J. Mehl et al., Comput. Mater. Sci. 136, S1 (2017)."
+  }
+  "coordinates-file-conventional" {
+    "type"         "file"
+    "has-unit"     false
+    "extent"       []
+    "required"     false
+    "description"  "A file containing the atomic configuration including information such as the species, x,y,z coordinates of each particle, and periodicity data. This configuration is the conventional unit cell of the crystal according to the cell choice defined in M. J. Mehl et al., Comput. Mater. Sci. 136, S1 (2017)."
+  }
+  "crystal-genome-source-structure-id" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       [":",":"]
+    "required"     false
+    "description"  "The identifiers (ID) of the Crystal Genome (CG) structures for which the property (test result and instance) containing this key was computed. Each element is the KIM ID of an OpenKIM Reference Data item that served as the initial configuration before it was relaxed or equilibrated with an interatomic model. Each row corresponds to a structure in the test, i.e. a test computing a property of a single crystal will only have one row, while something like a transformation between two pre-determined crystals would have two rows, and so on. Within each row, there may be multiple columns in the case when multiple initial structures converged to a single final structure during this test or one of its upstream dependencies. Because KIM Property values must be regular arrays, rows will be padded with empty strings to match the longest row."
+  }
+}

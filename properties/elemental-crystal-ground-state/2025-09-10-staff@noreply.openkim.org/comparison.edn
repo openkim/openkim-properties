@@ -1,0 +1,19 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2025-09-10:property/elemental-crystal-ground-state"
+        "display-name" "Crystal structure and binding potential energy of an elemental ground state at zero temperature and applied stress"
+    }
+
+    "comparison-keys" [
+        {"key" "a", "units" "angstrom", "display-name" "a lattice constant"}
+        {"key" "parameter-values", "display-name" "Crystal prototype parameter values", "labels" "parameter-names"}
+        {"key" "binding-potential-energy-per-formula", "units" "eV", "display-name" "Binding potential energy per formula"}
+        {"key" "binding-potential-energy-per-atom", "units" "eV", "display-name" "Binding potential energy per atom"}
+        {"key" "prototype-label", "display-name" "Crystal prototype label"}
+        {"key" "short-name", "display-name" "Crystal structure"}
+    ]
+
+    "match-keys" [
+        {"key" "stoichiometric-species", "display-name" "Stoichiometric species"}
+    ]
+}
