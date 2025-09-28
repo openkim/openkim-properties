@@ -24,7 +24,7 @@ jobs:
 
       - name: Update kim-property and create PR
         run: |
-          TARGET_BRANCH=automate-ednify
+          TARGET_BRANCH=master
 
           # Store the PAT in a file that can be accessed by the
           # GitHub CLI.
