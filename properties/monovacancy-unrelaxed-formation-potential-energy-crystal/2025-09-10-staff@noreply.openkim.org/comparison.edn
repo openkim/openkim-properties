@@ -1,0 +1,19 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2025-09-10:property/monovacancy-unrelaxed-formation-potential-energy-crystal"
+        "display-name" "Unrelaxed formation potential energy of a monovacancy in a crystal at zero temperature and applied stress"
+    }
+
+    "comparison-keys" [
+        {"key" "a", "units" "angstrom", "display-name" "a lattice constant"}
+        {"key" "parameter-values", "display-name" "Crystal prototype parameter values", "labels" "parameter-names"}        
+        {"key" "unrelaxed-formation-potential-energy", "display-name" "Unrelaxed vacancy formation energy for each Wyckoff position", "units" "eV", "labels" "vacancy-wyckoff-letter"}
+    ]
+
+    "match-keys" [
+        {"key" "prototype-label", "display-name" "Crystal prototype label"}
+        {"key" "short-name", "display-name" "Crystal structure", "match-requirement" "optional"}
+        {"key" "stoichiometric-species", "display-name" "Stoichiometric species"}
+        {"key" "reservoir-prototype-label", "display-name" "Prototype labels of the reservoirs corresponding to each stoichiometric species"}
+    ]
+}
