@@ -1,0 +1,18 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2025-09-10:property/monovacancy-relaxation-volume-crystal"
+        "display-name" "Volume change from relaxation of neighboring atoms around a vacant atom site in a crystal at zero temperature and applied stress"
+    }
+
+    "comparison-keys" [
+        {"key" "a", "units" "angstrom", "display-name" "a lattice constant"}
+        {"key" "parameter-values", "display-name" "Crystal prototype parameter values", "labels" "parameter-names"}        
+        {"key" "relaxation-volume", "display-name" "Vacancy relaxation volume for each Wyckoff position", "units" "angstrom^3", "labels" "vacancy-wyckoff-letter"}
+    ]
+
+    "match-keys" [
+        {"key" "prototype-label", "display-name" "Crystal prototype label"}
+        {"key" "short-name", "display-name" "Crystal structure", "match-requirement" "optional"}
+        {"key" "stoichiometric-species", "display-name" "Stoichiometric species"}
+    ]
+}
