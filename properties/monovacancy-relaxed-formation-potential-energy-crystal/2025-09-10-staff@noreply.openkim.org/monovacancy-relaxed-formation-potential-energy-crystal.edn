@@ -3,7 +3,7 @@
 
   "property-title" "Relaxed formation potential energy of a monovacancy in a crystal at zero temperature and applied stress"
 
-  "property-description" "Relaxed potential energy of formation of a monovacancy in a (possibly multispecies) infinite host crystal at zero temperature and applied stress relative to a given infinite elemental reference crystal ('reservoir'). The host structure is expressed as an AFLOW prototype label and its corresponding free parameters. The reservoirs for each constituent element are specified in terms of their prototype label only. Monovacancies for all unique Wyckoff sites are computed."
+  "property-description" "Relaxed potential energy of formation of a monovacancy (removal of a single atom) in a (possibly multispecies) infinite host crystal at zero temperature and applied stress relative to a given infinite elemental reference crystal ('reservoir'). The host structure is expressed as an AFLOW prototype label and its corresponding free parameters. The reservoirs for each constituent element are specified in terms of their prototype labels and chemical potentials. Monovacancies for all unique Wyckoff sites are computed."
 
   "relaxed-formation-potential-energy" {
     "type"         "float"

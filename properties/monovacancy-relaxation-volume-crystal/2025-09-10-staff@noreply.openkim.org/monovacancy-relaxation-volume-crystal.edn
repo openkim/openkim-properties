@@ -1,9 +1,9 @@
 {
   "property-id" "tag:staff@noreply.openkim.org,2025-09-10:property/monovacancy-relaxation-volume-crystal"
 
-  "property-title" "Volume change from relaxation of neighboring atoms around a vacant atom site in a crystal at zero temperature and applied stress"
+  "property-title" "Volume change due to atomic relaxation around a monovacancy in a crystal at zero temperature and applied stress"
 
-  "property-description" "Volume change from relaxation of neighboring atoms around a vacant atom site at zero temperature and applied stress in a (possibly multispecies) infinite host crystal lattice. The host structure is expressed as an AFLOW prototype label and its corresponding free parameters. Volume changes for monovacancies of all unique Wyckoff sites are computed."
+  "property-description" "Volume change due to atomic relaxation around a single vacant atomic site (monovacancy) at zero temperature and applied stress in a (possibly multispecies) infinite host crystal lattice. The host structure is expressed as an AFLOW prototype label and its corresponding free parameters. Volume changes for monovacancies of all unique Wyckoff sites are computed."
 
   "relaxation-volume" {
     "type"         "float"

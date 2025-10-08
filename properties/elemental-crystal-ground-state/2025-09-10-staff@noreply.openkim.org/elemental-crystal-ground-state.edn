@@ -1,9 +1,9 @@
 {
   "property-id" "tag:staff@noreply.openkim.org,2025-09-10:property/elemental-crystal-ground-state"
 
-  "property-title" "Crystal structure and binding potential energy of an elemental ground state at zero temperature and applied stress"
+  "property-title" "Crystal structure and binding potential energy of a pure element in its ground state at zero temperature and applied stress"
 
-  "property-description" "Crystal structure and binding potential energy of an elemental ground state at zero temperature and applied stress. The crystal structure is expressed as an AFLOW prototype label and its corresponding free parameters. The reported binding potential energy is defined as the energy of the crystal less the energies of the isolated constituent particles. No specific method for determining the ground state is prescribed. The method for determining the ground state must be specified in the accompanying metadata."
+  "property-description" "Crystal structure and binding potential energy of a pure element in its ground state at zero temperature and applied stress. The crystal structure is expressed as an AFLOW prototype label and its corresponding free parameters. The reported binding potential energy is defined as the energy of the crystal less the energies of the isolated constituent particles. No specific method for determining the ground state is prescribed. The method for determining the ground state should be specified in the accompanying metadata."
 
   "binding-potential-energy-per-atom" {
     "type"         "float"
