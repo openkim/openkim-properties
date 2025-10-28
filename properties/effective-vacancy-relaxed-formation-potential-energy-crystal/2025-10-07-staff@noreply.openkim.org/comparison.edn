@@ -1,0 +1,18 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2025-10-7:property/effective-vacancy-relaxed-formation-potential-energy-crystal"
+        "display-name" "Average relaxed effective formation potential energy of a composition-preserving distribution of vacancies in a crystal at zero temperature and applied stress"
+    }
+
+    "comparison-keys" [
+        {"key" "a", "units" "angstrom", "display-name" "a lattice constant"}
+        {"key" "parameter-values", "display-name" "Crystal prototype parameter values", "labels" "parameter-names"}        
+        {"key" "relaxed-effective-formation-potential-energy", "display-name" "The relaxed effective formation potential energy per atom of a composition-preserving distribution of vacancies", "units" "eV"}
+    ]
+
+    "match-keys" [
+        {"key" "prototype-label", "display-name" "Crystal prototype label"}
+        {"key" "short-name", "display-name" "Crystal structure", "match-requirement" "optional"}
+        {"key" "stoichiometric-species", "display-name" "Stoichiometric species"}
+    ]
+}

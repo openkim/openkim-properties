@@ -1,0 +1,88 @@
+{
+  "property-id" "tag:staff@noreply.openkim.org,2025-10-07:property/effective-vacancy-relaxed-formation-potential-energy-crystal"
+
+  "property-title" "Average relaxed effective formation potential energy of a composition-preserving distribution of vacancies in a crystal at zero temperature and applied stress"
+
+  "property-description" "Average relaxed effective formation potential energy of a composition-preserving distribution of infintely-separated vacancies in a (possibly multispecies) infinite crystal at zero temperature and zero applied stress. The crystal is expressed as an AFLOW prototype label and its corresponding free parameters."
+
+  "relaxed-effective-formation-potential-energy" {
+    "type"         "float"
+    "has-unit"     true
+    "extent"       []
+    "required"     true
+    "description" "The average relaxed formation potential energy per atom of a composition-preserving distribution of infintely-separated vacancies in an infinite crystal relative to the chemical potential of the crystal itself.
+    This is defined as the limit of the following quantity as N approaches infinity: \\sum_i x_i E^i_v - \\frac{N-1}{N} E_b, where the sum runs over all unique sites in the unit cell (unique Wyckoff letter and species combinations), x_i is the number fraction of that site in the crystal, E^i_v is the total energy of an N-1 atom periodic system built by removing a single atom from a site of type i in an N-atom periodic supercell and relaxing, and E_b is the total energy of of a pristine N-atom periodic supercell of the crystal."
+  }
+
+  "prototype-label" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       []
+    "required"     true
+    "description"  "Prototype label of the host (not including an enumeration suffix) as defined by the AFLOW standard (e.g. 'A_tI4_141_a') for the structure. It is expected that the alphabetically lowest of all equivalent labels is chosen."
+  }
+
+  "stoichiometric-species" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       [":"]
+    "required"     true
+    "description"  "Element symbols corresponding to the atom types in the stoichiometric formula of the host which appears at the start of the prototype label (e.g. ['Mo','S'] for the AB2 stoichiometric formula, means that the 'A' atom is 'Mo' and the 'B' atom is 'S' for the MoS_2 structure)."
+  }
+  "a" {
+    "type"         "float"
+    "has-unit"     true
+    "extent"       []
+    "required"     true
+    "description"  "The 'a' lattice constant of the host crystal structure as defined by the AFLOW standard. Relative values of other lattice parameters (if present) are given in the 'parameter-values' key."
+  }
+  "parameter-names" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       [":"]
+    "required"     false
+    "description"  "Names of the parameters other than 'a', if present, corresponding to the host AFLOW prototype. These can include lattice parameters from the set {'b/a','c/a','alpha','beta','gamma'} (for the conventional crystal structure defined by lattice parameters a, b, and c and angles alpha, beta, gamma), and coordinates of Wyckoff positions that have a degree of variability labeled as 'x*', 'y*' and 'z*' where the asterisk represents an integer as defined by the AFLOW standard."
+  }
+  "parameter-values" {
+    "type"         "float"
+    "has-unit"     false
+    "extent"       [":"]
+    "required"     false
+    "description"  "Values for the host parameters listed in 'parameter-names' corresponding to the positions of the atoms. Note that all parameters are dimensionless."
+  }
+  "library-prototype-label" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       []
+    "required"     false
+    "description"  "The AFLOW library prototype, if any, matching the host structure. Prototypes in the AFLOW library are associated with common short names used by the materials community. The library prototype includes an integer enumeration suffix defined by the AFLOW prototype encyclopedia (e.g. 'A_tI4_141_a-001' for '$\\beta$-Sn ($A5$) Structure'). Because these prototype labels are named according to their original material's conventional chemical formula, they may differ from the 'prototype-label' key, which is expected to be standardized to have the alphabetically lowest possible of all equivalent labels."
+  }
+  "short-name" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       [":"]
+    "required"     false
+    "description"  "Commonly used name associated with the host 'library-prototype-label' key according to the AFLOW prototype library (e.g. '$\\beta$-Sn ($A5$) Structure')."
+  }
+  "coordinates-file" {
+    "type"         "file"
+    "has-unit"     false
+    "extent"       []
+    "required"     false
+    "description"  "A file containing the host atomic configuration including information such as the species, x,y,z coordinates of each particle, and periodicity data. This configuration is the primitive unit cell of the crystal according to the cell choice defined in M. J. Mehl et al., Comput. Mater. Sci. 136, S1 (2017)."
+  }
+  "coordinates-file-conventional" {
+    "type"         "file"
+    "has-unit"     false
+    "extent"       []
+    "required"     false
+    "description"  "A file containing the host atomic configuration including information such as the species, x,y,z coordinates of each particle, and periodicity data. This configuration is the conventional unit cell of the crystal according to the cell choice defined in M. J. Mehl et al., Comput. Mater. Sci. 136, S1 (2017)."
+  }
+  "crystal-genome-source-structure-id" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       [":",":"]
+    "required"     false
+    "description"  "The identifiers (ID) of the Crystal Genome (CG) host structures for which the property (test result and instance) containing this key was computed. Each element is the KIM ID of an OpenKIM Reference Data item that served as the initial configuration before it was relaxed or equilibrated with an interatomic model. Each row corresponds to a structure in the test, i.e. a test computing a property of a single crystal will only have one row, while something like a transformation between two pre-determined crystals would have two rows, and so on. Within each row, there may be multiple columns in the case when multiple initial structures converged to a single final structure during this test or one of its upstream dependencies. Because KIM Property values must be regular arrays, rows will be padded with empty strings to match the longest row."
+  }
+}
