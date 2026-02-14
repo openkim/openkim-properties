@@ -9,6 +9,7 @@
  "bulk/periodic-cell-energy-and-forces"
  "bulk/phonon-dispersion"
  "bulk/thermal-expansion"
+ "bulk/heat-capacity"
  "bulk/uniform-straining"
  "cluster/cluster-energy-and-forces"
  "wall/stacking-energy"
