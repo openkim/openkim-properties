@@ -7,7 +7,7 @@
     "comparison-keys" [
         {"key" "a", "units" "angstrom", "display-name" "a lattice constant"}
         {"key" "parameter-values", "display-name" "Crystal prototype parameter values", "labels" "parameter-names"}
-        {"key" "elastic-constants-values", "display-name" "Elastic constants", "labels" "elastic-constants-names"}
+        {"key" "elastic-constants-values", "display-name" "Elastic constants", "labels" "elastic-constants-names", "units" "GPa"}
     ]
 
     "match-keys" [
