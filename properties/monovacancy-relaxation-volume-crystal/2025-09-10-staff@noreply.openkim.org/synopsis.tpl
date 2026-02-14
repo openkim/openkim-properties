@@ -1,7 +1,7 @@
 Relaxation volume of each removed atom (@< relaxation-volume.source-unit >@) = @< relaxation-volume.source-value >@
-Species of each removed atom = @< vacancy-wyckoff-species >@
+Species of each removed atom = @< vacancy-wyckoff-species.source-value >@
 Wyckoff letter of each removed atom = @< vacancy-wyckoff-letter.source-value >@
-Fractional coordinates w.r.t. primitive cell of each removed atom = @< vacancy-wyckoff-coordinates >@
+Fractional coordinates w.r.t. primitive cell of each removed atom = @< vacancy-wyckoff-coordinates.source-value >@
 
 AFLOW prototype label = @< prototype-label.source-value >@
 Species = @< stoichiometric-species.source-value >@
