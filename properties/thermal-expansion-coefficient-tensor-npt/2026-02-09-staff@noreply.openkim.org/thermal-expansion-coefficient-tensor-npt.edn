@@ -1,0 +1,120 @@
+{
+  "property-id" "tag:staff@noreply.openkim.org,2026-02-09:property/thermal-expansion-coefficient-tensor-npt"
+
+  "property-title" "Thermal expansion coefficient tensor of an arbitrary crystal at a given temperature and stress state"
+
+  "property-description" "Thermal expansion coefficient tensor of an arbitrary crystal at a given temperature and stress state. This is defined as the derivative w.r.t. temperature of the strain tensor relative to the reference configuration at the prescribed temperature and stress. The crystal structure is expressed as an AFLOW prototype label and its corresponding free parameters."
+
+  "thermal-expansion-coefficient-names" {
+  "type"           "string"
+  "has-unit"       false
+  "extent"         [":"]
+  "required"       true
+  "description"    "Names of the unique components of the thermal expansion tensor given its crystal structure. They are expressed in Voigt notation with the order [xx,yy,zz,yz,xz,xy]. The components are expressed in the same coordinate system as the structure specified by the prototype-label and parameter-values, with the orientation of lattice vectors defined in M. J. Mehl et al., Comput. Mater. Sci. 136, S1 (2017)."
+  }
+  "thermal-expansion-coefficient-values" {
+    "type"           "float"
+    "has-unit"       true
+    "extent"         [":"]
+    "required"       true
+    "description"    "Values of the unique components of the thermal expansion tensor listed in thermal-expansion-coefficient-names."
+  }
+  "thermal-expansion-voigt" {
+    "type"         "float"
+    "has-unit"     true
+    "extent"       [6]
+    "required"     true
+    "description" "Thermal expansion coefficient tensor in Voigt notation with the order [xx,yy,zz,yz,xz,xy]. It is guaranteed to obey the constraints imposed by crystal symmetry such that only triclinic and monoclinic crystal structrues report off-diagonal components, orthorhombic structures report alpha11, alpha22, and alpha33, hexagonal, trigonal, tetragonal structures enforce that alpha22 = alpha11, and cubic structures enforce that alpha11 = alpha22 = alpha33. If the thermal expansion was not computed or measured using a procedure that is inherently symmetry reduced, this is computed from 'thermal-expansion-voigt-raw' by algebraically correcting to enforce the crystal symmetry. The components are expressed in the same coordinate system as the structure specified by prototype-label and parameter-values, with the orientation of lattice vectors defined in M. J. Mehl et al., Comput. Mater. Sci. 136, S1 (2017)."
+  }
+  "thermal-expansion-voigt-raw" {
+    "type"         "float"
+    "has-unit"     true
+    "extent"       [6]
+    "required"     false
+    "description" "Thermal expansion coefficients in Voigt notation with the order [xx,yy,zz,yz,xz,xy]. This is provided if the thermal expansion was computed or measured in a non-symmetry-reduced fashion. Due to numerical or experimental errors, this may not satisfy expected symmetries exactly. Symmetrized results are provided in 'thermal-expansion-voigt'. The components are expressed in the same coordinate system as the structure specified by prototype-label and parameter-values, with the orientation of lattice vectors defined in M. J. Mehl et al., Comput. Mater. Sci. 136, S1 (2017)."
+  }
+  "temperature" {
+    "type"         "float"
+    "has-unit"     true
+    "extent"       []
+    "required"     true
+    "description"  "Temperature of the crystal."
+  }
+  "cell-cauchy-stress" {
+    "type"         "float"
+    "has-unit"     true
+    "extent"       [6]
+    "required"     true
+    "description"  "The [xx,yy,zz,yz,xz,xy] components of the prescribed symmetric Cauchy stress tensor. The numerical value of the stress tensor of a test result or reference data may be different due to tolerance, and can be checked by inspecting the output files of the test or the reference data description. The components should be expressed in the same coordinate system as the structure specified by prototype-label and parameter-values, with the orientation of lattice vectors defined in M. J. Mehl et al., Comput. Mater. Sci. 136, S1 (2017)."
+  }
+  "prototype-label" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       []
+    "required"     true
+    "description"  "Prototype label (not including an enumeration suffix) as defined by the AFLOW standard (e.g. 'A_tI4_141_a') for the structure. It is expected that the alphabetically lowest of all equivalent labels is chosen."
+  }
+  "stoichiometric-species" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       [":"]
+    "required"     true
+    "description"  "Element symbols corresponding to the atom types in the stoichiometric formula which appears at the start of the prototype label (e.g. ['Mo','S'] for the AB2 stoichiometric formula, means that the 'A' atom is 'Mo' and the 'B' atom is 'S' for the MoS_2 structure)."
+  }
+  "a" {
+    "type"         "float"
+    "has-unit"     true
+    "extent"       []
+    "required"     true
+    "description"  "The average 'a' lattice constant of the crystal structure as defined by the AFLOW standard. Relative values of other lattice parameters (if present) are given in the 'parameter-values' key."
+  }
+  "parameter-names" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       [":"]
+    "required"     false
+    "description"  "Names of the parameters other than 'a', if present, corresponding to this AFLOW prototype. These can include lattice parameters from the set {'b/a','c/a','alpha','beta','gamma'} (for the conventional crystal structure defined by lattice parameters a, b, and c and angles alpha, beta, gamma), and coordinates of Wyckoff positions that have a degree of variability labeled as 'x*', 'y*' and 'z*' where the asterisk represents an integer as defined by the AFLOW standard."
+  }
+  "parameter-values" {
+    "type"         "float"
+    "has-unit"     false
+    "extent"       [":"]
+    "required"     false
+    "description"  "Values for the parameters listed in 'parameter-names' corresponding to the average positions of the atoms. Note that all parameters are dimensionless."
+  }
+  "library-prototype-label" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       []
+    "required"     false
+    "description"  "The AFLOW library prototype, if any, matching the structure. Prototypes in the AFLOW library are associated with common short names used by the materials community. The library prototype includes an integer enumeration suffix defined by the AFLOW standard (e.g. 'A_tI4_141_a-001' for '$\\beta$-Sn ($A5$) Structure')."
+  }
+  "short-name" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       [":"]
+    "required"     false
+    "description"  "Commonly used name associated with the 'library-prototype-label' key according to the AFLOW prototype library (e.g. '$\\beta$-Sn ($A5$) Structure')."
+  }
+  "coordinates-file" {
+    "type"         "file"
+    "has-unit"     false
+    "extent"       []
+    "required"     false
+    "description"  "A file containing the atomic configuration including information such as the species, x,y,z coordinates of each particle, and periodicity data."
+  }
+  "coordinates-file-conventional" {
+    "type"         "file"
+    "has-unit"     false
+    "extent"       []
+    "required"     false
+    "description"  "A file containing the atomic configuration including information such as the species, x,y,z coordinates of each particle, and periodicity data. This configuration is the conventional unit cell of the crystal according to the cell choice defined in M. J. Mehl et al., Comput. Mater. Sci. 136, S1 (2017)."
+  }
+  "crystal-genome-source-structure-id" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       [":",":"]
+    "required"     false
+    "description"  "The identifier (ID) of the Crystal Genome (CG) structure for which the property (test result and instance) containing this key was computed. The ID points to an archived CG structure (test result and instance) and has the following format: '[KIM test result uuid]:[instance-id]', e.g., 'TE_258644009221_002-and-MO_751354403791_005-1715722494-tr:2'."
+  }
+}

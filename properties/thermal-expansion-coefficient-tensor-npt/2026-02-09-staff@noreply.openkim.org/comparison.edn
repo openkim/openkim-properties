@@ -1,0 +1,20 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2026-02-09:property/thermal-expansion-coefficient-tensor-npt"
+        "display-name" "Thermal expansion coefficient tensor of an arbitrary crystal at a given temperature and stress state"
+    }
+
+    "comparison-keys" [
+        {"key" "a", "units" "angstrom", "display-name" "a lattice constant"}
+        {"key" "parameter-values", "display-name" "Crystal prototype parameter values", "labels" "parameter-names"}
+        {"key" "thermal-expansion-coefficient-values", "display-name" "Thermal expansion coefficients", "labels" "thermal-expansion-coefficient-names", "units" "1/K"}
+    ]
+
+    "match-keys" [
+        {"key" "prototype-label", "display-name" "Crystal prototype label"}
+        {"key" "short-name", "display-name" "Crystal structure", "match-requirement" "optional"}
+        {"key" "stoichiometric-species", "display-name" "Stoichiometric species"}
+        {"key" "cell-cauchy-stress", "units" "GPa", "display-name" "The [xx,yy,zz,yz,xz,xy] components of the prescribed symmetric Cauchy stress tensor"}
+        {"key" "temperature", "units" "K", "display-name" "Temperature of the crystal"}
+    ]
+}

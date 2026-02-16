@@ -1,0 +1,20 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2026-02-02:property/gibbs-free-energy-crystal"
+        "display-name" "Gibbs free energy of an abritrary crystal at constant temperature and stress state"
+    }
+
+    "comparison-keys" [
+        {"key" "a", "units" "angstrom", "display-name" "a lattice constant"}
+        {"key" "parameter-values", "display-name" "Crystal prototype parameter values", "labels" "parameter-names"}
+        {"key" "gibbs-free-energy-per-formula", "units" "eV", "display-name" "Gibbs free energy per formula"}
+        {"key" "gibbs-free-energy-per-atom", "units" "eV", "display-name" "Gibbs free energy per atom"}
+        {"key" "specific-gibbs-free-energy", "units" "J/kg", "display-name" "Specific Gibbs free energy"}
+    ]
+
+    "match-keys" [
+        {"key" "prototype-label", "display-name" "Crystal prototype label"}
+        {"key" "short-name", "display-name" "Crystal structure", "match-requirement" "optional"}
+        {"key" "stoichiometric-species", "display-name" "Stoichiometric species"}
+    ]
+}

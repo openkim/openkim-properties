@@ -1,0 +1,18 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2026-02-09:property/volume-thermal-expansion-coefficient-crystal-npt"
+        "display-name" "Volume thermal expansion coefficient of an arbitrary crystal at a given temperature and stress state"
+    }
+
+    "comparison-keys" [
+        {"key" "a", "units" "angstrom", "display-name" "a lattice constant"}
+        {"key" "parameter-values", "display-name" "Crystal prototype parameter values", "labels" "parameter-names"}
+        {"key" "volume-thermal-expansion-coefficient", "units" "1/K", "display-name" "Volume thermal expansion coefficient"}
+    ]
+
+    "match-keys" [
+        {"key" "prototype-label", "display-name" "Crystal prototype label"}
+        {"key" "short-name", "display-name" "Crystal structure", "match-requirement" "optional"}
+        {"key" "stoichiometric-species", "display-name" "Stoichiometric species"}
+    ]
+}

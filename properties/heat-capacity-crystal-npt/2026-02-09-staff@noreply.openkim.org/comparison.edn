@@ -1,0 +1,20 @@
+{
+    "property" {
+        "property-id" "tag:staff@noreply.openkim.org,2026-02-09:property/heat-capacity-crystal-npt"
+        "display-name" "Heat capacity of crystal at a constant applied stress"
+    }
+
+    "comparison-keys" [
+        {"key" "a", "units" "angstrom", "display-name" "a lattice constant"}
+        {"key" "parameter-values", "display-name" "Crystal prototype parameter values", "labels" "parameter-names"}
+        {"key" "heat-capacity-per-atom", "units" "eV/K", "display-name" "Heat capacity per atom"}
+        {"key" "heat-capacity-per-formula", "units" "eV/K", "display-name" "Heat capacity per formula"}
+        {"key" "specific-heat-capacity", "units" "J/K/kg", "display-name" "Specific heat capacity"}
+    ]
+
+    "match-keys" [
+        {"key" "prototype-label", "display-name" "Crystal prototype label"}
+        {"key" "short-name", "display-name" "Crystal structure", "match-requirement" "optional"}
+        {"key" "stoichiometric-species", "display-name" "Stoichiometric species"}
+    ]
+}
