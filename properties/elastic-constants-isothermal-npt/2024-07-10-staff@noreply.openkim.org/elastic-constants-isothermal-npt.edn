@@ -73,7 +73,7 @@
     "has-unit"     false
     "extent"       [":"]
     "required"     true
-    "description"  "Names of the unique elastic constants of the crystal system to which the crystal belongs. They are expressed in Voigt notation with the order [xx,yy,zz,yz,xz,xy]. The components are expressed in the same coordinate system as the structure specified by the prototype-label and parameter-values, with the orientation of lattice vectors defined in M. J. Mehl et al., Comput. Mater. Sci. 136, S1 (2017)."
+    "description"  "Names of the unique elastic constants of the crystal system to which the crystal belongs. They are expressed in Voigt notation with the order [xx,yy,zz,yz,xz,xy], e.g. 'c11'. The components are expressed in the same coordinate system as the structure specified by the prototype-label and parameter-values, with the orientation of lattice vectors defined in M. J. Mehl et al., Comput. Mater. Sci. 136, S1 (2017)."
   }
   "elastic-constants-values" {
     "type"         "float"

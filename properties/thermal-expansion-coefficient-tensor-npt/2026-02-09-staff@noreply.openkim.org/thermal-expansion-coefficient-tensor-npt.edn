@@ -10,7 +10,7 @@
   "has-unit"       false
   "extent"         [":"]
   "required"       true
-  "description"    "Names of the unique components of the thermal expansion tensor given its crystal structure. They are expressed in Voigt notation with the order [xx,yy,zz,yz,xz,xy]. The components are expressed in the same coordinate system as the structure specified by the prototype-label and parameter-values, with the orientation of lattice vectors defined in M. J. Mehl et al., Comput. Mater. Sci. 136, S1 (2017)."
+  "description"    "Names of the unique components of the thermal expansion tensor given its crystal structure. They are expressed in Voigt notation with the order [xx,yy,zz,yz,xz,xy], e.g. 'alpha1'. The components are expressed in the same coordinate system as the structure specified by the prototype-label and parameter-values, with the orientation of lattice vectors defined in M. J. Mehl et al., Comput. Mater. Sci. 136, S1 (2017)."
   }
   "thermal-expansion-coefficient-values" {
     "type"           "float"
@@ -24,7 +24,7 @@
     "has-unit"     true
     "extent"       [6]
     "required"     true
-    "description" "Thermal expansion coefficient tensor in Voigt notation with the order [xx,yy,zz,yz,xz,xy]. It is guaranteed to obey the constraints imposed by crystal symmetry such that only triclinic and monoclinic crystal structrues report off-diagonal components, orthorhombic structures report alpha11, alpha22, and alpha33, hexagonal, trigonal, tetragonal structures enforce that alpha22 = alpha11, and cubic structures enforce that alpha11 = alpha22 = alpha33. If the thermal expansion was not computed or measured using a procedure that is inherently symmetry reduced, this is computed from 'thermal-expansion-voigt-raw' by algebraically correcting to enforce the crystal symmetry. The components are expressed in the same coordinate system as the structure specified by prototype-label and parameter-values, with the orientation of lattice vectors defined in M. J. Mehl et al., Comput. Mater. Sci. 136, S1 (2017)."
+    "description" "Thermal expansion coefficient tensor in Voigt notation with the order [xx,yy,zz,yz,xz,xy]. It is guaranteed to obey the constraints imposed by crystal symmetry. If the thermal expansion was not computed or measured using a procedure that is inherently symmetry reduced, this is computed from 'thermal-expansion-voigt-raw' by algebraically correcting to enforce the crystal symmetry. The components are expressed in the same coordinate system as the structure specified by prototype-label and parameter-values, with the orientation of lattice vectors defined in M. J. Mehl et al., Comput. Mater. Sci. 136, S1 (2017)."
   }
   "thermal-expansion-voigt-raw" {
     "type"         "float"
